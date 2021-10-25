@@ -1,12 +1,24 @@
 # README
 
-### After cloning the main repertory : 
-- go in the directory Rocket_Elevators_Information_System/config/
-- create the file `database.yml`
-- paste the what's flagged our slack inside `database.yml`
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Then you can just do in your directory `Rocket_Elevators_Information_System` :
-- `rails s`
+Things you may want to cover:
 
-### Finally, go on this site
-- `http://localhost:3000/home/index`
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

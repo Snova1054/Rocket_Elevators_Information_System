@@ -195,7 +195,7 @@
                     white-space: nowrap;
                   "
                 >
-                  <a class="btn btn-success btn-lg" href="home/quote"
+                  <a class="btn btn-success btn-lg" href="quote"
                     >GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i
                   ></a>
                 </div>
@@ -340,7 +340,7 @@
                     white-space: nowrap;
                   "
                 >
-                  <a class="btn btn-success btn-lg" href="home/commercial"
+                  <a class="btn btn-success btn-lg" href="commercial"
                     >OUR CORPORATE SERVICES &nbsp;
                     <i class="fa fa-angle-right"></i
                   ></a>
@@ -377,7 +377,7 @@
             </div>
 
             <div class="col-sm-4">
-              <a class="image-hover" href="home/residential">
+              <a class="image-hover" href="residential">
                 <span class="image-hover-icon image-hover-dark"> </span>
                 <%= image_tag("/images/elevator5.jpeg", :class => "img-fluid") %>
               </a>
@@ -386,11 +386,11 @@
                 The last trend of Residential Elevators per Building brought
                 directly to you from our engineers.
               </p>
-              <a href="home/residential" class="btn btn-success">READ MORE</a>
+              <a href="residential" class="btn btn-success">READ MORE</a>
             </div>
 
             <div class="col-sm-4">
-              <a class="image-hover" href="home/commercial">
+              <a class="image-hover" href="commercial">
                 <span class="image-hover-icon image-hover-dark"> </span>
                 <%= image_tag("/images/elevator6.jpeg", :class => "img-fluid") %>
               </a>
@@ -399,7 +399,7 @@
                 The ultimate technology in Elevators. Designed for growth, only
                 for Corporate and Commercial Buildings.
               </p>
-              <a href="home/commercial" class="btn btn-success">READ MORE</a>
+              <a href="commercial" class="btn btn-success">READ MORE</a>
             </div>
           </div>
         </div>
@@ -409,14 +409,14 @@
       <!-- Parallax -->
       <section
         class="parallax parallax-1"
-        style="background-image: url('assets/images/R2-01.jpg')"
+        <%= image_tag("/images/R2-01.jpg", style: "background-image") %>
       >
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
         <div class="container">
           <div class="text-center">
             <h2 class="fs-40 fw-300">In business since 1976</h2>
-            <a class="btn btn-success btn-lg" href="home/quote">
+            <a class="btn btn-success btn-lg" href="quote">
               RESQUEST A QUOTE <i class="fa fa-angle-right"></i
             ></a>
             &nbsp; OR &nbsp;

@@ -122,13 +122,10 @@
                 data-title="Our Services"
               >
                 <!-- MAIN IMAGE -->
-                <img
-                  <%# <%= image_tag "/images/elevator1.jpeg"%> %>
-                  alt="cover image"
-                  data-bgposition="center top"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                />
+  
+                  
+                  <%= image_tag("/images/elevator1.jpeg", :title => "title", :class => "img-fluid", :data => { :bgposition => "center top"}, :data => { :bgfit => "cover"}, :data => { :bgrepeat => "no-repeat"}) %>
+       
                  
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
@@ -1446,16 +1443,6 @@
 
     <!-- SCROLL TO TOP -->
     <a href="#" id="toTop"></a>
-
-
-
-    <!-- JAVASCRIPT FILES -->
-    <script>
-      var plugin_path = "assets/plugins/";
-    </script>
-    <script src="../../assets/stylesheets/jquery/jquery-3.3.1.min.js"></script>
-
-    <script src="../../assets/javascripts/scripts.js"></script>
 
     <!-- REVOLUTION SLIDER -->
     <script src="../../assets/stylesheets/slider.revolution/js/jquery.themepunch.tools.min.js"></script>

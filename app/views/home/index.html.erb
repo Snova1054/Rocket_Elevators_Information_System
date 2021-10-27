@@ -124,7 +124,7 @@
                 <!-- MAIN IMAGE -->
   
                   
-                  <%= image_tag("/images/elevator1.jpeg", :title => "title", :class => "img-fluid", :data => { }) %>
+                  <%= image_tag "/images/elevator1.jpeg" %>
        
                  
                 <div class="overlay dark-4">
@@ -210,13 +210,7 @@
                 data-title="Residential Building Service"
               >
                 <!-- MAIN IMAGE -->
-                <img
-                  src="assets/images/elevator2.jpeg"
-                  alt="cover image"
-                  data-bgposition="center top"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                />
+                  <%= image_tag "/images/elevator2.jpeg" %>
 
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
@@ -283,14 +277,8 @@
                 data-title="Corporate Building Service"
               >
                 <!-- MAIN IMAGE -->
-                <img
-                  src="assets/images/elevator3.jpeg"
-                  alt="cover image"
-                  data-bgposition="center top"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                />
-
+                <%= image_tag "/images/elevator3.jpeg" %>
+ 
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
@@ -1445,8 +1433,8 @@
     <a href="#" id="toTop"></a>
 
     <!-- REVOLUTION SLIDER -->
-    <script src="../../assets/stylesheets/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="../../assets/stylesheets/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <%= javascript_include_tag '/assets/javascripts/view/demo.revolution_slider' %>
+    <%= javascript_include_tag '/js/jquery.themepunch.revolution.min' %>
+    <%= javascript_include_tag '/js/jquery.themepunch.tools.min' %>
+    <%= javascript_include_tag '/view/demo.revolution_slider' %>
   </body>
 </html>

@@ -122,11 +122,13 @@
                 data-title="Our Services"
               >
                 <!-- MAIN IMAGE -->
-  
-                  
+                 <img
                   <%= image_tag "/images/elevator1.jpeg" %>
-       
-                 
+                  data-bgposition="center top"
+                  data-bgfit="cover"
+                  data-bgrepeat="no-repeat"
+                />
+ 
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
@@ -396,7 +398,7 @@
       <!-- Parallax -->
       <section
         class="parallax parallax-1"
-        <%= image_tag "/images/R2-01.jpg", style: "background-image" %>
+        style="background-image: url(<%= image_tag "/images/elevator1.jpeg" %>)"
       >
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
@@ -1343,5 +1345,6 @@
     <%= javascript_include_tag '/js/jquery.themepunch.revolution.min' %>
     <%= javascript_include_tag '/js/jquery.themepunch.tools.min' %>
     <%= javascript_include_tag '/view/demo.revolution_slider' %>
+    <%= javascript_include_tag '/scripts' %>
   </body>
 </html>

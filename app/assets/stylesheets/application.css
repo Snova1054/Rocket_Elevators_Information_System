@@ -10,7 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_layout.css
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome";
+@import "bootstrap";
+@import "bootstrap.min";
+@import "extralayers";
+@import "settings";
+@import "essentials";
+@import "header-1";
+@import "layout";
+@import "blue";
+

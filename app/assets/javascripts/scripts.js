@@ -40,6 +40,8 @@
 	window.width 	= jQuery(window).width();
 	window.height 	= jQuery(window).height();
 
+	var plugin_path = "/assets"
+
 
 	/* Init */
 	jQuery(window).ready(function () {
@@ -56,7 +58,7 @@
 		_loadPopperBS4();
 
 		// Load Bootstrap JS
-		loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
+		loadScript(plugin_path + '/bootstrap.min', function() {
 
 			// Load Material Design Js
 			if(jQuery("body").hasClass('enable-materialdesign')) {
@@ -1237,7 +1239,7 @@
 
 		if(_container.length > 0) {
 
-			loadScript(plugin_path + 'owl-carousel/owl.carousel.min.js', function() {
+			loadScript(plugin_path + '/owl.carousel.min', function() {
 
 				_container.each(function() {
 
@@ -1795,7 +1797,7 @@
 		var _container = jQuery('.mix-grid');
 		
 		if(_container.length > 0) {
-			loadScript(plugin_path + 'mixitup/jquery.mixitup.min.js', function() {
+			loadScript(plugin_path + '/mixitup/jquery.mixitup.min', function() {
 
 				if(jQuery().mixitup) {
 

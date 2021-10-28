@@ -14,6 +14,10 @@
 //= require activestorage
 //= require jquery.turbolinks
 //= require jquery3
+//= require scripts
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+//= require view/demo.revolution_slider
+//= require js/jquery.themepunch.tools.min
+//= require js/jquery.themepunch.revolution.min

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rocket Elevator | Quote</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <meta name="description" content="" />
+    <meta name="Author" content="Daniel Gallardo" />
+
+    <!-- mobile settings -->
+    <meta
+      name="viewport"
+      content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"
+    />
+    <!--[if IE
+      ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    /><![endif]-->
+
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- CORE CSS -->
+    <link
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- REVOLUTION SLIDER -->
+    <link
+      href="assets/plugins/slider.revolution/css/extralayers.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/plugins/slider.revolution/css/settings.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- THEME CSS -->
+    <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link
+      href="assets/css/color_scheme/blue.css"
+      rel="stylesheet"
+      type="text/css"
+      id="color_scheme"
+    />
+  </head>
+
+  <!--
+		AVAILABLE BODY CLASSES:
+		
+		smoothscroll 			= create a browser smooth scroll
+		enable-animation		= enable WOW animations
+
+		bg-grey					= grey background
+		grain-grey				= grey grain background
+		grain-blue				= blue grain background
+		grain-green				= green grain background
+		grain-blue				= blue grain background
+		grain-orange			= orange grain background
+		grain-yellow			= yellow grain background
+		
+		boxed 					= boxed layout
+		pattern1 ... patern11	= pattern background
+		menu-vertical-hide		= hidden, open on click
+		
+		BACKGROUND IMAGE [together with .boxed class]
+		data-background="assets/images/_smarty/boxed_background/1.jpg"
+	-->
+
+  <body class="enable-animation">
+    <!-- wrapper -->
+    <div id="wrapper">
+      <!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+      <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+        <!-- TOP NAV -->
+        <header id="topNav">
+          <div class="container">
+            <!-- Mobile Menu Button -->
+            <button
+              class="btn btn-mobile"
+              data-toggle="collapse"
+              data-target=".nav-main-collapse"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <a class="logo float-left" href="index.html">
+              <img src="assets/images/R2.png" alt="Rocket Elevator Logo" />
+            </a>
+
+            <!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+            <div
+              class="
+                navbar-collapse
+                collapse
+                float-right
+                nav-main-collapse
+                submenu-dark
+              "
+            >
+              <nav class="nav-main">
+                <!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+                <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                  <li>
+                    <!-- HOME -->
+                    <a href="index.html#home"> HOME </a>
+                  </li>
+                  <li>
+                    <!-- SERVICES -->
+                    <a href="index.html#services"> SERVICES </a>
+                  </li>
+                  <li>
+                    <!-- WORK -->
+                    <a href="index.html#portfolio"> PORTFOLIO </a>
+                  </li>
+                  <li>
+                    <!-- NEWS -->
+                    <a href="index.html#news"> NEWS </a>
+                  </li>
+                  <li>
+                    <!-- CLIENTS -->
+                    <a href="index.html#clients"> CLIENTS </a>
+                  </li>
+                  <li>
+                    <!-- CONTACT -->
+                    <a href="index.html#contact"> CONTACT </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <!-- /Top Nav -->
+      </div>
+      <section>
+        <div class="container">
+          <header class="text-center mb-60">
+            <h2>Get A Quote</h2>
+            <hr />
+          </header>
+
+          <div class="container" oninput="calculateAll(typeSelected)">
+            <div class="d-flex justify-content-center">
+              <div class="col-sm-5 col-sm-5">
+                <!-- Building Type and Quantities-->
+                <div>
+                  <div>
+                    <label class="fancy-form fancy-form-select" for="selector"
+                      >Building Type *</label
+                    >
+
+                    <select
+                      name="selector"
+                      class="form-control"
+                      id="building-type"
+                      onchange="valuesReset();"
+                    >
+                      <option selected>----Selected----</option>
+                      <option id="residential" value="residential">
+                        Residential
+                      </option>
+                      <option id="commercial" value="commercial">
+                        Commercial
+                      </option>
+                      <option id="corporate" value="corporate">
+                        Corporate
+                      </option>
+                      <option id="hybrid" value="hybrid">Hybrid</option>
+                    </select>
+                    <i class="fancy-arrow-"></i>
+                  </div>
+                  <div id="floor-basement" style="display: none">
+                    <div>
+                      <label for="number-of-floors">N. of Floors</label>
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-floors"
+                        id="number-of-floors"
+                      />
+                    </div>
+                    <div>
+                      <label for="number-of-basements">N. of Basements</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-basements"
+                        id="number-of-basements"
+                      />
+                    </div>
+                  </div>
+                  <div id="residentialShow" style="display: none">
+                    <label for="number-of-apartments"
+                      >N. of Appartments *</label
+                    >
+                    <input
+                      required
+                      type="number"
+                      min="1"
+                      value="0"
+                      class="form-control stepper"
+                      name="number-of-apartments"
+                      id="number-of-apartments"
+                    />
+                  </div>
+                  <div id="companiesShow" style="display: none">
+                    <div>
+                      <label for="number-of-companies"> N. of Companies</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-companies"
+                        id="number-of-companies"
+                      />
+                    </div>
+                  </div>
+                  <div id="parkingSpots" style="display: none">
+                    <div>
+                      <label for="number-of-parking-spots"
+                        >N. of Parking Slots</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-parking-spots"
+                        id="number-of-parking-spots"
+                      />
+                    </div>
+                  </div>
+                  <div id="commercialShow" style="display: none">
+                    <div>
+                      <label for="number-of-elevators">N. of Shafts *</label>
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-elevators[required]"
+                        id="number-of-elevators"
+                      />
+                    </div>
+                  </div>
+                  <div id="corporateShow" style="display: none">
+                    <div>
+                      <label for="number-of-corporations">N. of Tenants</label>
+                      <input
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-corporations[required]"
+                        id="number-of-corporations"
+                      />
+                    </div>
+                  </div>
+                  <div id="occupantsPerFloor" style="display: none">
+                    <div>
+                      <label for="maximum-occupancy"
+                        >N. of Occupants per Floor *</label
+                      >
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="maximum-occupancy[required]"
+                        id="maximum-occupancy"
+                      />
+                    </div>
+                  </div>
+                  <div id="activityHours" style="display: none">
+                    <div>
+                      <label for="business-hours"
+                        >Activity Hours (max 24 hours)</label
+                      >
+                      <input
+                        type="number"
+                        min="1"
+                        max="24"
+                        maxlength="2"
+                        size="22"
+                        value="0"
+                        class="form-control stepper"
+                        name="business-hours[required]"
+                        id="business-hours"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!--Type of Service selection (radio)-->
+                <div class="d-flex justify-content-center">
+                  <div id="radio-buttons" style="display: none">
+                    <label class="radio" for="standard">
+                      <input
+                        type="radio"
+                        id="standard"
+                        name="service"
+                        value="1"
+                      />
+                      <i></i> Standard</label
+                    >
+                    <label class="radio" for="premium">
+                      <input
+                        type="radio"
+                        id="premium"
+                        name="service"
+                        value="2"
+                      />
+                      <i></i> Premium</label
+                    >
+                    <label class="radio" for="excelium">
+                      <input
+                        type="radio"
+                        id="excelium"
+                        name="service"
+                        value="3"
+                      />
+                      <i></i>Excelium</label
+                    >
+                  </div>
+                </div>
+                <!--Results-->
+                <div>
+                  <div id="Estimates" style="display: none">
+                    <div>
+                      <label for="elevator-amount">N. of Elevator</label>
+                      <input
+                        type="number"
+                        id="elevator-amount"
+                        name="elevator-amount"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="elevator-unit-price">Cost per Cage</label>
+                      <input
+                        type="text"
+                        id="elevator-unit-price"
+                        name="elevator-unit-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="elevator-total-price">Elevator(s) Cost</label>
+                      <input
+                        type="text"
+                        id="elevator-total-price"
+                        name="elevator-total-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="installation-fees">Installation Cost</label>
+                      <input
+                        type="text"
+                        id="installation-fees"
+                        name="installation-fees"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="final-price">Final Price</label>
+                      <input
+                        type="text"
+                        id="final-price"
+                        name="final-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <!-- col #1 -->
+            <div class="col-md-8">
+              <h3 class="letter-spacing-1">WHY US?</h3>
+
+              <!-- Small Description -->
+              <p>
+                We have the conviction that we create the most innovative and
+                reliable products on the market. Contact us today for any
+                questions you might have.
+              </p>
+              <h2>(418) 555-1234</h2>
+            </div>
+            <!-- /col #1 -->
+
+            <!-- col #2 -->
+            <div class="col-md-4">
+              <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+              <!-- Newsletter Form -->
+              <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+              <form
+                class="validate"
+                action=""
+                data-success="Subscribed! Thank you!"
+                data-toastr-position="bottom-right"
+              >
+                <div class="input-group">
+                  <span class="input-group-addon"
+                    ><i class="fa fa-envelope"></i
+                  ></span>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control required"
+                    placeholder="Enter your Email"
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-success" type="submit">
+                      Subscribe
+                    </button>
+                  </span>
+                </div>
+              </form>
+              <!-- /Newsletter Form -->
+            </div>
+            <!-- /col #2 -->
+          </div>
+        </div>
+
+        <div class="copyright">
+          <div class="container">
+            <ul class="float-right m-0 list-inline mobile-block">
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li>&bull;</li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+            &copy; All Rights Reserved, Rocket Elevators
+          </div>
+        </div>
+      </footer>
+      <!-- /FOOTER -->
+
+      <script src="assets/js/quote.js"></script>
+    </div>
+  </body>
+</html>

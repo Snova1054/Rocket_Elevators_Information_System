@@ -9,4 +9,4 @@
 - `rails s`
 
 ### Finally, go on this site
-- `http://localhost:3000/home/index`
+- `http://localhost:3000

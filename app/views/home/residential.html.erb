@@ -26,6 +26,25 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <!-- CORE CSS -->
+    <link
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- THEME CSS -->
+    <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link
+      href="assets/css/color_scheme/blue.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <!--
@@ -73,9 +92,10 @@
             </button>
 
             <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#home">
-              <%= image_tag "/images/R2.png" %>
+            <a class="logo float-left" href="index.html">
+              <img src="assets/images/R2.png" alt="Rocket Elevator Logo" />
             </a>
+
             <!-- 
 							Top Nav 
 							
@@ -101,27 +121,27 @@
                 <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
                   <li>
                     <!-- HOME -->
-                    <a href="../../#home"> HOME </a>
+                    <a href="index.html#home"> HOME </a>
                   </li>
                   <li>
                     <!-- SERVICES -->
-                    <a href="../../#services"> SERVICES </a>
+                    <a href="index.html#services"> SERVICES </a>
                   </li>
                   <li>
                     <!-- WORK -->
-                    <a href="../../#portfolio"> PORTFOLIO </a>
+                    <a href="index.html#portfolio"> PORTFOLIO </a>
                   </li>
                   <li>
                     <!-- NEWS -->
-                    <a href="../../#news"> NEWS </a>
+                    <a href="index.html#news"> NEWS </a>
                   </li>
                   <li>
                     <!-- CLIENTS -->
-                    <a href="../../#clients"> CLIENTS </a>
+                    <a href="index.html#clients"> CLIENTS </a>
                   </li>
                   <li>
                     <!-- CONTACT -->
-                    <a href="../../#contact"> CONTACT </a>
+                    <a href="index.html#contact"> CONTACT </a>
                   </li>
                 </ul>
               </nav>
@@ -167,7 +187,7 @@
               </p>
 
               <a
-                href="../../#portfolio"
+                href="index.html#portfolio"
                 class="btn btn-xlg btn-default btn-bordered btn-block mt-50"
                 >VISIT OUR PROJECTS</a
               >
@@ -178,30 +198,79 @@
                 class="lightbox"
                 data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'
               >
-                <a>
-                  <%= image_tag '/images/residential1.jpg', :class => "img-fluid"  %>
+                <a
+                  href="assets/images/residential1.jpg"
+                  class="
+                    image-hover-plus image-hover-zoom image-hover-overlay
+                    mb-60
+                  "
+                >
+                  <img
+                    class="img-fluid"
+                    src="assets/images/residential1.jpg"
+                    alt=""
+                  />
                   <i class="icon-hover-plus"></i>
                 </a>
 
-                <a>
-                  <%= image_tag '/images/residential2.jpg', :class => "img-fluid" %>
+                <a
+                  href="assets/images/residential2.jpg"
+                  class="
+                    image-hover-plus image-hover-zoom image-hover-overlay
+                    mb-60
+                  "
+                >
+                  <img
+                    class="img-fluid"
+                    src="assets/images/residential2.jpg"
+                    alt=""
+                  />
                   <i class="icon-hover-plus"></i>
                 </a>
 
-                <a>
-                  <%= image_tag '/images/residential3.jpg', :class => "img-fluid" %>
+                <a
+                  href="assets/images/residential3.jpg"
+                  class="
+                    image-hover-plus image-hover-zoom image-hover-overlay
+                    mb-60
+                  "
+                >
+                  <img
+                    class="img-fluid"
+                    src="assets/images/residential3.jpg"
+                    alt=""
+                  />
                   <i class="icon-hover-plus"></i>
                 </a>
 
-                <a>
-                  <%= image_tag '/images/residential4.jpg', :class => "img-fluid" %>
+                <a
+                  href="assets/images/residential4.jpg"
+                  class="
+                    image-hover-plus image-hover-zoom image-hover-overlay
+                    mb-60
+                  "
+                >
+                  <img
+                    class="img-fluid"
+                    src="assets/images/residential4.jpg"
+                    alt=""
+                  />
                   <i class="icon-hover-plus"></i>
                 </a>
 
-                <a>
-                  <%= image_tag '/images/residential5.jpg', :class => "img-fluid" %>
+                <a
+                  href="assets/images/residential5.jpg"
+                  class="
+                    image-hover-plus image-hover-zoom image-hover-overlay
+                    mb-60
+                  "
+                >
+                  <img
+                    class="img-fluid"
+                    src="assets/images/residential5.jpg"
+                    alt=""
+                  />
                   <i class="icon-hover-plus"></i>
-                </a>
                 </a>
               </div>
             </div>
@@ -225,34 +294,85 @@
           class="row lightbox"
           data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'
         >
-          <a>
-            <%= image_tag '/images/corporate1.jpg', :class => "img-fluid" %>
-              <i class="icon-hover-plus"></i>
+          <a
+            href="assets/images/corporate1.jpg"
+            class="
+              col-lg-5th
+              thumbnail
+              p-0
+              m-0
+              b-0
+              image-hover-plus image-hover-zoom image-hover-overlay
+              rad-0
+            "
+          >
+            <img class="img-fluid" src="assets/images/corporate1.jpg" alt="" />
+            <i class="icon-hover-plus"></i>
           </a>
 
-           <a>
-            <%= image_tag '/images/corporate2.jpg', :class => "img-fluid" %>
-              <i class="icon-hover-plus"></i>
+          <a
+            href="assets/images/corporate2.jpg"
+            class="
+              col-lg-5th
+              thumbnail
+              p-0
+              m-0
+              b-0
+              image-hover-plus image-hover-zoom image-hover-overlay
+              rad-0
+            "
+          >
+            <img class="img-fluid" src="assets/images/corporate2.jpg" alt="" />
+            <i class="icon-hover-plus"></i>
           </a>
 
-
-          <a>
-            <%= image_tag '/images/corporate3.jpg', :class => "img-fluid" %>
-              <i class="icon-hover-plus"></i>
+          <a
+            href="assets/images/corporate3.jpg"
+            class="
+              col-lg-5th
+              thumbnail
+              p-0
+              m-0
+              b-0
+              image-hover-plus image-hover-zoom image-hover-overlay
+              rad-0
+            "
+          >
+            <img class="img-fluid" src="assets/images/corporate3.jpg" alt="" />
+            <i class="icon-hover-plus"></i>
           </a>
 
-
-          <a>
-            <%= image_tag '/images/corporate4.jpg', :class => "img-fluid" %>
-              <i class="icon-hover-plus"></i>
+          <a
+            href="assets/images/corporate4.jpg"
+            class="
+              col-lg-5th
+              thumbnail
+              p-0
+              m-0
+              b-0
+              image-hover-plus image-hover-zoom image-hover-overlay
+              rad-0
+            "
+          >
+            <img class="img-fluid" src="assets/images/corporate4.jpg" alt="" />
+            <i class="icon-hover-plus"></i>
           </a>
 
-
-           <a>
-            <%= image_tag '/images/corporate5.jpg', :class => "img-fluid" %>
-              <i class="icon-hover-plus"></i>
+          <a
+            href="assets/images/corporate5.jpg"
+            class="
+              col-lg-5th
+              thumbnail
+              p-0
+              m-0
+              b-0
+              image-hover-plus image-hover-zoom image-hover-overlay
+              rad-0
+            "
+          >
+            <img class="img-fluid" src="assets/images/corporate5.jpg" alt="" />
+            <i class="icon-hover-plus"></i>
           </a>
-
         </div>
         <!-- /PORTFOLIO ITEMS -->
       </section>
@@ -330,6 +450,14 @@
 
     <!-- SCROLL TO TOP -->
     <a href="#" id="toTop"></a>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div class="inner">
+        <span class="loader"></span>
+      </div>
+    </div>
+    <!-- /PRELOADER -->
 
     <!-- JAVASCRIPT FILES -->
     <script>

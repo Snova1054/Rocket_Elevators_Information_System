@@ -1,22 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Rocket Elevator | Quote</title>
-        <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-		<meta name="description" content="" />
-		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Rocket Elevator | Quote</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <meta name="description" content="" />
+    <meta name="Author" content="Daniel Gallardo" />
 
-		<!-- mobile settings -->
-		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <!-- mobile settings -->
+    <meta
+      name="viewport"
+      content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"
+    />
+    <!--[if IE
+      ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    /><![endif]-->
 
-		<!-- WEB FONTS : use %7C instead of | (pipe) -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-	</head>
+    <!-- CORE CSS -->
+    <link
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-	<!--
+    <!-- REVOLUTION SLIDER -->
+    <link
+      href="assets/plugins/slider.revolution/css/extralayers.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/plugins/slider.revolution/css/settings.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- THEME CSS -->
+    <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link
+      href="assets/css/color_scheme/blue.css"
+      rel="stylesheet"
+      type="text/css"
+      id="color_scheme"
+    />
+  </head>
+
+  <!--
 		AVAILABLE BODY CLASSES:
 		
 		smoothscroll 			= create a browser smooth scroll
@@ -35,58 +79,13 @@
 		menu-vertical-hide		= hidden, open on click
 		
 		BACKGROUND IMAGE [together with .boxed class]
-		
+		data-background="assets/images/_smarty/boxed_background/1.jpg"
 	-->
-	<body class="smoothscroll enable-animation" onload="hideall()">
-	
 
-		<!-- SLIDE TOP -->
-		<div id="slidetop">
-			
-
-			<div class="container">
-				
-				<div class="row">
-
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY ROCKET ELEVATOR?</h6>
-						<p>We are simply the best in Canada<br> We have installed over 200,000 elevator <br>around the world!</p>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="fa-facheck"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="https://www.tvanouvelles.ca/"><i class="fa fa-angle-right"></i> Elevator fall cause 3 deaths</a></li>
-							<li><a href="https://www.cnn.com/"><i class="fa fa-angle-right"></i> Elevator malfunction cause injury to a young couple</a></li>
-							<li><a href="https://gnews.org/"><i class="fa fa-angle-right"></i> Rocket Elevator government fraud</a></li>
-							<li><a href="https://ca.yahoo.com/"><i class="fa fa-angle-right"></i> Only 1 elevator working in my building $%#@#</a></li>
-							<li><a href="https://codeboxx.biz/en"><i class="fa fa-angle-right"></i> CodeBoxx is amazing!!!</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> 1165 Bd Lebourgneuf, <br />  Québec, QC G2K 2C9</li>
-							<li><b>Phone:</b> +1 800-887-2497</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@RocketElevator.com</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
-
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-		</div>
-		<!-- /SLIDE TOP -->
-
-
-		<!-- wrapper -->
-		<div id="wrapper">
-
-			<!-- 
+  <body class="enable-animation">
+    <!-- wrapper -->
+    <div id="wrapper">
+      <!-- 
 				AVAILABLE HEADER CLASSES
 
 				Default nav height: 96px
@@ -112,497 +111,411 @@
 
 				Example Usage:  class="clearfix sticky header-sm transparent b-0"
 			-->
-			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+      <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+        <!-- TOP NAV -->
+        <header id="topNav">
+          <div class="container">
+            <!-- Mobile Menu Button -->
+            <button
+              class="btn btn-mobile"
+              data-toggle="collapse"
+              data-target=".nav-main-collapse"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
 
-				<!-- TOP NAV -->
-				<header id="topNav">
-					<div class="container">
+            <!-- Logo -->
+            <a class="logo float-left" href="index.html">
+              <img src="assets/images/R2.png" alt="Rocket Elevator Logo" />
+            </a>
 
-						<!-- Mobile Menu Button -->
-						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-							<i class="fa fa-bars"></i>
-						</button>
-
-						<!-- Logo -->
-						<a class="logo float-left" href="../../">
-							<%= image_tag "/images/R2.png" %>
-						  </a>
-                    
-						<!-- 
+            <!-- 
 							Top Nav 
 							
 							AVAILABLE CLASSES:
 							submenu-dark = dark sub menu
 						-->
-						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
-							<nav class="nav-main">
-
-								<!-- 
+            <div
+              class="
+                navbar-collapse
+                collapse
+                float-right
+                nav-main-collapse
+                submenu-dark
+              "
+            >
+              <nav class="nav-main">
+                <!-- 
 									.nav-onepage
 									Required for onepage navigation links
 									
 									Add .external for an external link!
 								-->
-                                <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li class="active"><!-- HOME -->
-										<a href="../../#home">
-											HOME
-										</a>
-									</li>
-									<li><!-- SERVICES -->
-										<a href="../../#services">
-											SERVICES
-										</a>
-									</li>
-									<li><!-- WORK -->
-										<a href="../../#portfolio">
-											PORTFOLIO
-										</a>
-									</li>
-									<li><!-- NEWS -->
-										<a href="../../#news">
-											NEWS
-										</a>
-									</li>
-									
-									<li><!-- CLIENTS -->
-										<a href="../../#clients">
-											CLIENTS
-										</a>
-									</li>
-									
-									<li><!-- CONTACT -->
-										<a href="../../#contact">
-											CONTACT
-										</a>
-									</li>
-								</ul>
+                <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                  <li>
+                    <!-- HOME -->
+                    <a href="index.html#home"> HOME </a>
+                  </li>
+                  <li>
+                    <!-- SERVICES -->
+                    <a href="index.html#services"> SERVICES </a>
+                  </li>
+                  <li>
+                    <!-- WORK -->
+                    <a href="index.html#portfolio"> PORTFOLIO </a>
+                  </li>
+                  <li>
+                    <!-- NEWS -->
+                    <a href="index.html#news"> NEWS </a>
+                  </li>
+                  <li>
+                    <!-- CLIENTS -->
+                    <a href="index.html#clients"> CLIENTS </a>
+                  </li>
+                  <li>
+                    <!-- CONTACT -->
+                    <a href="index.html#contact"> CONTACT </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <!-- /Top Nav -->
+      </div>
+      <section>
+        <div class="container">
+          <header class="text-center mb-60">
+            <h2>Get A Quote</h2>
+            <hr />
+          </header>
 
-							</nav>
-						</div>
+          <div class="container" oninput="calculateAll(typeSelected)">
+            <div class="d-flex justify-content-center">
+              <div class="col-sm-5 col-sm-5">
+                <!-- Building Type and Quantities-->
+                <div>
+                  <div>
+                    <label class="fancy-form fancy-form-select" for="selector"
+                      >Building Type *</label
+                    >
 
-					</div>
-				</header>
-		
+                    <select
+                      name="selector"
+                      class="form-control"
+                      id="building-type"
+                      onchange="valuesReset();"
+                    >
+                      <option selected>----Selected----</option>
+                      <option id="residential" value="residential">
+                        Residential
+                      </option>
+                      <option id="commercial" value="commercial">
+                        Commercial
+                      </option>
+                      <option id="corporate" value="corporate">
+                        Corporate
+                      </option>
+                      <option id="hybrid" value="hybrid">Hybrid</option>
+                    </select>
+                    <i class="fancy-arrow-"></i>
+                  </div>
+                  <div id="floor-basement" style="display: none">
+                    <div>
+                      <label for="number-of-floors">N. of Floors</label>
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-floors"
+                        id="number-of-floors"
+                      />
+                    </div>
+                    <div>
+                      <label for="number-of-basements">N. of Basements</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-basements"
+                        id="number-of-basements"
+                      />
+                    </div>
+                  </div>
+                  <div id="residentialShow" style="display: none">
+                    <label for="number-of-apartments"
+                      >N. of Appartments *</label
+                    >
+                    <input
+                      required
+                      type="number"
+                      min="1"
+                      value="0"
+                      class="form-control stepper"
+                      name="number-of-apartments"
+                      id="number-of-apartments"
+                    />
+                  </div>
+                  <div id="companiesShow" style="display: none">
+                    <div>
+                      <label for="number-of-companies"> N. of Companies</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-companies"
+                        id="number-of-companies"
+                      />
+                    </div>
+                  </div>
+                  <div id="parkingSpots" style="display: none">
+                    <div>
+                      <label for="number-of-parking-spots"
+                        >N. of Parking Slots</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-parking-spots"
+                        id="number-of-parking-spots"
+                      />
+                    </div>
+                  </div>
+                  <div id="commercialShow" style="display: none">
+                    <div>
+                      <label for="number-of-elevators">N. of Shafts *</label>
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-elevators[required]"
+                        id="number-of-elevators"
+                      />
+                    </div>
+                  </div>
+                  <div id="corporateShow" style="display: none">
+                    <div>
+                      <label for="number-of-corporations">N. of Tenants</label>
+                      <input
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="number-of-corporations[required]"
+                        id="number-of-corporations"
+                      />
+                    </div>
+                  </div>
+                  <div id="occupantsPerFloor" style="display: none">
+                    <div>
+                      <label for="maximum-occupancy"
+                        >N. of Occupants per Floor *</label
+                      >
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        value="0"
+                        class="form-control stepper"
+                        name="maximum-occupancy[required]"
+                        id="maximum-occupancy"
+                      />
+                    </div>
+                  </div>
+                  <div id="activityHours" style="display: none">
+                    <div>
+                      <label for="business-hours"
+                        >Activity Hours (max 24 hours)</label
+                      >
+                      <input
+                        type="number"
+                        min="1"
+                        max="24"
+                        maxlength="2"
+                        size="22"
+                        value="0"
+                        class="form-control stepper"
+                        name="business-hours[required]"
+                        id="business-hours"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!--Type of Service selection (radio)-->
+                <div class="d-flex justify-content-center">
+                  <div id="radio-buttons" style="display: none">
+                    <label class="radio" for="standard">
+                      <input
+                        type="radio"
+                        id="standard"
+                        name="service"
+                        value="1"
+                      />
+                      <i></i> Standard</label
+                    >
+                    <label class="radio" for="premium">
+                      <input
+                        type="radio"
+                        id="premium"
+                        name="service"
+                        value="2"
+                      />
+                      <i></i> Premium</label
+                    >
+                    <label class="radio" for="excelium">
+                      <input
+                        type="radio"
+                        id="excelium"
+                        name="service"
+                        value="3"
+                      />
+                      <i></i>Excelium</label
+                    >
+                  </div>
+                </div>
+                <!--Results-->
+                <div>
+                  <div id="Estimates" style="display: none">
+                    <div>
+                      <label for="elevator-amount">N. of Elevator</label>
+                      <input
+                        type="number"
+                        id="elevator-amount"
+                        name="elevator-amount"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="elevator-unit-price">Cost per Cage</label>
+                      <input
+                        type="text"
+                        id="elevator-unit-price"
+                        name="elevator-unit-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="elevator-total-price">Elevator(s) Cost</label>
+                      <input
+                        type="text"
+                        id="elevator-total-price"
+                        name="elevator-total-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="installation-fees">Installation Cost</label>
+                      <input
+                        type="text"
+                        id="installation-fees"
+                        name="installation-fees"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                    <div>
+                      <label for="final-price">Final Price</label>
+                      <input
+                        type="text"
+                        id="final-price"
+                        name="final-price"
+                        value=""
+                        readonly
+                        class="form-control stepper font-weight-bold"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			</div>
+      <!-- FOOTER -->
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <!-- col #1 -->
+            <div class="col-md-8">
+              <h3 class="letter-spacing-1">WHY US?</h3>
 
+              <!-- Small Description -->
+              <p>
+                We have the conviction that we create the most innovative and
+                reliable products on the market. Contact us today for any
+                questions you might have.
+              </p>
+              <h2>(418) 555-1234</h2>
+            </div>
+            <!-- /col #1 -->
 
+            <!-- col #2 -->
+            <div class="col-md-4">
+              <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
-			<!-- REVOLUTION SLIDER -->
-  
-			<div>
-				
-					
-						 
-						<strong style="font-size: 50px;text-align: center;">SUBMISSION PAGE</strong>
-					
-				
-			</div>
+              <!-- Newsletter Form -->
+              <p>Subscribe to Our Newsletter to get Important News & Offers</p>
 
-		    	
-				<form class="col-md-8" method="post" enctype="multipart/form-data" >
-					<fieldset style="text-align: left;" >
-						<input type="hidden" name="action" value="contact_send" />
-                      <hr>
-						<div class="col-md-8" >
-							<h4 style="text-align: left;">Select building type</h4>
-							<select class="form-control pointer" style="font-size: 2rem;width:60%;height: 80px !important;align-self: center;background-color: #F5F5F5;"  id="list" onchange="getSelectValue();">
-								<option value="none">Building Type</option>
-								<option value="residential">Residential</option>
-								<option value="commercial">Commercial</option>
-								<option value="corporate">Corporate</option>
-								<option value="hybrid">Hybrid</option>
+              <form
+                class="validate"
+                action=""
+                data-success="Subscribed! Thank you!"
+                data-toastr-position="bottom-right"
+              >
+                <div class="input-group">
+                  <span class="input-group-addon"
+                    ><i class="fa fa-envelope"></i
+                  ></span>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control required"
+                    placeholder="Enter your Email"
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-success" type="submit">
+                      Subscribe
+                    </button>
+                  </span>
+                </div>
+              </form>
+              <!-- /Newsletter Form -->
+            </div>
+            <!-- /col #2 -->
+          </div>
+        </div>
 
-								
-					         
-          
-							</div>
-							</select>
-						</form>
-						<hr>
-						<form method="GET" >
-				      <div class="row" id=residential2>
-					  <div class="col-md">
-						   <div>
-							
-							<label for="appartement"><h3>Number of appartement</h3></label>
-							<input name="appartementres" id="appartement" type="number" min="1" oninput="residential(),ajax()"></input>
-							</div>
-							<hr>
-							<div>
-								<label for="floors1"><h3>Number of floors (Excluding basement)</h3></label>
-							<input id="floors1" type="number" min="1" oninput="residential()"></input>
-							</div>
-							<hr>
-							<div>
-								<label for="basement1"><h3>Number of basement contained in the building</h3></label>
-							<input id="basement1" type="number" min="1" oninput="residential()"></input>
-							</div>
-							
-					
-							
-							
-							<div id="radiochoice4">
-								<hr>
-								<input type="radio" id="option-1" class="radiobutton"
-								 name="serviceChoice1" value="email"oninput="residential()">Standart</input>
-								<label for="contactChoice1">Standart 7,565$ per elevator and 10% installation fees</label>
-							
-								<input type="radio" id="option-2" class="radiobutton"
-								 name="serviceChoice1" value="phone"oninput="residential()">Premium</input>
-								<label for="contactChoice2">Premium, 12,345$ per elevator and 13% installation fees</label>
-							
-								<input type="radio" id="option-3" class="radiobutton"
-								 name="serviceChoice1" value="mail"oninput="residential()">Excelium</input>
-								<label for="contactChoice3">Excelium 15,400$ per elevator and 16% installation fees</label>
-							</div> 
-							<hr>
-							<div id="priceResidential">
-								<h2>Elevator needed :<span id="resultapp"></span></h2>
-								<h2>Cage needed :<span id="result1"></span></h2>
-								<h2>Elevator Price : <span id="price1"> Price</span>$</h2>
-								<h2>Installation fees : <span id="fees1"> Price</span>$</h2>
-								<h1>Total Price :<span id="totalPrice1"></span>$</h1>
-								<div class="col-md-12">
-									<button class="btn btn-primary"> SUBMIT</button>
-									<hr>
-								</form>
-								</div>
-								</div>
-			         </div>
-				 </div>
-		
+        <div class="copyright">
+          <div class="container">
+            <ul class="float-right m-0 list-inline mobile-block">
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li>&bull;</li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+            &copy; All Rights Reserved, Rocket Elevators
+          </div>
+        </div>
+      </footer>
+      <!-- /FOOTER -->
 
-			   
-						</div>
-						<form  action="form.html">
-							<div class="row" id="commercial">
-								<div class="col-md-8">
-									
-								
-								<div>
-									<label for="busisnesses"><h3>Number of distinc busisnesses</h3></label>
-									<input id="busisnesses" class="busisnesses" type="number" min="1"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="floors"><h3>Number of floors (Excluding basement)</h3></label> 
-									<input id="floors" class="floors" type="number" min="1" oninput="commerc()" ></input>
-									</div>
-									<hr>
-									<div>
-										<label for="basements"><h3>Number of basement contained in the building</h3></label>
-									<input id="basement2" class="basements" type="number" min="1" oninput="commerc()"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="parking"><h3>Number of parking space available</h3></label>
-									<input id="parking1" class="parking" type="number" min="1"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="cages"><h3>The number of elevator cages to be deployed</h3></label>
-										<input id="cages" class="cages" type="number" min="1" oninput="commerc()"></input>
-										</div>
-										
-									<div id="radiochoice3">
-										<hr>
-										<div>
-											<input type="radio" id="option-1-2" oninput="commerc()" class="radiobutton" name="choice2">Standart</input>
-											<label for="contactChoice1">Standart 7,565$ per elevator and 10% installation fees</label>
-										
-											<input type="radio" id="option-2-2" oninput="commerc()" class="radiobutton" name="choice2">Premium</input>
-											<label for="contactChoice2">Premium, 12,345$ per elevator and 13% installation fees</label>
-										
-											<input type="radio" id="option-3-2" oninput="commerc()" class="radiobutton" name="choice2">Excelium</input>
-											<label for="contactChoice3">Excelium 15,400$ per elevator and 16% installation fees</label>
-										</div>
-										</div>
-										<hr>
-										<div id="commercialprice">
-											<h2>Number of Elevator Cages : <span id="numberofcages"></span></h2>
-											<h2>Elevator Price : <span id="price2"> Price</span>$</h2>
-											<h2>Installation fees : <span id="fees2"> Price</span>$</h2>
-											<h1>Total Price :<span id="totalPrice2"></span>$</h1>
-											<div class="col-md-12">
-												<button type="submit" class="btn btn-primary"> SUBMIT</button>
-												<hr>
-											</form>
-											</div>
-											</div>
-									</div>
-									
-							
-
-						        
-						</div>
-						<form  action="form.html">
-						<div  id="corporate" class="row">
-								<div class="col-md-8">
-									
-								<div>
-									<label for="companies"><h3>The number of separate tenant companies</h3></label>
-									<input id="companies" class="companies" type="number" min="1"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="floors"><h3>The number of floors contained in the building, excluding basements</h3></label>
-									<input id="floors3" type="number" min="1" oninput="occupantMulFloors()"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="basements"><h3>The number of basements contained in the building</h3></label>
-									<input id="basements" type="number" min="1" oninput="occupantMulFloors()"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="parking"><h3>The number of parking spaces available</h3></label>
-									<input id="parking2" class="parking" type="number" min="1"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="occupant"><h3>The maximum number of occupants per floor</h3></label>
-										<input id="occupant" type="number" min="1" oninput="occupantMulFloors()"></input>
-										</div>
-										<hr>
-									<div id="radiochoice1">
-										<h2>Total Occupant: <span id="resultocc"></span></p></h2>
-											
-											<h2>Recommended Elevator Needed : <span id="result3"></span> </h2>
-											<div>
-																					
-											<input type="radio" class="radiobutton" name="servicechoice3" oninput="occupantMulFloors()" value="1" id="option-1-3">Standart</input>
-											<label for="1">7,565$ per elevator and 10% installation fees</label>
-											<input type="radio" class="radiobutton" name="servicechoice3" oninput="occupantMulFloors()" value="2" id="option-2-3">Premium</input>
-											<label for="2">12,345$ per elevator and 13% installation fees</label>
-											<input type="radio" class="radiobutton" name="servicechoice3" oninput="occupantMulFloors()" value="3" id="option-3-3">Excelium</input>
-											<label for="2">15,400$ per elevator and 16% installation fees</label>
-											<hr>
-											<div id="priceCorporate">
-											<h2>Elevator Price : <span id="price3"> Price</span>$</h2>
-											<h2>Installation fees : <span id="fees3"> Price</span>$</h2>
-											<h1>Total Price :<span id="totalPrice3"></span>$</h1>
-											<div class="col-md-12">
-												<button type="submit" class="btn btn-primary"> SUBMIT</button>
-												<hr>
-											</form>
-											</div>
-											</div>
-										</div>	
-								    </div>
-									        </div>
-
-						</div>
-						<form  action="form.html">
-						<div  id="hybrid" class="row" >
-								
-								<div class="col-md-8" >
-									<div>
-										
-										<label for="busisnesses"><h3>Number of distinc busisnesses</h3></label>
-									<input id="busisnesses2" class="businesses" type="number" min="1"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="floors"><h3>The number of floors contained in the building, excluding basements</h3></label>
-									<input id="floors4" type="number" min="1" oninput="hybridfunc()"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="basements"><h3>The number of basements contained in the building</h3></label>
-									<input id="basements4" type="number" min="1" oninput="hybridfunc()"></input>
-									</div>
-									<hr>
-									<div>
-										<label for="parking"><h3>The number of parking spaces available</h3></label>
-									<input id="parking3" class="parking" type="number" min="1" ></input>
-									</div>
-									<hr>
-									<div>
-										<label for="occupant"><h3>The maximum number of occupants per floor</h3></label>
-										<input id="occupant4" type="number" min="1" oninput="hybridfunc()"></input>
-										</div>
-										<hr>
-										<div>
-											<label for="hours"><h3>The number of hours of activity of the building (the maximum being 24)</h3></label>
-											
-											<div  class="col-md-8" style="float: right;;width: 20%;">
-												<select class="form-control pointer" id="hours" style="background-color: #F5F5F5;">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
-													<option value="13">13</option>
-													<option value="14">14</option>
-													<option value="15">15</option>
-													<option value="16">16</option>
-													<option value="17">17</option>
-													<option value="18">18</option>
-													<option value="19">19</option>
-													<option value="20">20</option>
-													<option value="21">21</option>
-													<option value="22">22</option>
-													<option value="23">23</option>
-													<option value="24">24</option>
-												</select>
-													
-												 
-											</div>
-                                            </div>
-											</div>
-											
-											<div id="radiochoice2">
-												<hr>
-											<h2>Total Occupant:<span id="resultocc2"></span></h2>
-												<h2>Recommended Elevator Needed : <span id="result4"></span>
-												</h2>
-												<hr>
-						
-						<input type="radio" class="radiobutton" name="servicechoice4" oninput="hybridfunc()" value="1" id="option-1-4">Standart</input>
-						<label for="1">7,565$ per elevator and 10% installation fees</label>
-                        <input type="radio" class="radiobutton" name="servicechoice4" oninput="hybridfunc()" value="2" id="option-2-4">Premium</input>
-						<label for="2">12,345$ per elevator and 13% installation fees</label>
-                        <input type="radio" class="radiobutton" name="servicechoice4" oninput="hybridfunc()" value="3" id="option-3-4">Excelium</input>
-						<label for="2">15,400$ per elevator and 16% installation fees</label>
-						<div id="priceHybrid">
-							<hr>
-						<h2>Elevator Price : <span id="price4"> Price</span></h2>
-						<h2>Installation fees : <span id="fees4"> Price</span>$</h2>
-						<h1>Total Price :<span id="totalPrice4"></span>$</h1>
-				
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary"> SUBMIT</button>
-								<hr>
-							</form>
-							</div>	
-					</div>
-					
-						
-						</div>
-
-
-						  
-
-
-    
-
-					</fieldset>
-
-
-
-					<div class="row">
-
-					</div>
-				</form>
-			</div>
-			
-			
-
-			<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
-
-
-					<div class="row">
-
-						<!-- col #1 -->
-						<div class="col-md-8">
-
-							<h3 class="letter-spacing-1">WHY US?</h3>
-
-							<!-- Small Description -->
-							<p>
-								We are simply the best elevator company in the market with more than 200,000 elevator around the globe, we design the best and efficiant elevator for your needs.
-							</p>
-							<h2>+1 800-887-2497</h2>
-						</div>
-						<!-- /col #1 -->
-
-						<!-- col #2 -->
-						<div class="col-md-4">
-						
-
-							<!-- Newsletter Form -->
-
-							<!-- /Newsletter Form -->
-
-
-						</div>
-						<!-- /col #2 -->
-
-					</div>
-
-
-				</div>
-
-				<div class="copyright">
-					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-
-						</ul>
-						&copy; All Rights Reserved,Rocket Elevator Company LTD
-					</div>
-				</div>
-
-			</footer>
-			<!-- /FOOTER -->
-
-		</div>
-		<!-- /wrapper -->
-
-
-		<!-- SCROLL TO TOP -->
-		<a href="#" id="toTop"></a>
-
-
-	
-
-
-		<!-- JAVASCRIPT FILES -->
-		<script>var plugin_path = 'assets/plugins/';</script>
-		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-		<script src="assets/js/scripts.js"></script>
-		<script src="assets/js/app.js"></script>
-        <script src="assets/js/quote.js"></script>
-		
-
-
-		<!-- REVOLUTION SLIDER -->
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="assets/js/view/demo.revolution_slider.js"></script>
-
-		<!-- PAGELEVEL SCRIPTS -->
-		<script src="assets/js/contact.js"></script>
-		<script src="assets/js/index.js"></script>
-
-<script> var formData = document.getElementById('appartement').value; //Array 
-
-
-$.ajax({
-    url : "127.0.0.1:5500/submission.html", // Url of backend (can be python, php, etc..)
-    type: "POST", // data type (can be get, post, put, delete)
-  // data in json format
-  	async : true, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
-    success: function(response, textStatus, jqXHR) {
-    	console.log(response);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-		console.log(jqXHR);
-      	console.log(textStatus);
-      	console.log(errorThrown);
-    }
-}); 
-</script>
-
-	</body>
+      <script src="assets/js/quote.js"></script>
+    </div>
+  </body>
 </html>

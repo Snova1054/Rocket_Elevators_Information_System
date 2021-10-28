@@ -26,7 +26,8 @@
       rel="stylesheet"
       type="text/css"
     />
-  </head>
+
+
   <body class="enable-animation">
     <!-- wrapper -->
     <div id="wrapper">
@@ -44,8 +45,8 @@
             </button>
 
             <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#home">
-              <%= image_tag ("/images/R2.png") %>
+            <a class="logo float-left scrollTo" href="#top">
+              <%= image_tag "/images/R2.png" %>
             </a>
 
             <!-- 
@@ -105,7 +106,7 @@
 
       <!-- REVOLUTION SLIDER -->
       <div id="home">
-        <div >
+        <div class="slider fullwidthbanner-container roundedcorners">
           <div
             class="fullwidthbanner"
             data-height="600"
@@ -122,11 +123,15 @@
                 data-title="Our Services"
               >
                 <!-- MAIN IMAGE -->
-  
-                  
-                  <%= image_tag "/images/elevator1.jpeg" %>
-       
-                 
+                <%= image_tag '/elevator1.jpeg' %>
+                <%# <img
+                  src="assets/images/elevator1.jpeg"
+                  alt="cover image"
+                  data-bgposition="center top"
+                  data-bgfit="cover"
+                  data-bgrepeat="no-repeat"
+                /> %>
+
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
@@ -195,7 +200,7 @@
                     white-space: nowrap;
                   "
                 >
-                  <a class="btn btn-success btn-lg" href="quote"
+                  <a class="btn btn-success btn-lg" href="quote.html"
                     >GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i
                   ></a>
                 </div>
@@ -210,7 +215,7 @@
                 data-title="Residential Building Service"
               >
                 <!-- MAIN IMAGE -->
-                  <%= image_tag "/images/elevator2.jpeg" %>
+                <%= image_tag '/elevator2.jpeg' %>
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
@@ -260,7 +265,7 @@
                     white-space: nowrap;
                   "
                 >
-                  <a class="btn btn-success btn-lg" href="home/residential"
+                  <a class="btn btn-success btn-lg" href="residential.html"
                     >OUR RESIDENTIAL SERVICES &nbsp;
                     <i class="fa fa-angle-right"></i
                   ></a>
@@ -276,8 +281,7 @@
                 data-title="Corporate Building Service"
               >
                 <!-- MAIN IMAGE -->
-                <%= image_tag "/images/elevator3.jpeg" %>
- 
+                <%= image_tag '/elevator3.jpeg' %>
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
@@ -327,7 +331,7 @@
                     white-space: nowrap;
                   "
                 >
-                  <a class="btn btn-success btn-lg" href="commercial"
+                  <a class="btn btn-success btn-lg" href="commercial.html"
                     >OUR CORPORATE SERVICES &nbsp;
                     <i class="fa fa-angle-right"></i
                   ></a>
@@ -364,7 +368,7 @@
             </div>
 
             <div class="col-sm-4">
-              <a class="image-hover" href="residential">
+              <a class="image-hover" href="residential.html">
                 <span class="image-hover-icon image-hover-dark"> </span>
                 <%= image_tag "/images/elevator5.jpeg", :class => "img-fluid" %>
               </a>
@@ -373,11 +377,11 @@
                 The last trend of Residential Elevators per Building brought
                 directly to you from our engineers.
               </p>
-              <a href="residential" class="btn btn-success">READ MORE</a>
+              <a href="residential.html" class="btn btn-success">READ MORE</a>
             </div>
 
             <div class="col-sm-4">
-              <a class="image-hover" href="commercial">
+              <a class="image-hover" href="commercial.html">
                 <span class="image-hover-icon image-hover-dark"> </span>
                 <%= image_tag "/images/elevator6.jpeg", :class => "img-fluid" %>
               </a>
@@ -386,7 +390,7 @@
                 The ultimate technology in Elevators. Designed for growth, only
                 for Corporate and Commercial Buildings.
               </p>
-              <a href="commercial" class="btn btn-success">READ MORE</a>
+              <a href="commercial.html" class="btn btn-success">READ MORE</a>
             </div>
           </div>
         </div>
@@ -394,16 +398,14 @@
       <!-- /Services -->
 
       <!-- Parallax -->
-      <section
       <section class="parallax parallax-1 section-full-width" style="background-image: url('images/R2-01.jpg');">
-        
-      >
+      
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
         <div class="container">
           <div class="text-center">
             <h2 class="fs-40 fw-300">In business since 1976</h2>
-            <a class="btn btn-success btn-lg" href="quote">
+            <a class="btn btn-success btn-lg" href="quote.html">
               RESQUEST A QUOTE <i class="fa fa-angle-right"></i
             ></a>
             &nbsp; OR &nbsp;
@@ -450,8 +452,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/stars.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/stars.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -474,8 +475,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/residential1.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/residential1.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -498,8 +498,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/corporate1.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/corporate1.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -522,9 +521,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/trophy.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
-
+                  <%= image_tag '/images/trophy.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -547,8 +544,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/residential2.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/residential2.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -571,8 +567,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/corporate2.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/corporate2.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -595,8 +590,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/blue-trophy.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/blue-trophy.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -619,8 +613,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/residential3.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/residential3.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -643,9 +636,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/corporate3.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
-
+                  <%= image_tag '/images/corporate3.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -668,9 +659,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/award.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
-
+                  <%= image_tag '/images/award.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -693,8 +682,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/residential4.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/residential4.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -717,8 +705,7 @@
                   <span class="item-hover">
                     <span class="overlay dark-4"></span>
                   </span>
-
-                  <%= image_tag '/images/corporate4.jpg', :class => 'img-fluid', style: 'height:600vw;width:399vw;' %>
+                  <%= image_tag '/images/corporate4.jpg', :class => 'img-fluid', :size => "600x399" %>
                 </figure>
 
                 <div class="item-box-desc">
@@ -746,7 +733,7 @@
           >
             <div id="CEO" class="testimonial">
               <figure>
-                <%= image_tag '/images/CEO.jpg', :class => 'rounded' %>
+                <img class="rounded" src="assets/images/CEO.jpg" alt="" />
               </figure>
               <div class="testimonial-content p-0">
                 <p class="lead">
@@ -764,8 +751,11 @@
             </div>
             <div id="employee" class="testimonial">
               <figure>
-
-                <%= image_tag '/images/employee-of-the-month.jpg', :class => 'rounded' %>
+                <img
+                  class="rounded"
+                  src="assets/images/employee-of-the-month.jpg"
+                  alt=""
+                />
               </figure>
               <div class="testimonial-content p-0">
                 <p class="lead">
@@ -820,7 +810,11 @@
               <a
                 href="https://www.elevator-business.com/elevator-exhibitions-around-the-world/?lang=en"
               >
-                <%= image_tag "/images/city-skyscraper.jpg" %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/city-skyscraper.jpg"
+                  alt=""
+                />
               </a>
 
               <h4 class="text-left mt-20">
@@ -844,7 +838,11 @@
               <a
                 href="https://www.elevator-business.com/a-world-class-elevators-escalators-event-brought-to-you-by-the-experts/?lang=en"
               >
-                <%= image_tag '/images/WorldElevator.jpg', :class => 'img-fluid' %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/WorldElevator.jpg"
+                  alt=""
+                />
               </a>
 
               <h4 class="text-left mt-20">
@@ -868,7 +866,11 @@
               <a
                 href="https://www.elevator-business.com/elevators-artificial-intelligence/?lang=en"
               >
-                <%= image_tag '/images/AIelevator.jpg', :class => 'img-fluid' %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/AIelevator.jpg"
+                  alt=""
+                />
               </a>
 
               <h4 class="text-left mt-20">
@@ -893,7 +895,11 @@
               <a
                 href="https://www.elevator-business.com/lascenseur-a-hydrogene/?lang=en"
               >
-                <%= image_tag '/images/Hydrogen.jpg', :class => 'img-fluid' %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/Hydrogen.jpg"
+                  alt=""
+                />
               </a>
 
               <h4 class="text-left mt-20">
@@ -917,7 +923,11 @@
               <a
                 href="https://www.elevator-business.com/2017-un-record-de-vitesse-signe-hitachi/?lang=en"
               >
-                <%= image_tag '/images/FastestElevator.jpg', :class => 'img-fluid' %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/FastestElevator.jpg"
+                  alt=""
+                />
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -940,7 +950,11 @@
               <a
                 href="https://www.elevator-business.com/interlift-2019-exhibition-in-pictures/?lang=en"
               >
-                <%= image_tag '/images/InterLift.jpg', :class => 'img-fluid' %>
+                <img
+                  class="img-fluid"
+                  src="assets/images/InterLift.jpg"
+                  alt=""
+                />
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -973,40 +987,88 @@
 
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Chupacabra.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/Chupacabra.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/FeelsGoodMan.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/FeelsGoodMan.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/GoldenMaiden.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/GoldenMaiden.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/HashPay.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/HashPay.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/HTQueen.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/HTQueen.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Kovyd.png", :class => "img-fluid" %>
+              <img
+                class="img-fluid"
+                src="assets/images/Kovyd.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/SN1054.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/SN1054.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/SuperBBQ.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/SuperBBQ.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Ubihard.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/Ubihard.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Wakanda.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/Wakanda.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/xQcL.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/xQcL.png"
+                alt="client"
+              />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/YouGanda.png", :class => "img-fluid"%>
+              <img
+                class="img-fluid"
+                src="assets/images/YouGanda.png"
+                alt="client"
+              />
             </li>
           </ul>
         </div>
@@ -1286,7 +1348,7 @@
             <!-- col #2 -->
             <div class="col-md-4">
               <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
-                
+
               <!-- Newsletter Form -->
               <p>Subscribe to Our Newsletter to get Important News & Offers</p>
 
@@ -1337,6 +1399,18 @@
 
     <!-- SCROLL TO TOP -->
     <a href="#" id="toTop"></a>
-    
+
+    <!-- JAVASCRIPT FILES -->
+    <script>
+      var plugin_path = "assets/plugins/";
+    </script>
+    <script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+    <script src="assets/scripts.js"></script>
+
+    <!-- REVOLUTION SLIDER -->
+    <script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/view/demo.revolution_slider.js"></script>
   </body>
 </html>

@@ -1,0 +1,107 @@
+
+
+<h1>Submission Form</h1>
+
+
+<%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
+  
+  
+  <p onchange="getSelectValue()">
+  <%= form.label :building_type %><br>
+  <%= form.select :building_type, [["Select", "select"], ["Residential", "residential"], ["Commercial", "commercial"], ["Corporate", "corporateHybrid"], ["Hybrid", "corporateHybrid"]] %>
+  </p>
+   <div id="floorBasement" style="display: none;">
+      <p oninput="whichRadioButton()">
+      <%= form.label :floor, :"Number of Floor :" %><br>
+      <%= form.number_field :floor, min: 2, :required => 'required' %>
+    </p>
+
+ 
+    <p oninput="whichRadioButton()">
+      <%= form.label :basement, :"Number of Basement :" %><br>
+      <%= form.number_field :basement, min: 0 , :required => 'required'%>
+    </p>
+  </div>
+  <%# Residential %>
+  <div id="residential" style="display: none;">
+    <p oninput="residential()">
+      <%= form.label :appartement, :"Number of Appartement :" %><br>
+      <%= form.number_field :appartement, min: 1 %>
+    </p>
+  
+  </div>
+
+<%# Commercial %>
+<div id="commercial" style="display: none;">
+    <p oninput="commercial();">
+      <%= form.label :business, :"Number of Businesses :" %><br>
+      <%= form.number_field :business, min: 1%>
+    </p>
+  
+    </p>
+      <p oninput="commercial();">
+      <%= form.label :parking, :"Number of Parking :" %><br>
+      <%= form.number_field :parking , min: 1%>
+    </p>
+
+ 
+    <p oninput="commercial();">
+      <%= form.label :cages, :"Number of Cage to be Deployed :" %><br>
+      <%= form.number_field :cages , min: 1%>
+    </p>
+  </div>
+
+  <%# Corporate and Hybrid %>
+
+  <div id="corporateHybrid" style="display: none;">
+    <p oninput="corporateHybrid1();">
+      <%= form.label :business, :"Number of Businesses :" %><br>
+      <%= form.number_field :business , min: 1%>
+    </p>
+  
+    </p>
+
+        <p oninput="corporateHybrid1();">
+      <%= form.label :parking, :"Number of Parking :" %><br>
+      <%= form.number_field :parking , min: 1%>
+    </p>
+
+ 
+    <p oninput="corporateHybrid1();">
+      <%= form.label :occupant, :"Number of Occupant per Floor :" %><br>
+      <%= form.number_field :occupant , min: 1%>
+    </p>
+    </div>
+
+    <%# Radio Button for Hybrid and Corporate %>
+     <div id="radio_button" style="display: none;" onchange="whichRadioButton()">
+      <p>
+      <%= form.radio_button :plan, 'standart' %> 
+      <%= form.label :plan, 'Standart', :value => 'standart' %>
+      <%= form.radio_button :plan, 'premium' %>
+      <%= form.label :plan, 'Premium', :value => 'premium' %>
+      <%= form.radio_button :plan, 'excelium' %>
+      <%= form.label :plan, 'Excelium', :value => 'excelium' %>
+    </p>
+  
+  </div>
+      
+
+  <%# Result %>
+  <div id="result" style="display: none;">
+  <h2> Elevator needed : <span id="elevatorNeeded"></span></h2>
+  <%= form.hidden_field :elevatorNeeded %>
+  <h2>Price per Cage :<span id="cageNeeded"></span>$</h2>
+  <%= form.hidden_field :cageNeeded %>
+  <h2>Elevator Price : <span id="price"> Price</span>$</h2>
+  <%= form.hidden_field :price %>
+  <h2>Installation fees : <span id="fees"> Price</span>$</h2>
+  <%= form.hidden_field :fees %>
+  <h1>Total Price :<span id="totalPrice"></span>$</h1>
+  <%= form.hidden_field :totalPrice %>
+  </div>
+ 
+  <p>
+    <%= form.submit :Submit %>
+  </p>
+<% end %>

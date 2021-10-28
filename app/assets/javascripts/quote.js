@@ -1,5 +1,3 @@
-setInterval(continuousActions, 50);
-
 const standardPrice = 7565;
 const premiumPrice = 12345;
 const exceliumPrice = 15400;

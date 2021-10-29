@@ -1,4 +1,4 @@
 class AdminController < ApplicationController
+    before_action :authenticate_user
     protect_from_forgery prepend: true
-    before_action :authenticate_user!
 end

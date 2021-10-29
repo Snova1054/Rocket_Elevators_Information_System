@@ -1,4 +1,4 @@
-  <head>
+<head>
   <meta charset="utf-8" />
   <title>Rocket Elevator | Residential</title>
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
@@ -114,165 +114,181 @@
       </header>
       <!-- /Top Nav -->
     </div>
-<h1>Submission Form</h1>
+    <div class="container">
+    <h1>Submission Form</h1>
 
 
-<%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
-  
-  
-  <p onchange="getSelectValue()">
-  <%= form.label :building_type %><br>
-  <%= form.select :building_type, [["Select", "select"], ["Residential", "residential"], ["Commercial", "commercial"], ["Corporate", "corporateHybrid"], ["Hybrid", "corporateHybrid"]] %>
-  </p>
-   <div id="floorBasement" style="display: none;">
-      <p oninput="whichRadioButton()">
-      <%= form.label :floor, :"Number of Floor :" %><br>
-      <%= form.number_field :floor, min: 2, :required => 'required' %>
-    </p>
+    <%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
 
- 
-    <p oninput="whichRadioButton()">
-      <%= form.label :basement, :"Number of Basement :" %><br>
-      <%= form.number_field :basement, min: 0 , :required => 'required'%>
-    </p>
-  </div>
-  <%# Residential %>
-  <div id="residential" style="display: none;">
-    <p oninput="residential()">
-      <%= form.label :appartement, :"Number of Appartement :" %><br>
-      <%= form.number_field :appartement, min: 1 %>
-    </p>
-  
-  </div>
 
-<%# Commercial %>
-<div id="commercial" style="display: none;">
-    <p oninput="commercial();">
-      <%= form.label :business, :"Number of Businesses :" %><br>
-      <%= form.number_field :business, min: 1%>
-    </p>
-  
-    </p>
-      <p oninput="commercial();">
-      <%= form.label :parking, :"Number of Parking :" %><br>
-      <%= form.number_field :parking , min: 1%>
-    </p>
+      <p onchange="getSelectValue()">
+        <%= form.label :building_type %><br>
+          <%= form.select :building_type, [["Select", "select" ], ["Residential", "residential" ],
+            ["Commercial", "commercial" ], ["Corporate", "corporateHybrid" ], ["Hybrid", "corporateHybrid" ]] %>
+      </p>
+      <div id="floorBasement" style="display: none;">
+        <p oninput="whichRadioButton()">
+          <%= form.label :floor, :"Number of Floor :" %><br>
+            <%= form.number_field :floor, min: 2, :required=> 'required' %>
+        </p>
 
- 
-    <p oninput="commercial();">
-      <%= form.label :cages, :"Number of Cage to be Deployed :" %><br>
-      <%= form.number_field :cages , min: 1%>
-    </p>
-  </div>
 
-  <%# Corporate and Hybrid %>
+        <p oninput="whichRadioButton()">
+          <%= form.label :basement, :"Number of Basement :" %><br>
+            <%= form.number_field :basement, min: 0 , :required=> 'required'%>
+        </p>
+      </div>
+      <%# Residential %>
+        <div id="residential" style="display: none;">
+          <p oninput="residential()">
+            <%= form.label :appartement, :"Number of Appartement :" %><br>
+              <%= form.number_field :appartement, min: 1 %>
+          </p>
 
-  <div id="corporateHybrid" style="display: none;">
-    <p oninput="corporateHybrid1();">
-      <%= form.label :business, :"Number of Businesses :" %><br>
-      <%= form.number_field :business , min: 1%>
-    </p>
-  
-    </p>
+        </div>
 
-        <p oninput="corporateHybrid1();">
-      <%= form.label :parking, :"Number of Parking :" %><br>
-      <%= form.number_field :parking , min: 1%>
-    </p>
-
- 
-    <p oninput="corporateHybrid1();">
-      <%= form.label :occupant, :"Number of Occupant per Floor :" %><br>
-      <%= form.number_field :occupant , min: 1%>
-    </p>
-    </div>
-
-    <%# Radio Button for Hybrid and Corporate %>
-     <div id="radio_button" style="display: none;" onchange="whichRadioButton()">
-      <p>
-      <%= form.radio_button :plan, 'standart' %> 
-      <%= form.label :plan, 'Standart', :value => 'standart' %>
-      <%= form.radio_button :plan, 'premium' %>
-      <%= form.label :plan, 'Premium', :value => 'premium' %>
-      <%= form.radio_button :plan, 'excelium' %>
-      <%= form.label :plan, 'Excelium', :value => 'excelium' %>
-    </p>
-  
-  </div>
-      
-
-  <%# Result %>
-  <div id="result" style="display: none;">
-  <h2> Elevator needed : <span id="elevatorNeeded"></span></h2>
-  <%= form.hidden_field :elevatorNeeded %>
-  <h2>Price per Cage :<span id="cageNeeded"></span>$</h2>
-  <%= form.hidden_field :cageNeeded %>
-  <h2>Elevator Price : <span id="price"> Price</span>$</h2>
-  <%= form.hidden_field :price %>
-  <h2>Installation fees : <span id="fees"> Price</span>$</h2>
-  <%= form.hidden_field :fees %>
-  <h1>Total Price :<span id="totalPrice"></span>$</h1>
-  <%= form.hidden_field :totalPrice %>
-  </div>
- 
-  <p>
-    <%= form.submit :Submit %>
-  </p>
-<% end %>
-
-    <!-- FOOTER -->
-    <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <!-- col #1 -->
-          <div class="col-md-8">
-            <h3 class="letter-spacing-1">WHY US?</h3>
-
-            <!-- Small Description -->
-            <p>
-              We have the conviction that we create the most innovative and
-              reliable products on the market. Contact us today for any
-              questions you might have.
+        <%# Commercial %>
+          <div id="commercial" style="display: none;">
+            <p oninput="commercial();">
+              <%= form.label :business, :"Number of Businesses :" %><br>
+                <%= form.number_field :business, min: 1%>
             </p>
-            <h2>(418) 555-1234</h2>
+
+            </p>
+            <p oninput="commercial();">
+              <%= form.label :parking, :"Number of Parking :" %><br>
+                <%= form.number_field :parking , min: 1%>
+            </p>
+
+
+            <p oninput="commercial();">
+              <%= form.label :cages, :"Number of Cage to be Deployed :" %><br>
+                <%= form.number_field :cages , min: 1%>
+            </p>
           </div>
-          <!-- /col #1 -->
 
-          <!-- col #2 -->
-          <div class="col-md-4">
-            <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+          <%# Corporate and Hybrid %>
 
-            <!-- Newsletter Form -->
-            <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+            <div id="corporateHybrid" style="display: none;">
+              <p oninput="corporateHybrid1();">
+                <%= form.label :business, :"Number of Businesses :" %><br>
+                  <%= form.number_field :business , min: 1%>
+              </p>
 
-            <form class="validate" action="" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                <input type="email" id="email" name="email" class="form-control required"
-                  placeholder="Enter your Email" />
-                <span class="input-group-btn">
-                  <button class="btn btn-success" type="submit">
-                    Subscribe
-                  </button>
-                </span>
+              </p>
+
+              <p oninput="corporateHybrid1();">
+                <%= form.label :parking, :"Number of Parking :" %><br>
+                  <%= form.number_field :parking , min: 1%>
+              </p>
+
+
+              <p oninput="corporateHybrid1();">
+                <%= form.label :occupant, :"Number of Occupant per Floor :" %><br>
+                  <%= form.number_field :occupant , min: 1%>
+              </p>
+            </div>
+
+            <%# Radio Button for Hybrid and Corporate %>
+              <div id="radio_button" style="display: none;" onchange="whichRadioButton()">
+                <p>
+                  <%= form.radio_button :plan, 'standart' %>
+                    <%= form.label :plan, 'Standart' , :value=> 'standart' %>
+                      <%= form.radio_button :plan, 'premium' %>
+                        <%= form.label :plan, 'Premium' , :value=> 'premium' %>
+                          <%= form.radio_button :plan, 'excelium' %>
+                            <%= form.label :plan, 'Excelium' , :value=> 'excelium' %>
+                </p>
+
               </div>
-            </form>
-            <!-- /Newsletter Form -->
-          </div>
-          <!-- /col #2 -->
-        </div>
-      </div>
 
-      <div class="copyright">
-        <div class="container">
-          <ul class="float-right m-0 list-inline mobile-block">
-            <li><a href="#">Terms &amp; Conditions</a></li>
-            <li>&bull;</li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-          &copy; All Rights Reserved, Rocket Elevators
-        </div>
-      </div>
-    </footer>
-    <!-- /FOOTER -->
+
+              <%# Result %>
+                <div id="result" style="display: none;">
+                  <h2> Elevator needed : <span id="elevatorNeeded"></span></h2>
+                  <%= form.hidden_field :elevatorNeeded %>
+                    <h2>Price per Cage :<span id="cageNeeded"></span>$</h2>
+                    <%= form.hidden_field :cageNeeded %>
+                      <h2>Elevator Price : <span id="price"> Price</span>$</h2>
+                      <%= form.hidden_field :price %>
+                        <h2>Installation fees : <span id="fees"> Price</span>$</h2>
+                        <%= form.hidden_field :fees %>
+                          <h1>Total Price :<span id="totalPrice"></span>$</h1>
+                          <%= form.hidden_field :totalPrice %>
+                </div>
+
+                <p>
+                  <%= form.submit :Submit %>
+                </p>
+                <% end %>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+                  <!-- FOOTER -->
+                  <footer id="footer">
+                    <div class="container">
+                      <div class="row">
+                        <!-- col #1 -->
+                        <div class="col-md-8">
+                          <h3 class="letter-spacing-1">WHY US?</h3>
+
+                          <!-- Small Description -->
+                          <p>
+                            We have the conviction that we create the most innovative and
+                            reliable products on the market. Contact us today for any
+                            questions you might have.
+                          </p>
+                          <h2>(418) 555-1234</h2>
+                        </div>
+                        <!-- /col #1 -->
+
+                        <!-- col #2 -->
+                        <div class="col-md-4">
+                          <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+                          <!-- Newsletter Form -->
+                          <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+                          <form class="validate" action="" data-success="Subscribed! Thank you!"
+                            data-toastr-position="bottom-right">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                              <input type="email" id="email" name="email" class="form-control required"
+                                placeholder="Enter your Email" />
+                              <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit">
+                                  Subscribe
+                                </button>
+                              </span>
+                            </div>
+                          </form>
+                          <!-- /Newsletter Form -->
+                        </div>
+                        <!-- /col #2 -->
+                      </div>
+                    </div>
+
+                    <div class="copyright">
+                      <div class="container">
+                        <ul class="float-right m-0 list-inline mobile-block">
+                          <li><a href="#">Terms &amp; Conditions</a></li>
+                          <li>&bull;</li>
+                          <li><a href="#">Privacy</a></li>
+                        </ul>
+                        &copy; All Rights Reserved, Rocket Elevators
+                      </div>
+                    </div>
+                  </footer>
+                  <!-- /FOOTER -->
   </div>

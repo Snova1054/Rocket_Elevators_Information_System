@@ -124,7 +124,7 @@
                 <% end %>
                 <% if user_signed_in? %>
                   <li>
-                    <%= link_to "INDEX" , quotes_path, :class=> 'navbar-link' %>
+                    <a class='navbar-link' href="/admin">ADMIN</a>
                   </li>
                 <% end %>
               </ul>
@@ -158,15 +158,16 @@
             <%= form.number_field :basement, min: 0 , :required=> 'required'%>
         </p>
       </div>
+      
       <%# Residential %>
         <div id="residential" style="display: none;">
           <p oninput="residential()">
             <%= form.label :appartement, :"Number of Appartement :" %><br>
-              <%= form.number_field :appartement, min: 1 %>
+              <%= form.number_field :appartement, min: 1%>
           </p>
 
         </div>
-
+      
         <%# Commercial %>
           <div id="commercial" style="display: none;">
             <p oninput="commercial();">
@@ -212,8 +213,8 @@
             <%# Radio Button for Hybrid and Corporate %>
               <div id="radio_button" style="display: none;" onchange="whichRadioButton()">
                 <p>
-                  <%= form.radio_button :plan, 'standart' %>
-                    <%= form.label :plan, 'Standart' , :value=> 'standart' %>
+                  <%= form.radio_button :plan, 'standard', :required=> 'required' %>
+                    <%= form.label :plan, 'standard' , :value=> 'standard' %>
                       <%= form.radio_button :plan, 'premium' %>
                         <%= form.label :plan, 'Premium' , :value=> 'premium' %>
                           <%= form.radio_button :plan, 'excelium' %>
@@ -237,10 +238,16 @@
                           <%= form.hidden_field :totalPrice %>
                 </div>
 
-                <p>
-                  <%= form.submit :Submit %>
+                <p style="display: none;" id="submitButton" onclick="alertbox()">
+                  
+                  
+                  <%= form.submit :Submit, :class => 'btn btn-success btn-lg' %>
+                 
+                    
+                  
+                  
                 </p>
-                <% end %>
+        <% end %>
             </div>
             <br>
             <br>

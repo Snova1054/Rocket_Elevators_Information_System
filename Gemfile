@@ -40,12 +40,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # call bootstrap 4
 gem 'bootstrap', '~> 5.0.1'
-# call jquery for rails
-gem 'jquery-rails'
-# call turbolinks for jquery
-gem 'jquery-turbolinks', '~> 2.1'
-# call font awesome for rails
-gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,12 +53,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  gem 'capistrano', '~> 3.16', require: false
-  gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'capistrano-bundler', '>= 1.1.0'
-  gem 'rvm1-capistrano3', require: false
-  gem 'capistrano3-puma'
 end
 
 group :test do
@@ -77,3 +65,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#jquerry
+gem 'jquery-rails'
+
+gem 'jquery-turbolinks', '~> 2.1'
+
+gem "font-awesome-rails"
+
+gem 'rails_admin', '~> 2.0'

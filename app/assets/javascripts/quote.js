@@ -1,9 +1,7 @@
-
 function whichRadioButton() {
   var selectedValue = document.getElementById("quote_building_type").value;
   if (selectedValue == "residential") {
     residential();
-
   }
   else if (selectedValue == "commercial") {
     commercial();
@@ -12,16 +10,26 @@ function whichRadioButton() {
     corporateHybrid1();
   }
 }
-
+// Alert box to notify the quote has been sent to the DB
+function alertbox() {
+  if (document.getElementById('quote_plan_standard').checked == true || document.getElementById('quote_plan_premium').checked == true || document.getElementById('quote_plan_excelium').checked == true){
+    if (document.getElementById("quote_building_type").value == 'residential' && document.getElementById('quote_floor').value != "" && document.getElementById('quote_basement').value != "" ) {
+      alert("Your quote was successfully sent");
+    }
+    else if (document.getElementById("quote_building_type").value == 'commercial' && document.getElementById('quote_floor').value != "" && document.getElementById('quote_basement').value != "" ){
+      alert("Your quote was successfully sent");
+    }
+    else if (document.getElementById("quote_building_type").value == 'corporateHybrid' && document.getElementById('quote_floor').value != "" && document.getElementById('quote_basement').value != "" ){
+      alert("Your quote was successfully sent");
+    }
+  }
+}
 
 function getSelectValue() {
   var residential = document.getElementById("residential");
   var selectedValue = document.getElementById("quote_building_type").value;
   var commercial = document.getElementById("commercial");
   var corporateHybrid = document.getElementById("corporateHybrid");
-
-
-
   if (selectedValue === 'select') {
     reset();
     $(residential).hide();
@@ -29,8 +37,8 @@ function getSelectValue() {
     $(corporateHybrid).hide();
     $(radio_button).hide();
     $(floorBasement).hide();
+    $(fieldCheck)
   }
-
   if (selectedValue === 'residential') {
       reset();
       $(residential).show();
@@ -48,7 +56,6 @@ function getSelectValue() {
       $(radio_button).show();
       $(floorBasement).show();
   };
-
   if (selectedValue == 'corporateHybrid') {
       reset();  
       $(corporateHybrid).show();
@@ -61,29 +68,25 @@ function getSelectValue() {
   };
   
 }
-
-
 function reset() {
-  document.getElementById('quote_plan_standart').checked = false;
+  document.getElementById('quote_plan_standard').checked = false;
   document.getElementById('quote_plan_premium').checked = false;
   document.getElementById('quote_plan_excelium').checked = false;
   document.getElementById('quote_floor').value = "";
   document.getElementById('quote_basement').value = "";
   document.getElementById('quote_appartement').value = "";
   document.getElementById('quote_cages').value = "";
-  // document.getElementById('quote_business').value = "";
-  // document.getElementById('quote_parking').value = "";
+  document.getElementById('quote_business').value = "";
+  document.getElementById('quote_parking').value = "";
   document.getElementById('quote_occupant').value = "";
   document.getElementById('price').value = "";
   document.getElementById('totalPrice').value = "";
   document.getElementById('cageNeeded').value = "";
   document.getElementById('elevatorNeeded').value = "";
   $(result).hide();
+  $(submitButton).hide();
 }
-
-
 function residential() {
-
   let floors = document.getElementById('quote_floor').value;
   let appartement = document.getElementById('quote_appartement').value;
   let appDivFloors = appartement / floors;
@@ -91,18 +94,14 @@ function residential() {
   let elevatortotal = Math.ceil(elevator);
   let ifmorethan = Math.ceil((floors-1) / 20);
   let colonne = 1 + ifmorethan;
-
   const formatter = new Intl.NumberFormat('en', {
     notation: 'standard',
     minimumFractionDigits: 2
   });
-
   let totalElevatorNeeded = elevatortotal * ifmorethan;
   document.getElementById('elevatorNeeded').innerHTML = totalElevatorNeeded;
   document.getElementById('quote_elevatorNeeded').value = totalElevatorNeeded;
-
-
-        if ($('#quote_plan_standart').prop('checked')) {
+        if ($('#quote_plan_standard').prop('checked')) {
           document.getElementById("price").innerHTML = formatter.format(elevatortotal* ifmorethan * 7565);
           document.getElementById("fees").innerHTML = formatter.format(elevatortotal * ifmorethan * 7565 / 100 * 10);
           document.getElementById("totalPrice").innerHTML = formatter.format(elevatortotal * ifmorethan * 7565 * 1.10);
@@ -111,6 +110,7 @@ function residential() {
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 7565 / 100 * 10).toFixed(2);
           document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 7565 * 1.10).toFixed(2);
           $('#result').show();
+          $(submitButton).show();
       } if ($('#quote_plan_premium').prop('checked')) {
           document.getElementById("price").innerHTML = formatter.format(elevatortotal * ifmorethan * 12345);
           document.getElementById("fees").innerHTML = formatter.format(elevatortotal * ifmorethan * 12345 / 100 * 13);
@@ -120,6 +120,7 @@ function residential() {
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 12345 / 100 * 13).toFixed(2);
           document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 12345 * 1.13).toFixed(2);
           $('#result').show();
+          $(submitButton).show();
       } if ($('#quote_plan_excelium').prop('checked')) {
           document.getElementById("price").innerHTML = formatter.format(elevatortotal * ifmorethan * 15400);
           document.getElementById("fees").innerHTML = formatter.format(elevatortotal * ifmorethan * 15400 / 100 * 16);
@@ -128,23 +129,19 @@ function residential() {
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 15400 / 100 * 16).toFixed(2);
           document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 15400 * 1.16).toFixed(2);
           document.getElementById('cageNeeded').innerHTML = "15,400.00";
-
           $('#result').show();
+          $(submitButton).show();
       }
-
 }
-
 function commercial() {
   let cage = document.getElementById('quote_cages').value;
   document.getElementById('elevatorNeeded').innerHTML = cage
   document.getElementById('quote_elevatorNeeded').value = cage;
-
   const formatter = new Intl.NumberFormat('en', {
     notation: 'standard',
     minimumFractionDigits: 2
   });
-
-  if ($('#quote_plan_standart').prop('checked')) {
+  if ($('#quote_plan_standard').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(cage * 7565);
       document.getElementById("fees").innerHTML = formatter.format(cage * 7565 / 100 * 10);
       document.getElementById("totalPrice").innerHTML = formatter.format(cage * 7565 * 1.10);
@@ -153,6 +150,7 @@ function commercial() {
       document.getElementById("quote_fees").value = parseFloat(cage * 7565 / 100 * 10).toFixed(2);
       document.getElementById("quote_totalPrice").value = parseFloat(cage * 7565 * 1.10).toFixed(2);
       $('#result').show();
+      $(submitButton).show();
     } if ($('#quote_plan_premium').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(cage * 12345);
       document.getElementById("fees").innerHTML = formatter.format(cage * 12345 / 100 * 13);
@@ -162,6 +160,7 @@ function commercial() {
       document.getElementById("quote_fees").value = parseFloat(cage * 12345 / 100 * 13).toFixed(2);
       document.getElementById("quote_totalPrice").value = parseFloat(cage * 12345 * 1.13).toFixed(2);
       $('#result').show();
+      $(submitButton).show();
     } if ($('#quote_plan_excelium').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(cage * 15400);
       document.getElementById("fees").innerHTML = formatter.format(cage * 15400 / 100 * 16);
@@ -171,6 +170,7 @@ function commercial() {
       document.getElementById("quote_fees").value = parseFloat(cage * 15400 / 100 * 16).toFixed(2);
       document.getElementById("quote_totalPrice").value = parseFloat(cage * 15400 * 1.16).toFixed(2);
       $('#result').show();
+      $(submitButton).show();
   }
 }
 //Hide Hybrid and corporate Price and button
@@ -181,8 +181,6 @@ function hidehybrid() {
   $(radiochoice2).hide();
   $(priceHybrid).hide();
 }
-
-
 function corporateHybrid1() {
   let floors = document.getElementById('quote_floor').value;
   let occupant = document.getElementById("quote_occupant").value;
@@ -201,9 +199,7 @@ function corporateHybrid1() {
     notation: 'standard',
     minimumFractionDigits: 2
   });
-
-
-  if ($('#quote_plan_standart').prop('checked')) {
+  if ($('#quote_plan_standard').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(totalelevator * 7565);
       document.getElementById("fees").innerHTML = formatter.format(totalelevator * 7565 / 100 * 10);
       document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 7565 * 1.10);
@@ -212,6 +208,7 @@ function corporateHybrid1() {
       document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 7565 * 1.10).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "7,565.00";
       $('#result').show();
+      $(submitButton).show();
     } if ($('#quote_plan_premium').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(totalelevator * 12345);
       document.getElementById("fees").innerHTML = formatter.format(totalelevator * 12345 / 100 * 13)(2);
@@ -221,6 +218,7 @@ function corporateHybrid1() {
       document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 12345 * 1.13).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "12,345.00";
       $('#result').show();
+      $(submitButton).show();
     } if ($('#quote_plan_excelium').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(totalelevator * 15400);
       document.getElementById("fees").innerHTML = formatter.format(totalelevator * 15400 / 100 * 16);
@@ -230,13 +228,6 @@ function corporateHybrid1() {
       document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 15400 * 1.16).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "15,400.00";
       $('#result').show();
-
+      $(submitButton).show();
   }
-
-
-
 }
-
-
-
-

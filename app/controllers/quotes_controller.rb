@@ -1,6 +1,5 @@
 class QuotesController < ApplicationController
-  before_action :authenticate_user!, :only => [:show]
-  before_action :authenticate_user!, :only => [:index]
+
     def new
       @quote = Quote.new
     end
@@ -17,7 +16,7 @@ class QuotesController < ApplicationController
       @quote = Quote.new(quote_params)
       
       @quote.save
-      redirect_to @quote
+      redirect_to "#home"
     end
 
     def building_type
@@ -36,4 +35,5 @@ class QuotesController < ApplicationController
       params.require(:quote).permit(:building_type, :appartement, :floor, :basement, :plan, :business, :parking, :cages, :occupant, :elevatorNeeded, :price, :fees, :totalPrice)
     end
     
+
 end

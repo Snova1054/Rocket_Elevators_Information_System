@@ -107,17 +107,21 @@
                   <!-- CONTACT -->
                   <a href="../../#contact"> CONTACT </a>
                 </li>
-                    <li>
-                              <p class="navbar-text float-right">
-              <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-                    </li>
+                <% if user_signed_in? %>
+                  <li> 
+                    <%= link_to "LOGOUT" , destroy_user_session_path, method: :delete, :class=> 'navbar-link' %>
+                  </li>
+                  <li>      
+                    <%= link_to 'EDIT PROFILE' , edit_user_registration_path, :class=> 'navbar-link' %>
+                  </li>
+                <% else %> 
+                  <li>
+                    <%= link_to "LOGIN" , new_user_session_path, :class=> 'navbar-link' %>
+                  </li>
+                  <li>
+                    <%= link_to "SIGN UP" , new_user_registration_path, :class=> 'navbar-link' %>
+                  </li> 
+                <% end %>
               </ul>
             </nav>
           </div>
@@ -127,28 +131,32 @@
     </div>
 <br>
 <div class="container">
+<% def toDollars(string)%>
+<%    string = string.gsub(/\B(?=(...)*\b)/, ',') + " $" %>
+<%    return string %>
+<% end%>
 <p>
-  <strong>Building type:</strong>
+  <strong>Building type :</strong>
   <%= @quote.building_type %>
 </p>
 
 <p>
-  <strong>Number of appartement: </strong>
+  <strong>Number of appartement :</strong>
   <%= @quote.appartement %>
 </p>
 
 <p>
-  <strong>Number of floor: </strong>
+  <strong>Number of floor :</strong>
   <%= @quote.floor %>
 </p>
  
 <p>
-  <strong>Number of basement</strong>
+  <strong>Number of basement: </strong>
   <%= @quote.basement %>
 </p>
 
 <p>
-  <strong>Plan choosed</strong>
+  <strong>Plan choosed :</strong>
   <%= @quote.plan %>
 </p>
 
@@ -178,16 +186,16 @@
 
 <p>
   <strong>Elevator price :</strong>
-  <%= @quote.price %>
+  <%= toDollars("#{@quote.price}") %>
 </p>
 
 <p>
   <strong>Fees :</strong>
-  <%= @quote.fees %>
+  <%= toDollars("#{@quote.fees}") %>
 </p>
 <p>
   <strong>Total price :</strong>
-  <%= @quote.totalPrice %>
+  <%= toDollars("#{@quote.totalPrice}") %>
 </p>
 
 <div class="container ">

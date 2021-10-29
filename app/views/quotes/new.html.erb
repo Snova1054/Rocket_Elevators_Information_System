@@ -122,6 +122,11 @@
                     <%= link_to "SIGN UP" , new_user_registration_path, :class=> 'navbar-link' %>
                   </li> 
                 <% end %>
+                <% if user_signed_in? %>
+                  <li>
+                    <%= link_to "INDEX" , quotes_path, :class=> 'navbar-link' %>
+                  </li>
+                <% end %>
               </ul>
             </nav>
           </div>

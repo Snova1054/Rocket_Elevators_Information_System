@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-
+  before_action :authenticate_user!, :only => [:show]
     def new
       @quote = Quote.new
     end

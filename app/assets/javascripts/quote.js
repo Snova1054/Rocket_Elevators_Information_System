@@ -64,7 +64,7 @@ function getSelectValue() {
 
 
 function reset() {
-  document.getElementById('quote_plan_standart').checked = false;
+  document.getElementById('quote_plan_standard').checked = false;
   document.getElementById('quote_plan_premium').checked = false;
   document.getElementById('quote_plan_excelium').checked = false;
   document.getElementById('quote_floor').value = "";
@@ -102,7 +102,7 @@ function residential() {
   document.getElementById('quote_elevatorNeeded').value = totalElevatorNeeded;
 
 
-        if ($('#quote_plan_standart').prop('checked')) {
+        if ($('#quote_plan_standard').prop('checked')) {
           document.getElementById("price").innerHTML = formatter.format(elevatortotal* ifmorethan * 7565);
           document.getElementById("fees").innerHTML = formatter.format(elevatortotal * ifmorethan * 7565 / 100 * 10);
           document.getElementById("totalPrice").innerHTML = formatter.format(elevatortotal * ifmorethan * 7565 * 1.10);
@@ -144,7 +144,7 @@ function commercial() {
     minimumFractionDigits: 2
   });
 
-  if ($('#quote_plan_standart').prop('checked')) {
+  if ($('#quote_plan_standard').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(cage * 7565);
       document.getElementById("fees").innerHTML = formatter.format(cage * 7565 / 100 * 10);
       document.getElementById("totalPrice").innerHTML = formatter.format(cage * 7565 * 1.10);
@@ -203,7 +203,7 @@ function corporateHybrid1() {
   });
 
 
-  if ($('#quote_plan_standart').prop('checked')) {
+  if ($('#quote_plan_standard').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(totalelevator * 7565);
       document.getElementById("fees").innerHTML = formatter.format(totalelevator * 7565 / 100 * 10);
       document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 7565 * 1.10);

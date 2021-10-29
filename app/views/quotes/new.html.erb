@@ -135,8 +135,9 @@
       <!-- /Top Nav -->
     </div>
     <div class="container">
-    <h1>Submission Form</h1>
-
+    <header class="text-center mb-60">
+    <h2>Submission Form</h2>
+    </header>
 
     <%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
 
@@ -212,8 +213,8 @@
             <%# Radio Button for Hybrid and Corporate %>
               <div id="radio_button" style="display: none;" onchange="whichRadioButton()">
                 <p>
-                  <%= form.radio_button :plan, 'standart' %>
-                    <%= form.label :plan, 'Standart' , :value=> 'standart' %>
+                  <%= form.radio_button :plan, 'standard' %>
+                    <%= form.label :plan, 'Standard' , :value=> 'standard' %>
                       <%= form.radio_button :plan, 'premium' %>
                         <%= form.label :plan, 'Premium' , :value=> 'premium' %>
                           <%= form.radio_button :plan, 'excelium' %>

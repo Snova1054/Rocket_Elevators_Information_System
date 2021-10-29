@@ -1,158 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Rocket Elevator | Home</title>
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.png"
-      type="image/x-icon"
-    />
-    <meta name="description" content="" />
-    <meta name="Author" content="Daniel Gallardo" />
 
-    <!-- mobile settings -->
-    <meta
-      name="viewport"
-      content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"
-    />
-    <!--[if IE
+<head>
+  <meta charset="utf-8" />
+  <title>Rocket Elevator | Home</title>
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+  <meta name="description" content="" />
+  <meta name="Author" content="Daniel Gallardo" />
+
+  <!-- mobile settings -->
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+  <!--[if IE
       ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     /><![endif]-->
 
-    <!-- WEB FONTS : use %7C instead of | (pipe) -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
-      rel="stylesheet"
-      type="text/css"
-    />
+  <!-- WEB FONTS : use %7C instead of | (pipe) -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+    rel="stylesheet" type="text/css" />
 
 
-  <body class="enable-animation">
-    <!-- wrapper -->
-    <div id="wrapper">
-      <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
-        <!-- TOP NAV -->
-        <header id="topNav">
-          <div class="container">
-            <!-- Mobile Menu Button -->
-            <button
-              class="btn btn-mobile"
-              data-toggle="collapse"
-              data-target=".nav-main-collapse"
-            >
-              <i class="fa fa-bars"></i>
-            </button>
+<body class="enable-animation">
+  <!-- wrapper -->
+  <div id="wrapper">
+    <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+      <!-- TOP NAV -->
+      <header id="topNav">
+        <div class="container">
+          <!-- Mobile Menu Button -->
+          <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
 
-            <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#top">
-              <%= image_tag "/images/R2.png" %>
-            </a>
+          <!-- Logo -->
+          <a class="logo float-left scrollTo" href="#top">
+            <%= image_tag "/images/R2.png" %>
+          </a>
 
-            <!-- 
+          <!-- 
 							Top Nav 
 							
 							AVAILABLE CLASSES:
 							submenu-dark = dark sub menu
 						-->
-            <div
-              class="
+          <div class="
                 navbar-collapse
                 collapse
                 float-right
                 nav-main-collapse
                 submenu-dark
-              "
-            >
-              <nav class="nav-main">
-                <!-- 
+              ">
+            <nav class="nav-main">
+              <!-- 
 									.nav-onepage
 									Required for onepage navigation links
 									
 									Add .external for an external link!
 								-->
-                <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-                  <li class="active">
-                    <!-- HOME -->
-                    <a id="home-nav" href="#home"> HOME </a>
+              <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                <li class="active">
+                  <!-- HOME -->
+                  <a id="home-nav" href="#home"> HOME </a>
+                </li>
+                <li>
+                  <!-- SERVICES -->
+                  <a id="services-nav" href="#services"> SERVICES </a>
+                </li>
+                <li>
+                  <!-- WORK -->
+                  <a id="portfolio-nav" href="#portfolio"> PORTFOLIO </a>
+                </li>
+                <li>
+                  <!-- NEWS -->
+                  <a id="news-nav" href="#news"> NEWS </a>
+                </li>
+                <li>
+                  <!-- CLIENTS -->
+                  <a id="clents-nav" href="#clients"> CLIENTS </a>
+                </li>
+                <li>
+                  <!-- CONTACT -->
+                  <a id="contact-nav" href="#contact"> CONTACT </a>
+                </li>
+                <% if user_signed_in? %>
+                  <li> 
+                    <%= link_to "LOGOUT" , destroy_user_session_path, method: :delete, :class=> 'navbar-link' %>
+                  </li>
+                  <li>      
+                    <%= link_to 'EDIT PROFILE' , edit_user_registration_path, :class=> 'navbar-link' %>
+                  </li>
+                <% else %> 
+                  <li>
+                    <%= link_to "LOGIN" , new_user_session_path, :class=> 'navbar-link' %>
                   </li>
                   <li>
-                    <!-- SERVICES -->
-                    <a id="services-nav" href="#services"> SERVICES </a>
-                  </li>
+                    <%= link_to "SIGN UP" , new_user_registration_path, :class=> 'navbar-link' %>
+                  </li> 
+                <% end %>
+                <% if user_signed_in? %>
                   <li>
-                    <!-- WORK -->
-                    <a id="portfolio-nav" href="#portfolio"> PORTFOLIO </a>
+                    <%= link_to "INDEX" , quotes_path, :class=> 'navbar-link' %>
                   </li>
-                  <li>
-                    <!-- NEWS -->
-                    <a id="news-nav" href="#news"> NEWS </a>
-                  </li>
-                  <li>
-                    <!-- CLIENTS -->
-                    <a id="clents-nav" href="#clients"> CLIENTS </a>
-                  </li>
-                  <li>
-                    <!-- CONTACT -->
-                    <a id="contact-nav" href="#contact"> CONTACT </a>
-                  </li>
-                                    <li>
-                              <p class="navbar-text float-right">
-              <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-                    </li>
-                </ul>
-              </nav>
-            </div>
+                <% end %>
+                
+              </ul>
+            </nav>
           </div>
-        </header>
-        <!-- /Top Nav -->
-      </div>
+        </div>
+      </header>
+      <!-- /Top Nav -->
+    </div>
 
-      <!-- REVOLUTION SLIDER -->
-      <div id="home">
-        <div class="slider fullwidthbanner-container roundedcorners">
-          <div
-            class="fullwidthbanner"
-            data-height="600"
-            data-shadow="0"
-            data-navigationStyle="preview2"
-          >
-            <ul class="hide">
-              <!-- SLIDE  -->
-              <li
-                data-transition="parallaxtotop"
-                data-slotamount="7"
-                data-masterspeed="300"
-                data-saveperformance="off"
-                data-title="Our Services"
-              >
-                <!-- MAIN IMAGE -->
-                <%= image_tag '/images/elevator1.jpeg' %>
+    <!-- REVOLUTION SLIDER -->
+    <div id="home">
+      <div class="slider fullwidthbanner-container roundedcorners">
+        <div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
+          <ul class="hide">
+            <!-- SLIDE  -->
+            <li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300" data-saveperformance="off"
+              data-title="Our Services">
+              <!-- MAIN IMAGE -->
+              <%= image_tag '/images/elevator1.jpeg' %>
 
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
 
-                <div
-                  class="tp-caption font-roboto skewfromleft tp-resizeme"
-                  data-x="50"
-                  data-y="100"
-                  data-speed="500"
-                  data-start="1500"
-                  data-easing="Cubic.easeOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="500"
-                  style="
+                <div class="tp-caption font-roboto skewfromleft tp-resizeme" data-x="50" data-y="100" data-speed="500"
+                  data-start="1500" data-easing="Cubic.easeOut" data-splitin="none" data-splitout="none"
+                  data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="500" style="
                     z-index: 2;
                     color: #fff;
                     font-size: 65px;
@@ -160,83 +136,43 @@
                     font-weight: bold;
                     letter-spacing: 0;
                     text-shadow: none;
-                  "
-                >
+                  ">
                   Elevate Safety, <br />
                   Speed and Style
                 </div>
 
-                <div
-                  class="tp-caption sfb tp-resizeme"
-                  data-x="150"
-                  data-y="335"
-                  data-speed="500"
-                  data-start="1500"
-                  data-easing="Power3.easeIn"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="500"
-                  style="z-index: 4; max-width: auto"
-                >
-                  <a class="btn btn-success btn-lg" href="#services"
-                    >OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i
-                  ></a>
+                <div class="tp-caption sfb tp-resizeme" data-x="150" data-y="335" data-speed="500" data-start="1500"
+                  data-easing="Power3.easeIn" data-splitin="none" data-splitout="none" data-elementdelay="1"
+                  data-endelementdelay="0.1" data-endspeed="500" style="z-index: 4; max-width: auto">
+                  <a class="btn btn-success btn-lg" href="#services">OUR SERVICES &nbsp; <i
+                      class="fa fa-angle-right"></i></a>
                 </div>
 
-                <div
-                  class="tp-caption sfb tp-resizeme"
-                  data-x="150"
-                  data-y="410"
-                  data-speed="500"
-                  data-start="1500"
-                  data-easing="Power3.easeInOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="500"
-                  style="
+                <div class="tp-caption sfb tp-resizeme" data-x="150" data-y="410" data-speed="500" data-start="1500"
+                  data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1"
+                  data-endelementdelay="0.1" data-endspeed="500" style="
                     z-index: 6;
                     max-width: auto;
                     max-height: auto;
                     white-space: nowrap;
-                  "
-                >
-                  <a class="btn btn-success btn-lg" href="quotes/new"
-                    >GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i
-                  ></a>
+                  ">
+                  <a class="btn btn-success btn-lg" href="quotes/new">GET A QUOTE &nbsp; <i
+                      class="fa fa-angle-right"></i></a>
                 </div>
-              </li>
+            </li>
 
-              <!-- SLIDE  -->
-              <li
-                data-transition="parallaxtobottom"
-                data-slotamount="7"
-                data-masterspeed="600"
-                data-saveperformance="off"
-                data-title="Residential Building Service"
-              >
-                <!-- MAIN IMAGE -->
-                <%= image_tag '/images/elevator2.jpeg' %>
+            <!-- SLIDE  -->
+            <li data-transition="parallaxtobottom" data-slotamount="7" data-masterspeed="600" data-saveperformance="off"
+              data-title="Residential Building Service">
+              <!-- MAIN IMAGE -->
+              <%= image_tag '/images/elevator2.jpeg' %>
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
 
-                <div
-                  class="tp-caption white_big skewfromleft tp-resizeme"
-                  data-x="471"
-                  data-y="100"
-                  data-speed="400"
-                  data-start="1500"
-                  data-easing="Cubic.easeOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="600"
-                  style="
+                <div class="tp-caption white_big skewfromleft tp-resizeme" data-x="471" data-y="100" data-speed="400"
+                  data-start="1500" data-easing="Cubic.easeOut" data-splitin="none" data-splitout="none"
+                  data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600" style="
                     z-index: 2;
                     color: #fff;
                     font-size: 65px;
@@ -244,65 +180,36 @@
                     font-weight: bold;
                     letter-spacing: 0;
                     text-shadow: none;
-                  "
-                >
+                  ">
                   Residential Safety <br />
                   and Efficacity
                 </div>
 
-                <div
-                  class="tp-caption skewfromleft tp-resizeme un-button-2-lg"
-                  data-x="665"
-                  data-y="300"
-                  data-speed="300"
-                  data-start="2500"
-                  data-easing="Power3.easeInOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="
+                <div class="tp-caption skewfromleft tp-resizeme un-button-2-lg" data-x="665" data-y="300"
+                  data-speed="300" data-start="2500" data-easing="Power3.easeInOut" data-splitin="none"
+                  data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="
                     z-index: 5;
                     max-width: auto;
                     max-height: auto;
                     white-space: nowrap;
-                  "
-                >
-                  <a class="btn btn-success btn-lg" href="residential"
-                    >OUR RESIDENTIAL SERVICES &nbsp;
-                    <i class="fa fa-angle-right"></i
-                  ></a>
+                  ">
+                  <a class="btn btn-success btn-lg" href="residential">OUR RESIDENTIAL SERVICES &nbsp;
+                    <i class="fa fa-angle-right"></i></a>
                 </div>
-              </li>
+            </li>
 
-              <!-- SLIDE  -->
-              <li
-                data-transition="parallaxtobottom"
-                data-slotamount="7"
-                data-masterspeed="600"
-                data-saveperformance="off"
-                data-title="Corporate Building Service"
-              >
-                <!-- MAIN IMAGE -->
-                <%= image_tag '/images/elevator3.jpeg' %>
+            <!-- SLIDE  -->
+            <li data-transition="parallaxtobottom" data-slotamount="7" data-masterspeed="600" data-saveperformance="off"
+              data-title="Corporate Building Service">
+              <!-- MAIN IMAGE -->
+              <%= image_tag '/images/elevator3.jpeg' %>
                 <div class="overlay dark-4">
                   <!-- dark overlay [0 to 9 opacity] -->
                 </div>
 
-                <div
-                  class="tp-caption white_big skewfromleft tp-resizeme"
-                  data-x="471"
-                  data-y="100"
-                  data-speed="400"
-                  data-start="1500"
-                  data-easing="Power3.easeInOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="600"
-                  style="
+                <div class="tp-caption white_big skewfromleft tp-resizeme" data-x="471" data-y="100" data-speed="400"
+                  data-start="1500" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none"
+                  data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600" style="
                     z-index: 2;
                     color: #fff;
                     font-size: 65px;
@@ -310,481 +217,464 @@
                     font-weight: bold;
                     letter-spacing: 0;
                     text-shadow: none;
-                  "
-                >
+                  ">
                   Corporate Speed <br />
                   and Style
                 </div>
 
-                <div
-                  class="tp-caption skewfromleft tp-resizeme un-button-2-lg"
-                  data-x="665"
-                  data-y="300"
-                  data-speed="300"
-                  data-start="2500"
-                  data-easing="Power3.easeInOut"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-elementdelay="0.1"
-                  data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="
+                <div class="tp-caption skewfromleft tp-resizeme un-button-2-lg" data-x="665" data-y="300"
+                  data-speed="300" data-start="2500" data-easing="Power3.easeInOut" data-splitin="none"
+                  data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="
                     z-index: 5;
                     max-width: auto;
                     max-height: auto;
                     white-space: nowrap;
-                  "
-                >
-                  <a class="btn btn-success btn-lg" href="commercial"
-                    >OUR CORPORATE SERVICES &nbsp;
-                    <i class="fa fa-angle-right"></i
-                  ></a>
+                  ">
+                  <a class="btn btn-success btn-lg" href="commercial">OUR CORPORATE SERVICES &nbsp;
+                    <i class="fa fa-angle-right"></i></a>
                 </div>
-              </li>
-            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /REVOLUTION SLIDER -->
+
+    <hr class="m-0" />
+    <!-- 1px line separator -->
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="heading-title heading-dotted text-center">
+          <h2>Our Services</h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <a class="image-hover" href="#portfolio">
+              <span class="image-hover-icon image-hover-dark"> </span>
+              <%= image_tag "/images/elevator4.jpeg" , :class=> "img-fluid" %>
+            </a>
+
+            <h3 class="mt-10">Awards and Projects</h3>
+            <p>
+              All of ours awards and projects ever created for our community
+              and our countries, thanks to you.
+            </p>
+            <br>
+            <a href="#portfolio" class="btn btn-success">READ MORE</a>
+          </div>
+
+          <div class="col-sm-4">
+            <a class="image-hover" href="residential">
+              <span class="image-hover-icon image-hover-dark"> </span>
+              <%= image_tag "/images/elevator5.jpeg" , :class=> "img-fluid" %>
+            </a>
+            <h3 class="mt-10">Residential Buildings</h3>
+            <p>
+              The last trend of Residential Elevators per Building brought
+              directly to you from our engineers.
+            </p>
+            <a href="residential" class="btn btn-success">READ MORE</a>
+          </div>
+
+          <div class="col-sm-4">
+            <a class="image-hover" href="commercial">
+              <span class="image-hover-icon image-hover-dark"> </span>
+              <%= image_tag "/images/elevator6.jpeg" , :class=> "img-fluid" %>
+            </a>
+            <h3 class="mt-10">Corporate Buildings</h3>
+            <p>
+              The ultimate technology in Elevators. Designed for growth, only
+              for Corporate and Commercial Buildings.
+            </p>
+            <a href="commercial.html" class="btn btn-success">READ MORE</a>
           </div>
         </div>
       </div>
-      <!-- /REVOLUTION SLIDER -->
+    </section>
+    <!-- /Services -->
 
-      <hr class="m-0" />
-      <!-- 1px line separator -->
+    <!-- Parallax -->
+    <section class="parallax parallax-1 section-full-width" style="background-image: url('images/R2-01.jpg');">
 
-      <!-- Services -->
-      <section id="services">
-        <div class="container">
-          <div class="heading-title heading-dotted text-center">
-            <h2>Our Services</h2>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <a class="image-hover" href="#portfolio">
-                <span class="image-hover-icon image-hover-dark"> </span>
-                <%= image_tag "/images/elevator4.jpeg", :class => "img-fluid" %>
-              </a>
+      <div class="overlay dark-5">
+        <!-- dark overlay [1 to 9 opacity] -->
+      </div>
 
-              <h3 class="mt-10">Awards and Projects</h3>
-              <p>
-                All of ours awards and projects ever created for our community
-                and our countries, thanks to you.
-              </p>
-              <br>
-              <a href="#portfolio" class="btn btn-success">READ MORE</a>
-            </div>
-
-            <div class="col-sm-4">
-              <a class="image-hover" href="residential">
-                <span class="image-hover-icon image-hover-dark"> </span>
-                <%= image_tag "/images/elevator5.jpeg", :class => "img-fluid" %>
-              </a>
-              <h3 class="mt-10">Residential Buildings</h3>
-              <p>
-                The last trend of Residential Elevators per Building brought
-                directly to you from our engineers.
-              </p>
-              <a href="residential" class="btn btn-success">READ MORE</a>
-            </div>
-
-            <div class="col-sm-4">
-              <a class="image-hover" href="commercial">
-                <span class="image-hover-icon image-hover-dark"> </span>
-                <%= image_tag "/images/elevator6.jpeg", :class => "img-fluid" %>
-              </a>
-              <h3 class="mt-10">Corporate Buildings</h3>
-              <p>
-                The ultimate technology in Elevators. Designed for growth, only
-                for Corporate and Commercial Buildings.
-              </p>
-              <a href="commercial.html" class="btn btn-success">READ MORE</a>
-            </div>
-          </div>
+      <div class="container">
+        <div class="text-center">
+          <h2 class="fs-40 fw-300">In business since 1976</h2>
+          <a class="btn btn-success btn-lg" href="quotes/new">
+            RESQUEST A QUOTE <i class="fa fa-angle-right"></i></a>
+          &nbsp; OR &nbsp;
+          <a class="btn btn-success btn-lg scrollTo" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
         </div>
-      </section>
-      <!-- /Services -->
+      </div>
+    </section>
+    <!-- /Parallax -->
 
-      <!-- Parallax -->
-      <section class="parallax parallax-1 section-full-width" style="background-image: url('images/R2-01.jpg');">
-      
-        <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
-
-        <div class="container">
-          <div class="text-center">
-            <h2 class="fs-40 fw-300">In business since 1976</h2>
-            <a class="btn btn-success btn-lg" href="quotes/new">
-              RESQUEST A QUOTE <i class="fa fa-angle-right"></i
-            ></a>
-            &nbsp; OR &nbsp;
-            <a class="btn btn-success btn-lg scrollTo" href="#contact"
-              >CONTACT US <i class="fa fa-angle-right"></i
-            ></a>
-          </div>
-        </div>
-      </section>
-      <!-- /Parallax -->
-
-      <!-- PORTFOLIO -->
-      <section id="portfolio">
-        <div class="container">
-          <div class="heading-title heading-dotted text-center">
-            <h2>Portfolio</h2>
-          </div>
-
-          <div class="text-center">
-            <ul class="nav nav-pills mix-filter mb-60">
-              <li data-filter="all" class="filter active">
-                <a href="#">All</a>
-              </li>
-              <li data-filter="residential" class="filter">
-                <a href="#">Residential</a>
-              </li>
-              <li data-filter="corporate" class="filter">
-                <a href="#">Corporate</a>
-              </li>
-              <li data-filter="prize" class="filter">
-                <a href="#">Prizes</a>
-              </li>
-            </ul>
-          </div>
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="heading-title heading-dotted text-center">
+          <h2>Portfolio</h2>
         </div>
 
-        <div id="portfolio" class="portfolio-nogutter">
-          <div class="row mix-grid">
-            <div class="col-md-3 col-sm-3 mix prize">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/stars.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Elevator Award Nominee</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="prize" class="filter">
-                      <a href="#">Prizes</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix residential">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/residential1.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Elevator Elegancia Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="residential" class="filter">
-                      <a href="#">Residential</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix corporate">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/corporate1.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Heights Development</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="corporate" class="filter">
-                      <a href="#">Corporate</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix prize">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/trophy.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Lift Trophy</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="prize" class="filter">
-                      <a href="#">Prizes</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix residential">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/residential2.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Wood and Metal Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="residential" class="filter">
-                      <a href="#">Residential</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix corporate">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/corporate2.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Simplistic Design</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="corporate" class="filter">
-                      <a href="#">Corporate</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix prize">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/blue-trophy.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Blue Development Trophy</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="prize" class="filter">
-                      <a href="#">Prizes</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix residential">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/residential3.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>To New Heights Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="residential" class="filter">
-                      <a href="#">Residential</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix corporate">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/corporate3.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Touching the Sky Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="corporate" class="filter">
-                      <a href="#">Corporate</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix prize">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/award.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Environment Friendly Award</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="prize" class="filter">
-                      <a href="#">Prizes</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix residential">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/residential4.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Back in Time Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="residential" class="filter">
-                      <a href="#">Residential</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-
-            <div class="col-md-3 col-sm-3 mix corporate">
-              <!-- item -->
-
-              <div class="item-box">
-                <figure>
-                  <span class="item-hover">
-                    <span class="overlay dark-4"></span>
-                  </span>
-                  <%= image_tag '/images/corporate4.jpg', :class => 'img-fluid', :size => "600x399" %>
-                </figure>
-
-                <div class="item-box-desc">
-                  <h3>Back to the Future Project</h3>
-                  <ul class="list-inline categories m-0 mix-filter">
-                    <li data-filter="corporate" class="filter">
-                      <a href="#">Corporate</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /item -->
-          </div>
+        <div class="text-center">
+          <ul class="nav nav-pills mix-filter mb-60">
+            <li data-filter="all" class="filter active">
+              <a href="#">All</a>
+            </li>
+            <li data-filter="residential" class="filter">
+              <a href="#">Residential</a>
+            </li>
+            <li data-filter="corporate" class="filter">
+              <a href="#">Corporate</a>
+            </li>
+            <li data-filter="prize" class="filter">
+              <a href="#">Prizes</a>
+            </li>
+          </ul>
         </div>
-      </section>
-      <!-- /PORTFOLIO -->
+      </div>
 
-      <!-- Team -->
-      <section id="team" class="section-xs dark">
-        <div class="container">
-          <div
-            class="owl-carousel text-center owl-testimonial m-0"
-            data-plugin-options='{"singleItem": true, "autoPlay": 10000, "navigation": false, "pagination": true, "transitionStyle":"fade"}'
-          >
-            <div id="CEO" class="testimonial">
+      <div id="portfolio" class="portfolio-nogutter">
+        <div class="row mix-grid">
+          <div class="col-md-3 col-sm-3 mix prize">
+            <!-- item -->
+
+            <div class="item-box">
               <figure>
-                 <%= image_tag '/images/CEO.jpg', :style => "border-radius: 50%;" %>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/stars.jpg' , :class=> 'img-fluid', :size => "600x399" %>
               </figure>
-              <div class="testimonial-content p-0">
-                <p class="lead">
-                  Having grown up with a computer, David is passionate about
-                  computers in all of its aspects. Whether it is programming,
-                  technology, components of a computer or even the computer
-                  world, He is curious by nature and his thirst for learning
-                  cannot be quenched! Bring on the challenges, he needs them!.
-                </p>
-                <cite>
-                  David Amyot
-                  <span>CEO of Rocket Elevator</span>
-                </cite>
+
+              <div class="item-box-desc">
+                <h3>Elevator Award Nominee</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="prize" class="filter">
+                    <a href="#">Prizes</a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div id="employee" class="testimonial">
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix residential">
+            <!-- item -->
+
+            <div class="item-box">
               <figure>
-                <%= image_tag '/images/employee-of-the-month.jpg',:style => "border-radius: 50%;" %>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/residential1.jpg' , :class=> 'img-fluid', :size => "600x399" %>
               </figure>
-              <div class="testimonial-content p-0">
-                <p class="lead">
-                  Viral engagement define the underlying principles that drive
-                  decisions and strategy for your design language yet upstream
-                  selling. The right info at the right time to the right people
-                  we have put the apim bol, temporarily so that we can later put
-                  the monitors on turn the crank.
-                </p>
-                <cite>
-                  Daniel Gallardo
-                  <span>Employee of the Month</span>
-                </cite>
+
+              <div class="item-box-desc">
+                <h3>Elevator Elegancia Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="residential" class="filter">
+                    <a href="#">Residential</a>
+                  </li>
+                </ul>
               </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix corporate">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/corporate1.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Heights Development</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="corporate" class="filter">
+                    <a href="#">Corporate</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix prize">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/trophy.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Lift Trophy</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="prize" class="filter">
+                    <a href="#">Prizes</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix residential">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/residential2.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Wood and Metal Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="residential" class="filter">
+                    <a href="#">Residential</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix corporate">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/corporate2.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Simplistic Design</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="corporate" class="filter">
+                    <a href="#">Corporate</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix prize">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/blue-trophy.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Blue Development Trophy</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="prize" class="filter">
+                    <a href="#">Prizes</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix residential">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/residential3.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>To New Heights Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="residential" class="filter">
+                    <a href="#">Residential</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix corporate">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/corporate3.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Touching the Sky Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="corporate" class="filter">
+                    <a href="#">Corporate</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix prize">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/award.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Environment Friendly Award</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="prize" class="filter">
+                    <a href="#">Prizes</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix residential">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/residential4.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Back in Time Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="residential" class="filter">
+                    <a href="#">Residential</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+
+          <div class="col-md-3 col-sm-3 mix corporate">
+            <!-- item -->
+
+            <div class="item-box">
+              <figure>
+                <span class="item-hover">
+                  <span class="overlay dark-4"></span>
+                </span>
+                <%= image_tag '/images/corporate4.jpg' , :class=> 'img-fluid', :size => "600x399" %>
+              </figure>
+
+              <div class="item-box-desc">
+                <h3>Back to the Future Project</h3>
+                <ul class="list-inline categories m-0 mix-filter">
+                  <li data-filter="corporate" class="filter">
+                    <a href="#">Corporate</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /item -->
+        </div>
+      </div>
+    </section>
+    <!-- /PORTFOLIO -->
+
+    <!-- Team -->
+    <section id="team" class="section-xs dark">
+      <div class="container">
+        <div class="owl-carousel text-center owl-testimonial m-0"
+          data-plugin-options='{"singleItem": true, "autoPlay": 10000, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
+          <div id="CEO" class="testimonial">
+            <figure>
+              <%= image_tag '/images/CEO.jpg' , :style=> "border-radius: 50%;" %>
+            </figure>
+            <div class="testimonial-content p-0">
+              <p class="lead">
+                Having grown up with a computer, David is passionate about
+                computers in all of its aspects. Whether it is programming,
+                technology, components of a computer or even the computer
+                world, He is curious by nature and his thirst for learning
+                cannot be quenched! Bring on the challenges, he needs them!.
+              </p>
+              <cite>
+                David Amyot
+                <span>CEO of Rocket Elevator</span>
+              </cite>
+            </div>
+          </div>
+          <div id="employee" class="testimonial">
+            <figure>
+              <%= image_tag '/images/employee-of-the-month.jpg' ,:style=> "border-radius: 50%;" %>
+            </figure>
+            <div class="testimonial-content p-0">
+              <p class="lead">
+                Viral engagement define the underlying principles that drive
+                decisions and strategy for your design language yet upstream
+                selling. The right info at the right time to the right people
+                we have put the apim bol, temporarily so that we can later put
+                the monitors on turn the crank.
+              </p>
+              <cite>
+                Daniel Gallardo
+                <span>Employee of the Month</span>
+              </cite>
             </div>
           </div>
         </div>
-      </section>
-      <!-- /Team -->
+      </div>
+    </section>
+    <!-- /Team -->
 
-      <!-- News -->
-      <section id="news">
-        <div class="container">
-          <div class="heading-title heading-dotted text-center">
-            <h2>Recent News</h2>
-          </div>
+    <!-- News -->
+    <section id="news">
+      <div class="container">
+        <div class="heading-title heading-dotted text-center">
+          <h2>Recent News</h2>
+        </div>
 
-          <!-- 
+        <!-- 
 						controlls-over		= navigation buttons over the image 
 						buttons-autohide 	= navigation buttons visible on mouse hover only
 						
@@ -803,260 +693,225 @@
 							.owl-padding-15
 							.owl-padding-20
 					-->
-          <div
-            class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
-            data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 9000, "navigation": true, "pagination": false}'
-          >
-            <div class="img-hover">
-              <a
-                href="https://www.elevator-business.com/elevator-exhibitions-around-the-world/?lang=en"
-              >
-                <%= image_tag "/images/city-skyscraper.jpg", :class => 'img-fluid'%>
-              </a>
+        <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
+          data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 9000, "navigation": true, "pagination": false}'>
+          <div class="img-hover">
+            <a href="https://www.elevator-business.com/elevator-exhibitions-around-the-world/?lang=en">
+              <%= image_tag "/images/city-skyscraper.jpg" , :class=> 'img-fluid'%>
+            </a>
 
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/elevator-exhibitions-around-the-world/?lang=en"
-                  >Elevator exhibitions around the world</a
-                >
-              </h4>
-              <p class="text-left">
-                Driven by the dynamism of the market, a lot of new exhibitions
-                specializing in elevators and escalators around the world.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  3rd Feb 2021
-                </li>
-              </ul>
-            </div>
-            <div class="img-hover">
-              <a
-                href="https://www.elevator-business.com/a-world-class-elevators-escalators-event-brought-to-you-by-the-experts/?lang=en"
-              >
-                <%= image_tag '/images/WorldElevator.jpg', :class => 'img-fluid' %>
-              </a>
+            <h4 class="text-left mt-20">
+              <a href="https://www.elevator-business.com/elevator-exhibitions-around-the-world/?lang=en">Elevator
+                exhibitions around the world</a>
+            </h4>
+            <p class="text-left">
+              Driven by the dynamism of the market, a lot of new exhibitions
+              specializing in elevators and escalators around the world.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                3rd Feb 2021
+              </li>
+            </ul>
+          </div>
+          <div class="img-hover">
+            <a
+              href="https://www.elevator-business.com/a-world-class-elevators-escalators-event-brought-to-you-by-the-experts/?lang=en">
+              <%= image_tag '/images/WorldElevator.jpg' , :class=> 'img-fluid' %>
+            </a>
 
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/a-world-class-elevators-escalators-event-brought-to-you-by-the-experts/?lang=en"
-                  >A world-class Elevators & Escalators event</a
-                >
-              </h4>
-              <p class="text-left">
-                LIFT CITY EXPO EGYPT 2020 is the only & number one leading show
-                in the vertical & building transportation industry in Africa.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  2nd Feb 2021
-                </li>
-              </ul>
-            </div>
-            <div class="img-hover">
+            <h4 class="text-left mt-20">
               <a
-                href="https://www.elevator-business.com/elevators-artificial-intelligence/?lang=en"
-              >
-                <%= image_tag '/images/AIelevator.jpg', :class => 'img-fluid' %>
-              </a>
+                href="https://www.elevator-business.com/a-world-class-elevators-escalators-event-brought-to-you-by-the-experts/?lang=en">A
+                world-class Elevators & Escalators event</a>
+            </h4>
+            <p class="text-left">
+              LIFT CITY EXPO EGYPT 2020 is the only & number one leading show
+              in the vertical & building transportation industry in Africa.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                2nd Feb 2021
+              </li>
+            </ul>
+          </div>
+          <div class="img-hover">
+            <a href="https://www.elevator-business.com/elevators-artificial-intelligence/?lang=en">
+              <%= image_tag '/images/AIelevator.jpg' , :class=> 'img-fluid' %>
+            </a>
 
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/elevators-artificial-intelligence/?lang=en"
-                  >Elevators Artificial Intelligence?</a
-                >
-              </h4>
-              <p class="text-left">
-                Artificial intelligence is a new type of computer program. For
-                less than 10 years, it goes even further with the “Deep
-                Learning”.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  1st Feb 2021
-                </li>
-              </ul>
-            </div>
-            <div class="img-hover">
-              <a
-                href="https://www.elevator-business.com/lascenseur-a-hydrogene/?lang=en"
-              >
-                <%= image_tag '/images/Hydrogen.jpg', :class => 'img-fluid' %>
-              </a>
+            <h4 class="text-left mt-20">
+              <a href="https://www.elevator-business.com/elevators-artificial-intelligence/?lang=en">Elevators
+                Artificial Intelligence?</a>
+            </h4>
+            <p class="text-left">
+              Artificial intelligence is a new type of computer program. For
+              less than 10 years, it goes even further with the “Deep
+              Learning”.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                1st Feb 2021
+              </li>
+            </ul>
+          </div>
+          <div class="img-hover">
+            <a href="https://www.elevator-business.com/lascenseur-a-hydrogene/?lang=en">
+              <%= image_tag '/images/Hydrogen.jpg' , :class=> 'img-fluid' %>
+            </a>
 
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/lascenseur-a-hydrogene/?lang=en"
-                  >The very first Hydrogen elevator</a
-                >
-              </h4>
-              <p class="text-left">
-                It is an hybrid elevator that works with solar panels located on
-                the top of its building and with a fuel cell.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  31st Jan 2021
-                </li>
-              </ul>
-            </div>
-            <div class="img-hover">
-              <a
-                href="https://www.elevator-business.com/2017-un-record-de-vitesse-signe-hitachi/?lang=en"
-              >
-                <%= image_tag '/images/FastestElevator.jpg', :class => 'img-fluid' %>
-              </a>
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/2017-un-record-de-vitesse-signe-hitachi/?lang=en"
-                  >This is the fastest elevator in the world</a
-                >
-              </h4>
-              <p class="text-left">
-                It was nearly transparent but in 2017, 2 years after Mitsubishi,
-                Hitachi made the fastest elevator in the world.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  30th Jan 2021
-                </li>
-              </ul>
-            </div>
-            <div class="img-hover">
-              <a
-                href="https://www.elevator-business.com/interlift-2019-exhibition-in-pictures/?lang=en"
-              >
-                <%= image_tag '/images/InterLift.jpg', :class => 'img-fluid' %>
-              </a>
-              <h4 class="text-left mt-20">
-                <a
-                  href="https://www.elevator-business.com/interlift-2019-exhibition-in-pictures/?lang=en"
-                  >INTERLIFT 2021 exhibition in pictures</a
-                >
-              </h4>
-              <p class="text-left">
-                With 577 exhibitors on 46,500 m² and more than 21,000 visitors,
-                INTERLIFT was once again a success for all its players.
-              </p>
-              <ul class="text-left fs-12 list-inline list-separator">
-                <li>
-                  <i class="fa fa-calendar"></i>
-                  29th Jan 2021
-                </li>
-              </ul>
-            </div>
+            <h4 class="text-left mt-20">
+              <a href="https://www.elevator-business.com/lascenseur-a-hydrogene/?lang=en">The very first Hydrogen
+                elevator</a>
+            </h4>
+            <p class="text-left">
+              It is an hybrid elevator that works with solar panels located on
+              the top of its building and with a fuel cell.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                31st Jan 2021
+              </li>
+            </ul>
+          </div>
+          <div class="img-hover">
+            <a href="https://www.elevator-business.com/2017-un-record-de-vitesse-signe-hitachi/?lang=en">
+              <%= image_tag '/images/FastestElevator.jpg' , :class=> 'img-fluid' %>
+            </a>
+            <h4 class="text-left mt-20">
+              <a href="https://www.elevator-business.com/2017-un-record-de-vitesse-signe-hitachi/?lang=en">This is the
+                fastest elevator in the world</a>
+            </h4>
+            <p class="text-left">
+              It was nearly transparent but in 2017, 2 years after Mitsubishi,
+              Hitachi made the fastest elevator in the world.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                30th Jan 2021
+              </li>
+            </ul>
+          </div>
+          <div class="img-hover">
+            <a href="https://www.elevator-business.com/interlift-2019-exhibition-in-pictures/?lang=en">
+              <%= image_tag '/images/InterLift.jpg' , :class=> 'img-fluid' %>
+            </a>
+            <h4 class="text-left mt-20">
+              <a href="https://www.elevator-business.com/interlift-2019-exhibition-in-pictures/?lang=en">INTERLIFT 2021
+                exhibition in pictures</a>
+            </h4>
+            <p class="text-left">
+              With 577 exhibitors on 46,500 m² and more than 21,000 visitors,
+              INTERLIFT was once again a success for all its players.
+            </p>
+            <ul class="text-left fs-12 list-inline list-separator">
+              <li>
+                <i class="fa fa-calendar"></i>
+                29th Jan 2021
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-      <!-- /News -->
+      </div>
+    </section>
+    <!-- /News -->
 
-      <!-- Clients -->
-      <section id="clients" class="alternate">
-        <div class="container">
-          <div class="heading-title heading-dotted text-center">
-            <h2>Our Clients</h2>
-          </div>
-
-          <ul class="row clients-dotted list-inline">
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Chupacabra.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/FeelsGoodMan.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/GoldenMaiden.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/HashPay.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/HTQueen.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Kovyd.png", :class => "img-fluid" %>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/SN1054.png", :class => "img-fluid"%>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/SuperBBQ.png", :class => "img-fluid"%>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Ubihard.png", :class => "img-fluid"%>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/Wakanda.png", :class => "img-fluid"%>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/xQcL.png", :class => "img-fluid"%>
-            </li>
-            <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag "/images/YouGanda.png", :class => "img-fluid"%>
-            </li>
-          </ul>
+    <!-- Clients -->
+    <section id="clients" class="alternate">
+      <div class="container">
+        <div class="heading-title heading-dotted text-center">
+          <h2>Our Clients</h2>
         </div>
-      </section>
-      <!-- /Clients -->
 
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="container">
-          <header class="text-center mb-60">
-            <h2>Contact Us</h2>
-            <hr />
-          </header>
+        <ul class="row clients-dotted list-inline">
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/Chupacabra.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/FeelsGoodMan.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/GoldenMaiden.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/HashPay.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/HTQueen.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/Kovyd.png" , :class=> "img-fluid" %>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/SN1054.png" , :class=> "img-fluid"%>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/SuperBBQ.png" , :class=> "img-fluid"%>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/Ubihard.png" , :class=> "img-fluid"%>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/Wakanda.png" , :class=> "img-fluid"%>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/xQcL.png" , :class=> "img-fluid"%>
+          </li>
+          <li class="col-md-3 col-sm-3 col-6">
+            <%= image_tag "/images/YouGanda.png" , :class=> "img-fluid"%>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- /Clients -->
 
-          <div class="row">
-            <!-- INFO -->
-            <div class="col-md-4 col-sm-4">
-              <h2>Visit Us</h2>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <header class="text-center mb-60">
+          <h2>Contact Us</h2>
+          <hr />
+        </header>
 
-              <!-- 
+        <div class="row">
+          <!-- INFO -->
+          <div class="col-md-4 col-sm-4">
+            <h2>Visit Us</h2>
+
+            <!-- 
                   Google Map
                 -->
-              <div id="map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.515701218092!2d-73.56931454880987!3d45.45941454168102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91067ae856153%3A0x320cd8b1b79bec0f!2s4468%20Wellington%20St%20Suite%20204%2C%20Verdun%2C%20QC%20H4G%201W5!5e0!3m2!1sen!2sca!4v1632408336963!5m2!1sen!2sca"
-                  width="300"
-                  height="400"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-              </div>
-
-              <hr />
-
-              <p>
-                <span class="block"
-                  ><strong><i class="fa fa-map-marker"></i> Address:</strong>
-                  4468 Wellington St Suite 204, Verdun, Québec H4G 1W5</span
-                >
-                <span class="block"
-                  ><strong><i class="fa fa-phone"></i> Phone:</strong>
-                  <a href="tel:14185551234">(418) 555-1234</a></span
-                >
-                <span class="block"
-                  ><strong><i class="fa fa-envelope"></i> Email:</strong>
-                  <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span
-                >
-              </p>
+            <div id="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.515701218092!2d-73.56931454880987!3d45.45941454168102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91067ae856153%3A0x320cd8b1b79bec0f!2s4468%20Wellington%20St%20Suite%20204%2C%20Verdun%2C%20QC%20H4G%201W5!5e0!3m2!1sen!2sca!4v1632408336963!5m2!1sen!2sca"
+                width="300" height="400" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <!-- /INFO -->
 
-            <!-- FORM -->
-            <div class="col-md-8 col-sm-8">
-              <h3>
-                Drop us a line or just say <strong><em>Hello!</em></strong>
-              </h3>
+            <hr />
 
-              <!--
+            <p>
+              <span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong>
+                4468 Wellington St Suite 204, Verdun, Québec H4G 1W5</span>
+              <span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong>
+                <a href="tel:14185551234">(418) 555-1234</a></span>
+              <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong>
+                <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span>
+            </p>
+          </div>
+          <!-- /INFO -->
+
+          <!-- FORM -->
+          <div class="col-md-8 col-sm-8">
+            <h3>
+              Drop us a line or just say <strong><em>Hello!</em></strong>
+            </h3>
+
+            <!--
 								MESSAGES
 								
 									How it works?
@@ -1080,266 +935,184 @@
 												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
 							-->
 
-              <!-- Alert Success -->
-              <div id="alert_success" class="alert alert-success mb-30">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-                <strong>Thank You!</strong> Your message successfully sent!
-              </div>
-              <!-- /Alert Success -->
+            <!-- Alert Success -->
+            <div id="alert_success" class="alert alert-success mb-30">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+              </button>
+              <strong>Thank You!</strong> Your message successfully sent!
+            </div>
+            <!-- /Alert Success -->
 
-              <!-- Alert Failed -->
-              <div id="alert_failed" class="alert alert-danger mb-30">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-                <strong>[SMTP] Error!</strong> Internal server error!
-              </div>
-              <!-- /Alert Failed -->
+            <!-- Alert Failed -->
+            <div id="alert_failed" class="alert alert-danger mb-30">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+              </button>
+              <strong>[SMTP] Error!</strong> Internal server error!
+            </div>
+            <!-- /Alert Failed -->
 
-              <!-- Alert Mandatory -->
-              <div id="alert_mandatory" class="alert alert-danger mb-30">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-                <strong>Sorry!</strong> You need to complete all mandatory (*)
-                fields!
-              </div>
-              <!-- /Alert Mandatory -->
+            <!-- Alert Mandatory -->
+            <div id="alert_mandatory" class="alert alert-danger mb-30">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+              </button>
+              <strong>Sorry!</strong> You need to complete all mandatory (*)
+              fields!
+            </div>
+            <!-- /Alert Mandatory -->
 
-              <form action="">
-                <fieldset>
-                  <input type="hidden" name="action" />
+            <form action="">
+              <fieldset>
+                <input type="hidden" name="action" />
 
-                  <div class="row">
-                    <div class="col-md-4">
-                      <label for="contact-name">Full Name *</label>
-                      <input
-                        required
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[name][required]"
-                        id="name"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <label for="contact-email">E-mail Address *</label>
-                      <input
-                        required
-                        type="email"
-                        value=""
-                        class="form-control"
-                        name="contact[email][required]"
-                        id="email"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <label for="contact-phone">Phone</label>
-                      <input
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[phone]"
-                        id="phone"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <label for="contact-business">Business Name</label>
-                      <input
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[company_name]"
-                        id="company_name"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <label for="contact-project">Project Name</label>
-                      <input
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[project_name]"
-                        id="project_name"
-                      />
-                    </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="contact-name">Full Name *</label>
+                    <input required type="text" value="" class="form-control" name="contact[name][required]"
+                      id="name" />
                   </div>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <label for="contact-description"
-                        >Project Description</label
-                      >
-                      <input
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[description]"
-                        id="projet_description"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <label for="contact_department">Department</label>
-                      <select
-                        class="form-control pointer"
-                        name="contact[department]"
-                        id="department"
-                      >
-                        <option value="">---- Select ----</option>
-                        <option value="Residential">Residential</option>
-                        <option value="Corporate">Corporate</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
+                  <div class="col-md-4">
+                    <label for="contact-email">E-mail Address *</label>
+                    <input required type="email" value="" class="form-control" name="contact[email][required]"
+                      id="email" />
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="contact-message">Message *</label>
-                      <textarea
-                        required
-                        maxlength="10000"
-                        rows="8"
-                        class="form-control"
-                        name="contact[message]"
-                        id="message"
-                      ></textarea>
-                    </div>
+                  <div class="col-md-4">
+                    <label for="contact-phone">Phone</label>
+                    <input type="text" value="" class="form-control" name="contact[phone]" id="phone" />
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="contact-attachment">File Attachment</label>
-
-                      <!-- custom file upload -->
-                      <input
-                        class="custom-file-upload btn-primary"
-                        type="file"
-                        id="file"
-                        name="contact[attachment]"
-                        id="attachment"
-                        accept=".zip, .pdf, .jpg, .png"
-                        data-btn-text="Select a File"
-                      />
-                      <small class="text-muted block"
-                        >Max file size: 10Mb (zip/pdf/jpg/png)</small
-                      >
-                    </div>
+                  <div class="col-md-4">
+                    <label for="contact-business">Business Name</label>
+                    <input type="text" value="" class="form-control" name="contact[company_name]" id="company_name" />
                   </div>
-                </fieldset>
+                  <div class="col-md-4">
+                    <label for="contact-project">Project Name</label>
+                    <input type="text" value="" class="form-control" name="contact[project_name]" id="project_name" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <label for="contact-description">Project Description</label>
+                    <input type="text" value="" class="form-control" name="contact[description]"
+                      id="projet_description" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="contact_department">Department</label>
+                    <select class="form-control pointer" name="contact[department]" id="department">
+                      <option value="">---- Select ----</option>
+                      <option value="Residential">Residential</option>
+                      <option value="Corporate">Corporate</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <button type="reset" class="btn btn-success">
-                      <i class="fa fa-check"></i> SEND MESSAGE
-                    </button>
+                    <label for="contact-message">Message *</label>
+                    <textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]"
+                      id="message"></textarea>
                   </div>
                 </div>
-              </form>
-            </div>
-            <!-- /FORM -->
-          </div>
-        </div>
-      </section>
-      <!-- /CONTACT -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="contact-attachment">File Attachment</label>
 
-      <!-- FOOTER -->
-      <footer id="footer">
-        <div class="container">
-          <div class="row">
-            <!-- col #1 -->
-            <div class="col-md-8">
-              <h3 class="letter-spacing-1">WHY US?</h3>
-
-              <!-- Small Description -->
-              <p>
-                We have the conviction that we create the most innovative and
-                reliable products on the market. Contact us today for any
-                questions you might have.
-              </p>
-              <h2>(418) 555-1234</h2>
-            </div>
-            <!-- /col #1 -->
-
-            <!-- col #2 -->
-            <div class="col-md-4">
-              <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
-
-              <!-- Newsletter Form -->
-              <p>Subscribe to Our Newsletter to get Important News & Offers</p>
-
-              <form
-                class="validate"
-                action=""
-                data-success="Subscribed! Thank you!"
-                data-toastr-position="bottom-right"
-              >
-                <div class="input-group">
-                  <span class="input-group-addon"
-                    ><i class="fa fa-envelope"></i
-                  ></span>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-control required"
-                    placeholder="Enter your Email"
-                  />
-                  <span class="input-group-btn">
-                    <button class="btn btn-success" type="submit">
-                      Subscribe
-                    </button>
-                  </span>
+                    <!-- custom file upload -->
+                    <input class="custom-file-upload btn-primary" type="file" id="file" name="contact[attachment]"
+                      id="attachment" accept=".zip, .pdf, .jpg, .png" data-btn-text="Select a File" />
+                    <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+                  </div>
                 </div>
-              </form>
-              <!-- /Newsletter Form -->
-            </div>
-            <!-- /col #2 -->
+              </fieldset>
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="reset" class="btn btn-success">
+                    <i class="fa fa-check"></i> SEND MESSAGE
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
+          <!-- /FORM -->
         </div>
+      </div>
+    </section>
+    <!-- /CONTACT -->
 
-        <div class="copyright">
-          <div class="container">
-            <ul class="float-right m-0 list-inline mobile-block">
-              <li><a href="#">Terms &amp; Conditions</a></li>
-              <li>&bull;</li>
-              <li><a href="#">Privacy</a></li>
-            </ul>
-            &copy; All Rights Reserved, Rocket Elevators
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <!-- col #1 -->
+          <div class="col-md-8">
+            <h3 class="letter-spacing-1">WHY US?</h3>
+
+            <!-- Small Description -->
+            <p>
+              We have the conviction that we create the most innovative and
+              reliable products on the market. Contact us today for any
+              questions you might have.
+            </p>
+            <h2>(418) 555-1234</h2>
           </div>
+          <!-- /col #1 -->
+
+          <!-- col #2 -->
+          <div class="col-md-4">
+            <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+            <!-- Newsletter Form -->
+            <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+            <form class="validate" action="" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input type="email" id="email" name="email" class="form-control required"
+                  placeholder="Enter your Email" />
+                <span class="input-group-btn">
+                  <button class="btn btn-success" type="submit">
+                    Subscribe
+                  </button>
+                </span>
+              </div>
+            </form>
+            <!-- /Newsletter Form -->
+          </div>
+          <!-- /col #2 -->
         </div>
-      </footer>
-      <!-- /FOOTER -->
-    </div>
-    <!-- /wrapper -->
+      </div>
 
-    <!-- SCROLL TO TOP -->
-    <a href="#" id="toTop"></a>
+      <div class="copyright">
+        <div class="container">
+          <ul class="float-right m-0 list-inline mobile-block">
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li>&bull;</li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+          &copy; All Rights Reserved, Rocket Elevators
+        </div>
+      </div>
+    </footer>
+    <!-- /FOOTER -->
+  </div>
+  <!-- /wrapper -->
 
-    <!-- JAVASCRIPT FILES -->
-    <script>
-      var plugin_path = "assets/plugins/";
-    </script>
-    <script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+  <!-- SCROLL TO TOP -->
+  <a href="#" id="toTop"></a>
 
-    <script src="assets/scripts.js"></script>
+  <!-- JAVASCRIPT FILES -->
+  <script>
+    var plugin_path = "assets/plugins/";
+  </script>
+  <script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
-    <!-- REVOLUTION SLIDER -->
-    <script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/view/demo.revolution_slider.js"></script>
-  </body>
+  <script src="assets/scripts.js"></script>
+
+  <!-- REVOLUTION SLIDER -->
+  <script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="assets/view/demo.revolution_slider.js"></script>
+</body>
+
 </html>

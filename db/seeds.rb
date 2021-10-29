@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# userxx = User.create!(email: '', password: 'Codeboxx1') # model
+# employee = Employee.create(last_name: '', first_name: '', title: '', user: user) # model
 
 user = User.create!(email: 'nicolas.genest@codeboxx.biz', password: 'Codeboxx1')
 employee = Employee.create!(last_name: "Genest", first_name: "Nicolas", title: "CEO", user: user)
@@ -69,13 +69,6 @@ employee = Employee.create(last_name: 'Sheely', first_name: 'Krista', title: 'De
 user22 = User.create!(email: 'jonathan.murray@codeboxx.biz', password: 'Codeboxx1')
 employee = Employee.create(last_name: 'Murray', first_name: 'Jonathan', title: 'Developper', user: user)
 
-puts "--------------------"
-puts user.email
-puts employee.user
-puts "--------------------"
-
-# user23 = User.create!(email: '', password: 'Codeboxx1') # model
-# employee = Employee.create(last_name: '', first_name: '', title: '', user: user) # model
 
 
 

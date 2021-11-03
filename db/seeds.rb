@@ -8,13 +8,32 @@
 require 'faker'
 require 'securerandom'
 
+#Create the fake Leads
+20.times do
+    randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
+    full_name = Faker::Name.name
+    lead = Lead.create!(
+        full_name: full_name,
+        compagny_name: Faker::Company.name,
+        email: Faker::Internet.email(name: full_name),
+        phone_number: Faker::PhoneNumber.cell_phone,
+        project_name: Faker::Company.industry,
+        project_description: Faker::IndustrySegments.sector,
+        departement_in_charge_of_the_elevators: ["Residential", "Corporate", "Other"].sample,
+        message: Faker::Hipster.sentences,
+        created_at: randomDate,
+        updated_at: randomDate
 
-2000000.times do
+    )
+end
+
+#Create the fake Quotes
+20.times do
     # Declares and sets variables
     ### IF ACTIVITY HOURS ARE SET IN THE DATABASE AND EVERYWHERE ELSE
     ### THEN UNCOMMENT LINE 29, 52, 53, 54, 75 AND ADD A COMMA (,)
     ### AT THE END OF THE LINE 74
-    randomDate = Faker::Time.between(from: '2018-09-23', to: '2021-11-25')
+    randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
     appartments = 0.0
     floors = SecureRandom.random_number(1..100) + 1.0
     basements = SecureRandom.random_number(0..20)

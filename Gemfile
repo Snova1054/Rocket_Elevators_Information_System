@@ -12,6 +12,7 @@ gem 'puma', '~> 3.11'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'pg'
 
 gem 'devise'
 # Use SCSS for stylesheets

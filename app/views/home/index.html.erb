@@ -963,78 +963,68 @@
             </div>
             <!-- /Alert Mandatory -->
 
-            <form action="">
+
+            <!-- Contact Us Form -->
+            <%= form_with scope: :lead, :url => 'home#', local: true do |form| %>
               <fieldset>
                 <input type="hidden" name="action" />
 
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="contact-name">Full Name *</label>
-                    <input required type="text" value="" class="form-control" name="contact[name][required]"
-                      id="name" />
+                  <%= form.label :full_name, :"Full Name *" %>
+                  <%= form.text_field :full_name, :class => 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                    <label for="contact-email">E-mail Address *</label>
-                    <input required type="email" value="" class="form-control" name="contact[email][required]"
-                      id="email" />
+                  <%= form.label :email, :"E-mail Address *" %>
+                  <%= form.email_field :email, :class => 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                    <label for="contact-phone">Phone</label>
-                    <input type="text" value="" class="form-control" name="contact[phone]" id="phone" />
+                  <%= form.label :phone_number, :"Phone *" %>
+                  <%= form.telephone_field :phone_number, :class => 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                    <label for="contact-business">Business Name</label>
-                    <input type="text" value="" class="form-control" name="contact[company_name]" id="company_name" />
+                  <%= form.label :compagny_name, :"Business Name" %>
+                  <%= form.text_field :compagny_name, :class => 'form-control'%> 
                   </div>
                   <div class="col-md-4">
-                    <label for="contact-project">Project Name</label>
-                    <input type="text" value="" class="form-control" name="contact[project_name]" id="project_name" />
-                  </div>
+                  <%= form.label :project_name, :"Project Name" %>
+                  <%= form.text_field :project_name, :class => 'form-control'%>                 
                 </div>
                 <div class="row">
                   <div class="col-md-8">
-                    <label for="contact-description">Project Description</label>
-                    <input type="text" value="" class="form-control" name="contact[description]"
-                      id="projet_description" />
+                  <%= form.label :project_description, :"Project Description" %>
+                  <%= form.text_field :project_description, :class => 'form-control'%> 
                   </div>
                   <div class="col-md-4">
-                    <label for="contact_department">Department</label>
-                    <select class="form-control pointer" name="contact[department]" id="department">
-                      <option value="">---- Select ----</option>
-                      <option value="Residential">Residential</option>
-                      <option value="Corporate">Corporate</option>
-                      <option value="Other">Other</option>
-                    </select>
+                   <%= form.label :departement_in_charge_of_the_elevators, :Department %><br>
+                   <%= form.select :departement_in_charge_of_the_elevators, [["Select", "" ], ["Residential", "Residential" ], ["Corporate", "Corporate"], ["Other", "Other" ]] %>
+                   
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <label for="contact-message">Message *</label>
-                    <textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]"
-                      id="message"></textarea>
+                  <%= form.label :message, :"Message *" %>
+                  <%= form.text_area :message, :class => 'form-control',:required=> 'required'%> 
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <label for="contact-attachment">File Attachment</label>
+                    <%= form.label :file, :"File attachment" %>
 
                     <!-- custom file upload -->
-                    <input class="custom-file-upload btn-primary" type="file" id="file" name="contact[attachment]"
-                      id="attachment" accept=".zip, .pdf, .jpg, .png" data-btn-text="Select a File" />
+                    <%= form.file_field  :file%>
                     <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
                   </div>
                 </div>
               </fieldset>
               <div class="row">
-                <div class="col-md-12">
-                  <button type="reset" class="btn btn-success">
-                    <i class="fa fa-check"></i> SEND MESSAGE
-                  </button>
+                <div class="col-md-12" onclick="alert('Your form as been sent!')">
+                <%= form.submit :"Send Message", :class => 'btn btn-success btn-lg' %>
+                <% end %>
                 </div>
               </div>
-            </form>
-          </div>
-          <!-- /FORM -->
+              </div>
+          <!-- /Contact Us Form -->
         </div>
       </div>
     </section>

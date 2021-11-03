@@ -156,6 +156,7 @@ GEM
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     popper_js (2.9.3)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -290,6 +291,7 @@ DEPENDENCIES
   jquery-turbolinks (~> 2.1)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+  pg
   puma (~> 3.11)
   rails (~> 5.2.6)
   rails_admin (~> 2.0)

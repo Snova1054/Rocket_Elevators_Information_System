@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'home#index'
+  resources :home
   resources :quotes
   get 'quote', to: 'quotes#new'
   get 'commercial', to: 'home#commercial'

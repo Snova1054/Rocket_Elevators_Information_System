@@ -11,9 +11,9 @@ class CreateQuotes < ActiveRecord::Migration[5.2]
       t.integer :cages
       t.integer :occupant
       t.integer :elevatorNeeded
-      t.integer :price
-      t.integer :fees
-      t.integer :totalPrice
+      t.string :price
+      t.string :fees
+      t.string :totalPrice
       
 
       t.timestamps

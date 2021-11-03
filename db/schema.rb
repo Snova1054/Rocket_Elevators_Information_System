@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2021_10_29_153131) do
     t.integer "cages"
     t.integer "occupant"
     t.integer "elevatorNeeded"
-    t.integer "price"
-    t.integer "fees"
-    t.integer "totalPrice"
+    t.string "price"
+    t.string "fees"
+    t.string "totalPrice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

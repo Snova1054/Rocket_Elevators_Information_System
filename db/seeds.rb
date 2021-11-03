@@ -5,6 +5,79 @@
 #
 # userxx = User.create!(email: '', password: 'Codeboxx1') # model
 # employee = Employee.create(last_name: '', first_name: '', title: '', user: user) # model
+require 'faker'
+require 'securerandom'
+
+
+2000000.times do
+    # Declares and sets variables
+    ### IF ACTIVITY HOURS ARE SET IN THE DATABASE AND EVERYWHERE ELSE
+    ### THEN UNCOMMENT LINE 29, 52, 53, 54, 75 AND ADD A COMMA (,)
+    ### AT THE END OF THE LINE 74
+    randomDate = Faker::Time.between(from: '2018-09-23', to: '2021-11-25')
+    appartments = 0.0
+    floors = SecureRandom.random_number(1..100) + 1.0
+    basements = SecureRandom.random_number(0..20)
+    business = SecureRandom.random_number(1..250)
+    parkings = SecureRandom.random_number(1..1000)
+    occupantsPerFloorNum = 0.0
+    activity_hours = 0
+    building_type = ["Residential", "Commercial", "Corporate", "Hybrid"].sample
+    plan_choice = SecureRandom.random_number(0..2)
+    plan_title = ["Standard", "Premium", "Excelium"]
+    plan_price = [7565, 12345, 15400]
+    fees = [1.1, 1.13, 1.16]
+    #activity_hours = 0
+    
+    # Calculates the total price according to data
+    if building_type == "Residential"
+        appartments = SecureRandom.random_number(1..500)
+        averageDoorsPerFloor = (appartments/floors).ceil()
+        elevatorsPerColumn = (averageDoorsPerFloor/6.0).ceil()
+        columns = (floors/20.0).ceil()
+        @totalElevators = columns * elevatorsPerColumn
+        business = 0
+        parkings = 0
+    elsif building_type == "Commercial"
+        @totalElevators = SecureRandom.random_number(1..10)
+    elsif building_type == "Corporate" || building_type == "Hybrid"  
+        occupantsPerFloorNum = SecureRandom.random_number(1..500)
+        occupants = occupantsPerFloorNum * (floors + basements)
+        elevators = (occupants / 1000.0).truncate()
+        if elevators == 0
+            elevators += 1
+        end
+        columns = ((floors + basements) / 20.0).ceil()
+        elevatorsPerColumn = (elevators * 1.0 / columns).ceil()
+        @totalElevators = elevatorsPerColumn * columns
+        # if building_type == "Hybrid"
+        #     activity_hours = SecureRandom.random_number(1..24)
+        # end
+    end
+    priceNoFees = @totalElevators * plan_price[plan_choice]
+    total_price = (@totalElevators * plan_price[plan_choice] * fees[plan_choice])
+    
+    # Creates the quote with according to the data
+    quote = Quote.create!(
+        building_type: building_type,
+        appartement: appartments,
+        floor: floors,
+        basement: basements,
+        plan: plan_title[plan_choice],
+        business: business,
+        parking: parkings,
+        cages: @totalElevators,
+        occupant: occupantsPerFloorNum,
+        elevatorNeeded: @totalElevators,
+        price: ('%.2f' %priceNoFees),
+        fees: ('%.2f' %fees[plan_choice]),
+        totalPrice: ('%.2f' %total_price),
+        created_at: randomDate,
+        updated_at: randomDate
+        #activityHours: activity_hours
+    )
+end
+
 
 user = User.create!(email: 'nicolas.genest@codeboxx.biz', password: 'Codeboxx1')
 employee = Employee.create!(last_name: "Genest", first_name: "Nicolas", title: "CEO", user: user)
@@ -31,7 +104,7 @@ user8 = User.create!(email: 'thomas.carrier@codeboxx.biz', password: 'Codeboxx1'
 employee = Employee.create(last_name: 'Carrier', first_name: 'Thomas', title: 'Engineer', user: user)
 
 user9 = User.create!(email: 'serge.savoie@codeboxx.biz', password: 'Codeboxx1')
-employee = Employee.create(user: user, last_name: 'Savoie', first_name: 'Serge', title: 'Engineer', user: user)
+employee = Employee.create(last_name: 'Savoie', first_name: 'Serge', title: 'Engineer', user: user)
 
 user11 = User.create!(email: 'francis.patry-jessop@codeboxx.biz', password: 'Codeboxx1')
 employee = Employee.create(last_name: 'Patry-Jessop', first_name: 'Francis', title: 'Engineer', user: user)

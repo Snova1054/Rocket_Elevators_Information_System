@@ -10,6 +10,9 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

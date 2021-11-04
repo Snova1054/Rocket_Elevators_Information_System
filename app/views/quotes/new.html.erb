@@ -140,6 +140,15 @@
 
     <%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
 
+      <p>
+        <%= form.label :email, :"Email *" %><br>
+        <%= form.text_field :email, :required=> 'required' %>
+      </p>
+
+      <p>
+        <%= form.label :company_name, :"Company Name *" %><br>
+        <%= form.text_field :company_name, :required=> 'required' %>
+      </p>
 
       <p onchange="getSelectValue()">
         <%= form.label :building_type %><br>

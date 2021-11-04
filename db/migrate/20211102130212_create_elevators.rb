@@ -4,7 +4,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       # link column id to elevator
       t.integer :serial_number 
       t.string :model #(standard,Premium,Excelium)
-      t.string :type #(Residential,Commercial,Corporate) | ask for hybrid
+      t.string :entity_type #(Residential,Commercial,Corporate) | ask for hybrid
       t.string :status
       t.date :date_of_commissioning
       t.date :date_of_last_inspection

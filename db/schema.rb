@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_201534) do
+ActiveRecord::Schema.define(version: 2021_11_02_131915) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_201534) do
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "type"
+    t.string "entity_type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_201534) do
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "Type"
+    t.string "entity_type"
     t.integer "number_of_floors_served"
     t.string "status"
     t.text "information"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_201534) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "serial_number"
     t.string "model"
-    t.string "type"
+    t.string "entity_type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
@@ -129,12 +129,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_201534) do
     t.string "project_description"
     t.string "departement_in_charge_of_the_elevators"
     t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.binary "file", limit: 16777215
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

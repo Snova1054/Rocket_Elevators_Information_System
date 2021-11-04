@@ -9,6 +9,7 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string  :project_description
       t.string  :departement_in_charge_of_the_elevators
       t.text  :message 
+      t.binary :file, :limit => 10.megabyte
       #t.binary  :attached_file # Test afther
       
 

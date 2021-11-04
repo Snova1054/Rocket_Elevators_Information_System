@@ -8,6 +8,97 @@
 require 'faker'
 require 'securerandom'
 
+
+
+20.times do
+
+    Faker::Config.locale = 'en-CA'
+    compagnyName = Faker::Company.name
+    managerName = Faker::Name.name
+    compagnyContact = Faker::Name.name
+    contactEmail = Faker::Internet.email(name: compagnyContact, domain: compagnyName)
+    managerEmail = Faker::Internet.email(name: managerName, domain: compagnyName)
+
+    #User
+    user = User.create!(
+        email: managerEmail,
+        password: 'Codeboxx1'
+    )
+    
+    #Customer
+    customer = Customer.create!(
+        company_name: Faker::Company.name,
+        compagny_headquarters_adress: Faker::Address.full_address,
+        full_name_of_the_compagny_contact: compagnyContact,
+        compagny_contact_phone: Faker::PhoneNumber.cell_phone,
+        email_of_the_compagny_contact: contactEmail,
+        compagny_description: Faker::Company.industry,
+        full_name_of_service_technical_authority: Faker::Name.name,
+        technical_authority_phone_for_service: Faker::PhoneNumber.cell_phone,
+        technical_manager_email_for_service: managerEmail,
+        user: user
+    )
+
+    #Building
+    nameAdminBuilding =  Faker::Name.name
+    nameTecnicalContact = Faker::Name.name
+    building = Building.create!(
+        full_name_of_the_building_administrator: nameAdminBuilding,
+        email_of_the_administrator_of_the_building: Faker::Internet.email(name: nameAdminBuilding, domain: compagnyName),
+        phone_number_of_the_building_administrator: Faker::PhoneNumber.cell_phone,
+        full_name_of_the_technical_contact_for_the_building: nameTecnicalContact,
+        technical_contact_email_for_the_building: Faker::Internet.email(name: nameTecnicalContact, domain: compagnyName),
+        technical_contact_phone_for_the_building: Faker::PhoneNumber.cell_phone,
+        customer: customer
+    )
+
+    #Battery
+    entityType = ["Residential", "Corporate", "Other"].sample
+    dateCreated = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
+    battery = Battery.create!(
+    entity_type: entityType,
+    status: "Active",
+    date_of_commissioning: Faker::Time.between(from: '2018-01-1', to: '2021-11-25'),
+    date_of_last_inspection: Faker::Time.between(from: dateCreated, to: '2021-11-25'),
+    certificate_of_operations: Faker::Number.between(from: 1, to: 5),
+    information: "", #Add more informations 
+    notes: Faker::Quote.yoda, #Add real notes later
+    building: building
+    )
+
+    #Column
+    howManyColumn = SecureRandom.random_number(1..3)
+    howManyColumn.times do 
+
+        column = Column.create!(
+            #(Residential,Commercial,Corporate) | ask for hybrid
+            number_of_floors_served: SecureRandom.random_number(2..30),
+            entity_type: entityType,
+            status: "Online",
+            information: "",
+            notes: Faker::Quote.yoda,
+            battery: battery
+        )
+    
+            #Elevator
+        howManyElevator = SecureRandom.random_number(1..5)
+        howManyElevator.times do
+            model = ["Standard", "Premium", "Excelium"].sample
+            elevator = Elevator.create!(
+                serial_number: Faker::Number.leading_zero_number(digits: 6),
+                model: model,
+                entity_type: entityType,
+                status: "Idle",
+                date_of_commissioning: dateCreated,
+                date_of_last_inspection: Faker::Time.between(from: dateCreated, to: '2021-11-25'),
+                certificate_of_inspection: "HELLO WORLD", #check with david
+                information: "",
+                Notes: Faker::Quote.yoda,
+                column: column
+            )
+        end
+    end
+end
 #Create the fake Leads
 20.times do
     randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
@@ -25,6 +116,7 @@ require 'securerandom'
         updated_at: randomDate
 
     )
+    
 end
 
 #Create the fake Quotes

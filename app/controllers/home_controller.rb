@@ -3,6 +3,10 @@ class HomeController < ApplicationController
     @lead = Lead.new
   end
 
+  def get
+    @file = File.new
+    end
+
   def create
     @lead = Lead.new(lead_params)
     
@@ -13,7 +17,7 @@ class HomeController < ApplicationController
   private
 
   def lead_params
-    params.require(:lead).permit(:full_name, :compagny_name, :email, :phone_number, :project_name, :project_description, :departement_in_charge_of_the_elevators, :message)
+    params.require(:lead).permit(:full_name, :compagny_name, :email, :phone_number, :project_name, :project_description, :departement_in_charge_of_the_elevators, :message, :file)
   end
 
   

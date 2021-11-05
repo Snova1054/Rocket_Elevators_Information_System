@@ -13,7 +13,7 @@ require 'securerandom'
 20.times do
 
     Faker::Config.locale = 'en-CA'
-    compagnyName = Faker::Company.name
+    compagnyName = Faker::Commerce.product_name
     managerName = Faker::Name.name
     compagnyContact = Faker::Name.name
     contactEmail = Faker::Internet.email(name: compagnyContact, domain: compagnyName)
@@ -27,7 +27,7 @@ require 'securerandom'
     
     #Customer
     customer = Customer.create!(
-        company_name: Faker::Company.name,
+        company_name: compagnyName,
         compagny_headquarters_adress: Faker::Address.full_address,
         full_name_of_the_compagny_contact: compagnyContact,
         compagny_contact_phone: Faker::PhoneNumber.cell_phone,
@@ -92,7 +92,7 @@ require 'securerandom'
                 date_of_commissioning: dateCreated,
                 date_of_last_inspection: Faker::Time.between(from: dateCreated, to: '2021-11-25'),
                 certificate_of_inspection: "HELLO WORLD", #check with david
-                information: "",
+                information: howManyElevator,
                 Notes: Faker::Quote.yoda,
                 column: column
             )

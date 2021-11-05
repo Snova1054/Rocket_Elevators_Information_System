@@ -1,26 +1,29 @@
 namespace :dwh do
     require 'pg'
-    class Quote < ActiveRecord::Base # AU SINGULIER
-    end
-    class Lead < ActiveRecord::Base
-    end
-    class Elevator < ActiveRecord::Base
-        belongs_to :column
-    end
-    class Column < ActiveRecord::Base
-        belongs_to :battery
-    end
-    class Battery < ActiveRecord::Base
-        belongs_to :building
-    end
-    class Building < ActiveRecord::Base
-        belongs_to :customer
-    end
-    class Customer < ActiveRecord::Base
-        belongs_to :user
-        has_many :building
-        has_one :address
-    end
+    # class Quote < ActiveRecord::Base # AU SINGULIER
+    # end
+    # class Lead < ActiveRecord::Base
+    # end
+    # class Elevator < ActiveRecord::Base
+    #     belongs_to :column
+    #     has_one :column
+    # end
+    # class Column < ActiveRecord::Base
+    #     belongs_to :battery
+    #     has_one :battery
+    # end
+    # class Battery < ActiveRecord::Base
+    #     belongs_to :building
+    #     has_one :building
+    # end
+    # class Building < ActiveRecord::Base
+    #     belongs_to :customer
+    # end
+    # class Customer < ActiveRecord::Base
+    #     belongs_to :user
+    #     has_many :building
+    #     has_one :address
+    # end
         
     ActiveRecord::Base.establish_connection(
         { :adapter => 'mysql2',
@@ -54,14 +57,15 @@ namespace :dwh do
                 customer_id int,
                 building_city varchar(75));
                 CREATE TABLE DimCustomers (
+                id INT PRIMARY KEY,
                 created_at varchar(50),
                 company_name varchar(50),
-                full_name_of_the_companys_main_contact varchar (100),
-                email_of_the_companys_main_contact varchar(50),
+                full_name_of_the_compagny_contact varchar (100),
+                email_of_the_compagny_contact varchar(50),
                 nb_elevators int,
                 customers_city varchar(75));")
     end
-    task :fill_tables do
+    task fill_tables: :environment do
         #     old_quotes = []
         # Quote.all.each { |quote| old_quotes << quote }
         # puts old_quotes[1].total_price
@@ -72,22 +76,42 @@ namespace :dwh do
         @leads = Lead.all
         @elevators = Elevator.all
         @columns = Column.all
-        @Batterys = Battery.all
-        @Buildings = Building.all
+        @batteries = Battery.all
+        @buildings = Building.all
         @customers = Customer.all
-        @quotes.each do |q|
-            conn.exec( "INSERT INTO FactQuotes (id, created_at, company_name, email, nb_elevators ) VALUES (#{q.id}, '#{q.created_at}', '#{q.company_name}', '#{q.email}', #{q.elevator_needed});" )
-            puts q.created_at
+        # @quotes.each do |q|
+        #     conn.exec( "INSERT INTO FactQuotes (id, created_at, company_name, email, nb_elevators ) VALUES (#{q.id}, '#{q.created_at}', '#{q.company_name}', '#{q.email}', #{q.elevator_needed});" )
+        #     puts q.created_at
+        # end
+        # #FactContact
+        # @leads.each do |l|
+        #     conn.exec( "INSERT INTO FactContact (id, created_at, company_name, email, project_name ) VALUES (#{l.id}, '#{l.created_at}', '#{l.company_name}', '#{l.email}', '#{l.project_name}');" )
+        #     puts l.created_at
+        # end
+        # #factElevator
+        # @elevators.each do |e|
+        #     conn.exec( "INSERT INTO FactElevator (id, serial_number, date_of_commissioning, building_id, customer_id, building_city) VALUES (#{e.id}, '#{e.serial_number}', '#{e.date_of_commissioning}', '#{e.column.battery.building.id}', '#{e.column.battery.building.customer.id}', '#{"quebec"}');" )
+        #     puts e.created_at
+        # end
+        #DimCustomer
+
+
+        @customers.each do |c|
+            numberOfElevator = 0
+
+            c.buildings.all.each do |building|
+                building.batteries.all.each do |battery|
+                    battery.columns.all.each do |column|
+                        column.elevators.all.each do |elevator|
+                            
+                            numberOfElevator += 1
+                            puts "This is elevator: #{elevator.id}, count is #{numberOfElevator}."
+                        end
+                    end
+                end
+            end
+            conn.exec( "INSERT INTO dimcustomers (id, created_at, company_name, full_name_of_the_compagny_contact, email_of_the_compagny_contact, nb_elevators, customers_city ) VALUES (#{c.id}, '#{c.created_at}', '#{c.company_name}', '#{c.full_name_of_the_compagny_contact}', '#{c.email_of_the_compagny_contact}', '#{numberOfElevator}', '#{"quebec"}');" )
+            puts c.created_at 
         end
-        #FactContact
-        @leads.each do |l|
-            conn.exec( "INSERT INTO FactContact (id, created_at, company_name, email, project_name ) VALUES (#{l.id}, '#{l.created_at}', '#{l.company_name}', '#{l.email}', '#{l.project_name}');" )
-            puts l.created_at
-        end
-        #factElevator
-        @elevators.each do |e|
-            conn.exec( "INSERT INTO FactElevator (id, serial_number, date_of_commissioning, building_id, customer_id, building_city) VALUES (#{e.id}, '#{e.serial_number}', '#{e.date_of_commissioning}', '#{e.column.battery.building.id}', '#{e.column.battery.building.customer.id}', '#{"quebec"}');" )
-            puts e.created_at
-        end
-    end
+    end 
 end

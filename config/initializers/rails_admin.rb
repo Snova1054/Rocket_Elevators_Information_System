@@ -4,7 +4,8 @@ RailsAdmin.config do |config|
     'Quotes Page' => '/quotes/new', #or whatever you used to mount RailsAdmin in your routes file
     'Home Page' => '/',
     'Residential' => '/residential',
-    'Commercial' => '/commercial'
+    'Commercial' => '/commercial',
+    'Blazer' => '/blazer'
   }
 
 

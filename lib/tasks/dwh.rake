@@ -1,16 +1,18 @@
 namespace :dwh do
     require 'pg'
-    class Lead < ActiveRecord::Base
-    end
     class Quote < ActiveRecord::Base # AU SINGULIER
     end
-    class Customer < ActiveRecord::Base
-    end
-    class User < ActiveRecord::Base
+    class Lead < ActiveRecord::Base
     end
     class Elevator < ActiveRecord::Base
+        belongs_to :column
     end
-    
+    class Customer < ActiveRecord::Base
+        belongs_to :user
+        has_many :building
+        has_one :address
+    end
+        
     ActiveRecord::Base.establish_connection(
         { :adapter => 'mysql2',
           :database => 'Rocket_Elevators_Information_System_development',
@@ -18,9 +20,10 @@ namespace :dwh do
           :username => 'root',
           :password => "sgejzt23" }
        )
+       
     task :create_table do
         # Output a table of current connections to the DB
-        conn = PG.connect( dbname: 'data_warehouse', user: 'postgres', password: '123' )
+        conn = PG.connect( dbname: 'data_warehouse', user: 'postgres' )
         conn.exec( "
             CREATE TABLE FactQuotes (
                 id INT PRIMARY KEY,

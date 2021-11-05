@@ -15,26 +15,26 @@ namespace :dwh do
         conn.exec( "
             CREATE TABLE FactQuotes (
                 id INT PRIMARY KEY,
-                created_at varchar(50),
+                created_at date,
                 company_name varchar(50),
                 email varchar(100),
                 nb_elevators int);
                 CREATE TABLE FactContact (
                 id INT PRIMARY KEY,
-                created_at varchar(50),
+                created_at date,
                 company_name varchar(50),
                 email varchar(100),
                 project_name varchar(50));
                 CREATE TABLE FactElevator (
                 id INT PRIMARY KEY,
                 serial_number varchar(100),
-                date_of_commissioning varchar(50),
+                date_of_commissioning date,
                 building_id int,
                 customer_id int,
                 building_city varchar(75));
                 CREATE TABLE DimCustomers (
                 id INT PRIMARY KEY,
-                created_at varchar(50),
+                created_at date,
                 company_name varchar(50),
                 full_name_of_the_compagny_contact varchar (100),
                 email_of_the_compagny_contact varchar(50),

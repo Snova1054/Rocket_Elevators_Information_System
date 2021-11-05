@@ -10,10 +10,11 @@ require 'securerandom'
 
 
 
-200.times do
+10.times do
 
     Faker::Config.locale = 'en-CA'
-    compagnyName = Faker::Commerce.product_name
+    compagnyName = 
+    Faker::Commerce.product_name
     managerName = Faker::Name.name
     compagnyContact = Faker::Name.name
     contactEmail = Faker::Internet.email(name: compagnyContact, domain: compagnyName)

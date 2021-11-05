@@ -32,7 +32,7 @@ class QuotesController < ApplicationController
       
   private
   def quote_params
-    params.require(:quote).permit(:building_type, :appartement, :floor, :basement, :plan, :business, :parking, :cages, :occupant, :elevatorNeeded, :price, :fees, :totalPrice)
+    params.require(:quote).permit(:email, :company_name, :building_type, :appartement, :floor, :basement, :plan, :business, :parking, :cages, :occupant, :elevator_needed, :price, :fees, :total_price)
   end
   
 

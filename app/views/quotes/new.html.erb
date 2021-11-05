@@ -140,6 +140,15 @@
 
     <%= form_with scope: :quote, url: quotes_path, local: true do |form| %>
 
+      <p>
+        <%= form.label :email, :"Email *" %><br>
+        <%= form.text_field :email, :required=> 'required' %>
+      </p>
+
+      <p>
+        <%= form.label :company_name, :"Company Name *" %><br>
+        <%= form.text_field :company_name, :required=> 'required' %>
+      </p>
 
       <p onchange="getSelectValue()">
         <%= form.label :building_type %><br>
@@ -227,7 +236,7 @@
               <%# Result %>
                 <div id="result" style="display: none;">
                   <h2> Elevator Needed : <span id="elevatorNeeded"></span></h2>
-                  <%= form.hidden_field :elevatorNeeded %>
+                  <%= form.hidden_field :elevator_needed %>
                     <h2>Price per Cage :<span id="cageNeeded"></span>$</h2>
                     <%= form.hidden_field :cageNeeded %>
                       <h2>Elevator Price : <span id="price"> Price</span>$</h2>
@@ -235,7 +244,7 @@
                         <h2>Installation Fees : <span id="fees"> Price</span>$</h2>
                         <%= form.hidden_field :fees %>
                           <h1>Total Price :<span id="totalPrice"></span>$</h1>
-                          <%= form.hidden_field :totalPrice %>
+                          <%= form.hidden_field :total_price %>
                 </div>
 
                 <p style="display: none;" id="submitButton" onclick="alertbox()">

@@ -1,7 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 ruby '2.6.6'
+
+#Gem rails admin and the theme
+gem 'rails_admin', '~> 2.0'
+
+gem 'rails_admin_material'
+gem 'blazer'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
@@ -9,6 +16,10 @@ gem 'rails', '~> 5.2.6'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+gem 'pg'
 
 gem 'devise'
 # Use SCSS for stylesheets
@@ -73,4 +84,4 @@ gem 'jquery-turbolinks', '~> 2.1'
 
 gem "font-awesome-rails"
 
-gem 'rails_admin', '~> 2.0'
+

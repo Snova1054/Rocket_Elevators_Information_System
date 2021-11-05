@@ -1,6 +1,8 @@
 class CreateQuotes < ActiveRecord::Migration[5.2]
   def change
     create_table :quotes do |t|
+      t.string :email
+      t.string :company_name
       t.string :building_type
       t.integer :appartement
       t.integer :floor
@@ -10,10 +12,10 @@ class CreateQuotes < ActiveRecord::Migration[5.2]
       t.integer :parking
       t.integer :cages
       t.integer :occupant
-      t.integer :elevatorNeeded
-      t.integer :price
-      t.integer :fees
-      t.integer :totalPrice
+      t.integer :elevator_needed
+      t.string :price
+      t.string :fees
+      t.string :total_price
       
 
       t.timestamps

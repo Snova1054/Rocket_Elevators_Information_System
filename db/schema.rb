@@ -202,10 +202,10 @@ ActiveRecord::Schema.define(version: 2021_11_04_224405) do
     t.integer "parking"
     t.integer "cages"
     t.integer "occupant"
-    t.integer "elevatorNeeded"
+    t.integer "elevator_needed"
     t.string "price"
     t.string "fees"
-    t.string "totalPrice"
+    t.string "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -169,7 +169,9 @@ end
     total_price = (@totalElevators * plan_price[plan_choice] * fees[plan_choice])
     
     # Creates the quote with according to the data
-    quote = Quote.create!(
+quote = Quote.create!(
+        email: Faker::Internet.email,
+        company_name: Faker::Commerce.product_name,
         building_type: building_type,
         appartement: appartments,
         floor: floors,
@@ -179,10 +181,10 @@ end
         parking: parkings,
         cages: @totalElevators,
         occupant: occupantsPerFloorNum,
-        elevatorNeeded: @totalElevators,
+        elevator_needed: @totalElevators,
         price: ('%.2f' %priceNoFees),
         fees: ('%.2f' %fees[plan_choice]),
-        totalPrice: ('%.2f' %total_price),
+        total_price: ('%.2f' %total_price),
         created_at: randomDate,
         updated_at: randomDate
         #activityHours: activity_hours

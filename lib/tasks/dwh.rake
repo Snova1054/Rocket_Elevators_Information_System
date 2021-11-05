@@ -1,29 +1,5 @@
 namespace :dwh do
     require 'pg'
-    # class Quote < ActiveRecord::Base # AU SINGULIER
-    # end
-    # class Lead < ActiveRecord::Base
-    # end
-    # class Elevator < ActiveRecord::Base
-    #     belongs_to :column
-    #     has_one :column
-    # end
-    # class Column < ActiveRecord::Base
-    #     belongs_to :battery
-    #     has_one :battery
-    # end
-    # class Battery < ActiveRecord::Base
-    #     belongs_to :building
-    #     has_one :building
-    # end
-    # class Building < ActiveRecord::Base
-    #     belongs_to :customer
-    # end
-    # class Customer < ActiveRecord::Base
-    #     belongs_to :user
-    #     has_many :building
-    #     has_one :address
-    # end
         
     ActiveRecord::Base.establish_connection(
         { :adapter => 'mysql2',
@@ -79,23 +55,21 @@ namespace :dwh do
         @batteries = Battery.all
         @buildings = Building.all
         @customers = Customer.all
-        # @quotes.each do |q|
-        #     conn.exec( "INSERT INTO FactQuotes (id, created_at, company_name, email, nb_elevators ) VALUES (#{q.id}, '#{q.created_at}', '#{q.company_name}', '#{q.email}', #{q.elevator_needed});" )
-        #     puts q.created_at
-        # end
-        # #FactContact
-        # @leads.each do |l|
-        #     conn.exec( "INSERT INTO FactContact (id, created_at, company_name, email, project_name ) VALUES (#{l.id}, '#{l.created_at}', '#{l.company_name}', '#{l.email}', '#{l.project_name}');" )
-        #     puts l.created_at
-        # end
-        # #factElevator
-        # @elevators.each do |e|
-        #     conn.exec( "INSERT INTO FactElevator (id, serial_number, date_of_commissioning, building_id, customer_id, building_city) VALUES (#{e.id}, '#{e.serial_number}', '#{e.date_of_commissioning}', '#{e.column.battery.building.id}', '#{e.column.battery.building.customer.id}', '#{"quebec"}');" )
-        #     puts e.created_at
-        # end
+        @quotes.each do |q|
+            conn.exec( "INSERT INTO FactQuotes (id, created_at, company_name, email, nb_elevators ) VALUES (#{q.id}, '#{q.created_at}', '#{q.company_name}', '#{q.email}', #{q.elevator_needed});" )
+            puts q.created_at
+        end
+        #FactContact
+        @leads.each do |l|
+            conn.exec( "INSERT INTO FactContact (id, created_at, company_name, email, project_name ) VALUES (#{l.id}, '#{l.created_at}', '#{l.company_name}', '#{l.email}', '#{l.project_name}');" )
+            puts l.created_at
+        end
+        #factElevator
+        @elevators.each do |e|
+            conn.exec( "INSERT INTO FactElevator (id, serial_number, date_of_commissioning, building_id, customer_id, building_city) VALUES (#{e.id}, '#{e.serial_number}', '#{e.date_of_commissioning}', '#{e.column.battery.building.id}', '#{e.column.battery.building.customer.id}', '#{"quebec"}');" )
+            puts e.created_at
+        end
         #DimCustomer
-
-
         @customers.each do |c|
             numberOfElevator = 0
 

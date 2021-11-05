@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_224405) do
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "full_name"
-    t.string "compagny_name"
+    t.string "company_name"
     t.string "email"
     t.string "phone_number"
     t.string "project_name"

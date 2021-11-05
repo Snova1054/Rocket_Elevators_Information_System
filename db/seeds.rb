@@ -105,7 +105,7 @@ end
     full_name = Faker::Name.name
     lead = Lead.create!(
         full_name: full_name,
-        compagny_name: Faker::Company.name,
+        company_name: Faker::Commerce.product_name,
         email: Faker::Internet.email(name: full_name),
         phone_number: Faker::PhoneNumber.cell_phone,
         project_name: Faker::Company.industry,

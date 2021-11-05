@@ -18,12 +18,12 @@ namespace :dwh do
           :database => 'Rocket_Elevators_Information_System_development',
           :host => 'localhost',
           :username => 'root',
-          :password => "sgejzt23" }
+          :password => "" }
        )
        
     task :create_table do
         # Output a table of current connections to the DB
-        conn = PG.connect( dbname: 'data_warehouse', user: 'postgres' )
+        conn = PG.connect( dbname: 'data_warehouse', user: 'marcalexandreperussecavanagh' )
         conn.exec( "
             CREATE TABLE FactQuotes (
                 id INT PRIMARY KEY,
@@ -56,7 +56,7 @@ namespace :dwh do
         #     old_quotes = []
         # Quote.all.each { |quote| old_quotes << quote }
         # puts old_quotes[1].total_price
-        conn = PG.connect( dbname: 'data_warehouse', user: 'postgres' )
+        conn = PG.connect( dbname: 'data_warehouse', user: 'marcalexandreperussecavanagh' )
         
         @quotes = Quote.all
         @leads = Lead.all
@@ -64,6 +64,16 @@ namespace :dwh do
         @customers = Customer.all
         @quotes.each do |q|
             conn.exec( "INSERT INTO FactQuotes (id, created_at, company_name, email, nb_elevators ) VALUES (#{q.id}, '#{q.created_at}', '#{q.company_name}', '#{q.email}', #{q.elevator_needed});" )
+
+            # conn.exec( "INSERT INTO factcontact (id, creation_date, business_name, email, procject_name )
+            # VALUES (#{lead.id}, '#{lead.created_at}', '#{lead.business_name}', '#{lead.email}', '#{lead.project_name}');")
+
+            # conn.exec( "INSERT INTO factelevator (id, serial_number, commissioning_date, building_id, customer_id, city )
+            # VALUES (#{elevator.serial_number}, '#{elevator.date_service_since}', '#{elevator.column.battery.building.id}', '#{elevator.column.battery.building.customer_id}', '#{elevator.column.battery.building.address.city}')")
+   
+            # conn.exec( "INSERT INTO dimcustomers (id, creation_date, business_name, full_user_name, email, number_elevators, city )
+            # VALUES ('#{customer.created_at}', '#{customer.business_name}', '#{customer.contact_full_name}', '#{customer.contact_email}',  '#{nbElevator}', '#{customer.address.city}')")
+        
             puts q.created_at
         end
     end

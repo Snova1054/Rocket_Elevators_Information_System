@@ -10,46 +10,62 @@ require 'securerandom'
 
 
 
-20.times do
+110.times do
 
     Faker::Config.locale = 'en-CA'
-    compagnyName = Faker::Company.name
+    companyName = Faker::Company.name
     managerName = Faker::Name.name
-    compagnyContact = Faker::Name.name
-    contactEmail = Faker::Internet.email(name: compagnyContact, domain: compagnyName)
-    managerEmail = Faker::Internet.email(name: managerName, domain: compagnyName)
+    companyContact = Faker::Name.name
+    contactEmail = Faker::Internet.email(name: companyContact, domain: companyName)
+    managerEmail = Faker::Internet.email(name: managerName, domain: companyName)
 
     #User
     user = User.create!(
         email: managerEmail,
         password: 'Codeboxx1'
     )
+    puts user.id
+
+    address = Address.create!(
+        address: Faker::Name.name,
+        status: Faker::Name.name,
+        entity: Faker::Name.name,
+        number_and_street: Faker::Name.name,
+        suite_or_apartment: Faker::Name.name,
+        city: Faker::Name.name,
+        postal_code: Faker::Name.name,
+        country: Faker::Name.name,
+        notes: Faker::Quote.yoda
+    )
+    puts(address.id)
     
     #Customer
     customer = Customer.create!(
         company_name: Faker::Company.name,
-        compagny_headquarters_adress: Faker::Address.full_address,
-        full_name_of_the_compagny_contact: compagnyContact,
-        compagny_contact_phone: Faker::PhoneNumber.cell_phone,
-        email_of_the_compagny_contact: contactEmail,
-        compagny_description: Faker::Company.industry,
+        full_name_of_the_company_contact: companyContact,
+        company_contact_phone: Faker::PhoneNumber.cell_phone,
+        email_of_the_company_contact: contactEmail,
+        company_description: Faker::Company.industry,
         full_name_of_service_technical_authority: Faker::Name.name,
         technical_authority_phone_for_service: Faker::PhoneNumber.cell_phone,
         technical_manager_email_for_service: managerEmail,
-        user: user
+        user_id: user.id,
+        address_id: address.id
     )
+    puts(customer)
 
     #Building
     nameAdminBuilding =  Faker::Name.name
     nameTecnicalContact = Faker::Name.name
     building = Building.create!(
         full_name_of_the_building_administrator: nameAdminBuilding,
-        email_of_the_administrator_of_the_building: Faker::Internet.email(name: nameAdminBuilding, domain: compagnyName),
+        email_of_the_administrator_of_the_building: Faker::Internet.email(name: nameAdminBuilding, domain: companyName),
         phone_number_of_the_building_administrator: Faker::PhoneNumber.cell_phone,
         full_name_of_the_technical_contact_for_the_building: nameTecnicalContact,
-        technical_contact_email_for_the_building: Faker::Internet.email(name: nameTecnicalContact, domain: compagnyName),
+        technical_contact_email_for_the_building: Faker::Internet.email(name: nameTecnicalContact, domain: companyName),
         technical_contact_phone_for_the_building: Faker::PhoneNumber.cell_phone,
-        customer: customer
+        customer: customer.id,
+        address: address.id
     )
 
     #Battery
@@ -63,8 +79,10 @@ require 'securerandom'
     certificate_of_operations: Faker::Number.between(from: 1, to: 5),
     information: "", #Add more informations 
     notes: Faker::Quote.yoda, #Add real notes later
-    building: building
+    building: building.id
     )
+    puts battery
+    puts battery.id
 
     #Column
     howManyColumn = SecureRandom.random_number(1..3)
@@ -77,7 +95,7 @@ require 'securerandom'
             status: "Online",
             information: "",
             notes: Faker::Quote.yoda,
-            battery: battery
+            battery: battery.id
         )
     
             #Elevator
@@ -94,7 +112,7 @@ require 'securerandom'
                 certificate_of_inspection: "HELLO WORLD", #check with david
                 information: "",
                 Notes: Faker::Quote.yoda,
-                column: column
+                column: column.id
             )
         end
     end
@@ -105,7 +123,7 @@ end
     full_name = Faker::Name.name
     lead = Lead.create!(
         full_name: full_name,
-        compagny_name: Faker::Company.name,
+        company_name: Faker::Company.name,
         email: Faker::Internet.email(name: full_name),
         phone_number: Faker::PhoneNumber.cell_phone,
         project_name: Faker::Company.industry,

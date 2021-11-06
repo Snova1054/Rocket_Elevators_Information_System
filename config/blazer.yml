@@ -2,7 +2,7 @@
 
 data_sources:
   main:
-    url: <%= ENV["BLAZER_DATABASE_URL"] %>
+    url: <%= ENV["BLAZER_DATABASE_URL"] = "postgres://postgres:1234@localhost:5432/data_warehouse" %>
 
     # statement timeout, in seconds
     # none by default
@@ -48,7 +48,7 @@ audit: true
 # user_name: name
 
 # custom before_action to use for auth
-# before_action_method: require_admin
+before_action_method: require_admin
 
 # email to send checks from
 # from_email: blazer@example.org

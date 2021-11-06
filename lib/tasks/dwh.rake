@@ -56,10 +56,10 @@ namespace :dwh do
             conn.exec( "INSERT INTO FactElevator (id, serial_number, date_of_commissioning, building_id, customer_id, building_city) VALUES (#{e.id}, '#{e.serial_number}', '#{e.date_of_commissioning}', '#{e.column.battery.building.id}', '#{e.column.battery.building.customer.id}', '#{"quebec"}');" )
         end
         #DimCustomer
-        @customers.each do |customer|
+        @customers.each do |c|
             numberOfElevator = 0
 
-            customer.buildings.all.each do |building|
+            c.buildings.all.each do |building|
                 building.batteries.all.each do |battery|
                     battery.columns.all.each do |column|
                         column.elevators.all.each do |elevator|

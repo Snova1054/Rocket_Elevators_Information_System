@@ -184,7 +184,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_215750) do
     t.string "project_description"
     t.string "departement_in_charge_of_the_elevators"
     t.text "message"
-    t.binary "file", limit: 16777215
+    t.string "filename"
+    t.string "content_type"
+    t.binary "file_contents", limit: 83886080
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

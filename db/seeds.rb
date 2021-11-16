@@ -3,52 +3,52 @@ require 'securerandom'
 require 'json'
 user = User.create!(email: 'nicolas.genest@codeboxx.biz', password: 'Codeboxx1', admin: true, client: false)
 employee = Employee.create!(last_name: "Genest", first_name: "Nicolas", title: "CEO", user: user)
-user = User.create!(email: 'nadya.fortier@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Nadya', first_name: 'Fortier', title: 'Director', user: user)
-user = User.create!(email: 'martin.chantal@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Chantal', first_name: 'Martin', title: 'Assistant Director', user: user)
-user = User.create!(email: 'mathieu.houde@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create!(last_name: "Houde", first_name: "Mathieu", title: "Captain", user: user)
-user = User.create!(email: 'mpatrick.thibault@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Thibeault', first_name: 'Patrick', title: 'Captain', user: user)
-user = User.create!(email: 'david.boutin@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Goutin', first_name: 'David', title: 'Engineer', user: user)
-user = User.create!(email: 'mathieu.lortie@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Lortie', first_name: 'Mathieu', title: 'Engineer', user: user)
-user = User.create!(email: 'thomas.carrier@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Carrier', first_name: 'Thomas', title: 'Engineer', user: user)
-user = User.create!(email: 'serge.savoie@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Savoie', first_name: 'Serge', title: 'Engineer', user: user)
-user = User.create!(email: 'francis.patry-jessop@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Patry-Jessop', first_name: 'Francis', title: 'Engineer', user: user)
-user = User.create!(email: 'mathieu.lefrancois@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Lefrancois', first_name: 'Mathieu', title: 'Engineer', user: user)
-user = User.create!(email: 'david.larochelle@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Larochelle', first_name: 'David', title: 'Engineer', user: user)
-user = User.create!(email: 'nicolas.pineault@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Pineault', first_name: 'Nicolas', title: 'Engineer', user: user)
-user = User.create!(email: 'david.amyot@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Amyot', first_name: 'David', title: 'Engineer', user: user)
-user = User.create!(email: 'remi.gagnon@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Gagnon', first_name: 'Remi', title: 'Engineer', user: user)
-user = User.create!(email: 'timothy.wever@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Wever', first_name: 'Timothy', title: 'Developper', user: user)
-user = User.create!(email: 'kiril.kleinerman@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Kleinerman', first_name: 'Kiril', title: 'Developper', user: user)
-user = User.create!(email: 'emmanuela.derilus@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Derilus', first_name: 'Emmanuela', title: 'Developper', user: user)
-user = User.create!(email: 'abdul.akeeb@codebozz.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Akeeb', first_name: 'Abdul', title: 'Developper', user: user)
-user = User.create!(email: 'krista.sheely@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Sheely', first_name: 'Krista', title: 'Developper', user: user)
-user = User.create!(email: 'jonathan.murray@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
-employee = Employee.create(last_name: 'Murray', first_name: 'Jonathan', title: 'Developper', user: user)
+# user = User.create!(email: 'nadya.fortier@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Nadya', first_name: 'Fortier', title: 'Director', user: user)
+# user = User.create!(email: 'martin.chantal@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Chantal', first_name: 'Martin', title: 'Assistant Director', user: user)
+# user = User.create!(email: 'mathieu.houde@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create!(last_name: "Houde", first_name: "Mathieu", title: "Captain", user: user)
+# user = User.create!(email: 'mpatrick.thibault@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Thibeault', first_name: 'Patrick', title: 'Captain', user: user)
+# user = User.create!(email: 'david.boutin@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Goutin', first_name: 'David', title: 'Engineer', user: user)
+# user = User.create!(email: 'mathieu.lortie@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Lortie', first_name: 'Mathieu', title: 'Engineer', user: user)
+# user = User.create!(email: 'thomas.carrier@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Carrier', first_name: 'Thomas', title: 'Engineer', user: user)
+# user = User.create!(email: 'serge.savoie@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Savoie', first_name: 'Serge', title: 'Engineer', user: user)
+# user = User.create!(email: 'francis.patry-jessop@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Patry-Jessop', first_name: 'Francis', title: 'Engineer', user: user)
+# user = User.create!(email: 'mathieu.lefrancois@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Lefrancois', first_name: 'Mathieu', title: 'Engineer', user: user)
+# user = User.create!(email: 'david.larochelle@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Larochelle', first_name: 'David', title: 'Engineer', user: user)
+# user = User.create!(email: 'nicolas.pineault@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Pineault', first_name: 'Nicolas', title: 'Engineer', user: user)
+# user = User.create!(email: 'david.amyot@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Amyot', first_name: 'David', title: 'Engineer', user: user)
+# user = User.create!(email: 'remi.gagnon@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Gagnon', first_name: 'Remi', title: 'Engineer', user: user)
+# user = User.create!(email: 'timothy.wever@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Wever', first_name: 'Timothy', title: 'Developper', user: user)
+# user = User.create!(email: 'kiril.kleinerman@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Kleinerman', first_name: 'Kiril', title: 'Developper', user: user)
+# user = User.create!(email: 'emmanuela.derilus@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Derilus', first_name: 'Emmanuela', title: 'Developper', user: user)
+# user = User.create!(email: 'abdul.akeeb@codebozz.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Akeeb', first_name: 'Abdul', title: 'Developper', user: user)
+# user = User.create!(email: 'krista.sheely@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Sheely', first_name: 'Krista', title: 'Developper', user: user)
+# user = User.create!(email: 'jonathan.murray@codeboxx.biz', password: 'Codeboxx1', employee: true, client: false)
+# employee = Employee.create(last_name: 'Murray', first_name: 'Jonathan', title: 'Developper', user: user)
 # Reading the random real address json file
 file = File.read("./rrad/addresses-us-all.json")
 data_hash = JSON.parse(file)
 address = data_hash["addresses"].shuffle
 index = 0
-100.times do
+1.times do
     Faker::Config.locale = 'en-CA'
     companyName = Faker::Company.name.gsub(/\W/, ' ')
     managerName = Faker::Name.name.gsub(/\W/, ' ')
@@ -161,25 +161,25 @@ index = 0
         end
     end
     #Create the fake Leads
-    20.times do
-        randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
-        full_name = Faker::Name.name.gsub(/\W/, ' ') 
-        lead = Lead.create!(
-            full_name: full_name,
-            company_name: Faker::Company.name.gsub(/\W/, ' '),
-            email: Faker::Internet.email(name: full_name),
-            phone_number: Faker::PhoneNumber.cell_phone,
-            project_name: Faker::Company.industry,
-            project_description: Faker::IndustrySegments.sector,
-            departement_in_charge_of_the_elevators: ["Residential", "Corporate", "Other"].sample,
-            message: Faker::Hipster.sentences,
-            created_at: randomDate,
-            updated_at: randomDate
-        )
+    5.times do
+        # randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
+        # full_name = Faker::Name.name.gsub(/\W/, ' ') 
+        # lead = Lead.create!(
+        #     full_name: full_name,
+        #     company_name: Faker::Company.name.gsub(/\W/, ' '),
+        #     email: Faker::Internet.email(name: full_name),
+        #     phone_number: Faker::PhoneNumber.cell_phone,
+        #     project_name: Faker::Company.industry,
+        #     project_description: Faker::IndustrySegments.sector,
+        #     departement_in_charge_of_the_elevators: ["Residential", "Corporate", "Other"].sample,
+        #     message: Faker::Hacker.say_something_smart,
+        #     created_at: randomDate,
+        #     updated_at: randomDate
+        # )
         
     end
 #Create the fake Quotes
-50.times do
+5.times do
     randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
     appartments = 0.0
     floors = SecureRandom.random_number(1..100) + 1.0

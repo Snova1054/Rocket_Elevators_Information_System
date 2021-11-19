@@ -100,7 +100,7 @@ function residential() {
   });
   let totalElevatorNeeded = elevatortotal * ifmorethan;
   document.getElementById('elevatorNeeded').innerHTML = totalElevatorNeeded;
-  document.getElementById('quote_elevatorNeeded').value = totalElevatorNeeded;
+  document.getElementById('quote_elevator_needed').value = totalElevatorNeeded;
         if ($('#quote_plan_standard').prop('checked')) {
           document.getElementById("price").innerHTML = formatter.format(elevatortotal* ifmorethan * 7565);
           document.getElementById("fees").innerHTML = formatter.format(elevatortotal * ifmorethan * 7565 / 100 * 10);
@@ -108,7 +108,7 @@ function residential() {
           document.getElementById('cageNeeded').innerHTML = "7,565.00";
           document.getElementById("quote_price").value = parseFloat(elevatortotal* ifmorethan * 7565).toFixed(2);
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 7565 / 100 * 10).toFixed(2);
-          document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 7565 * 1.10).toFixed(2);
+          document.getElementById("quote_total_price").value = parseFloat(elevatortotal * ifmorethan * 7565 * 1.10).toFixed(2);
           $('#result').show();
           $(submitButton).show();
       } if ($('#quote_plan_premium').prop('checked')) {
@@ -118,7 +118,7 @@ function residential() {
           document.getElementById('cageNeeded').innerHTML = "12,345.00";
           document.getElementById("quote_price").value = parseFloat(elevatortotal * ifmorethan * 12345).toFixed(2);
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 12345 / 100 * 13).toFixed(2);
-          document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 12345 * 1.13).toFixed(2);
+          document.getElementById("quote_total_price").value = parseFloat(elevatortotal * ifmorethan * 12345 * 1.13).toFixed(2);
           $('#result').show();
           $(submitButton).show();
       } if ($('#quote_plan_excelium').prop('checked')) {
@@ -127,7 +127,7 @@ function residential() {
           document.getElementById("totalPrice").innerHTML = formatter.format(elevatortotal * ifmorethan * 15400 * 1.16);
           document.getElementById("quote_price").value = parseFloat(elevatortotal * ifmorethan * 15400).toFixed(2);
           document.getElementById("quote_fees").value = parseFloat(elevatortotal * ifmorethan * 15400 / 100 * 16).toFixed(2);
-          document.getElementById("quote_totalPrice").value = parseFloat(elevatortotal * ifmorethan * 15400 * 1.16).toFixed(2);
+          document.getElementById("quote_total_price").value = parseFloat(elevatortotal * ifmorethan * 15400 * 1.16).toFixed(2);
           document.getElementById('cageNeeded').innerHTML = "15,400.00";
           $('#result').show();
           $(submitButton).show();
@@ -135,8 +135,8 @@ function residential() {
 }
 function commercial() {
   let cage = document.getElementById('quote_cages').value;
-  document.getElementById('elevatorNeeded').innerHTML = cage
-  document.getElementById('quote_elevatorNeeded').value = cage;
+  document.getElementById('elevatorNeeded').innerHTML = cage;
+  document.getElementById('quote_elevator_needed').value = cage;
   const formatter = new Intl.NumberFormat('en', {
     notation: 'standard',
     minimumFractionDigits: 2
@@ -148,7 +148,7 @@ function commercial() {
       document.getElementById('cageNeeded').innerHTML = "7,565.00";
       document.getElementById("quote_price").value = parseFloat(cage * 7565).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(cage * 7565 / 100 * 10).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(cage * 7565 * 1.10).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(cage * 7565 * 1.10).toFixed(2);
       $('#result').show();
       $(submitButton).show();
     } if ($('#quote_plan_premium').prop('checked')) {
@@ -158,7 +158,7 @@ function commercial() {
       document.getElementById('cageNeeded').innerHTML = "12,345.00";
       document.getElementById("quote_price").value = parseFloat(cage * 12345).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(cage * 12345 / 100 * 13).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(cage * 12345 * 1.13).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(cage * 12345 * 1.13).toFixed(2);
       $('#result').show();
       $(submitButton).show();
     } if ($('#quote_plan_excelium').prop('checked')) {
@@ -168,7 +168,7 @@ function commercial() {
       document.getElementById('cageNeeded').innerHTML = "15,400.00";
       document.getElementById("quote_price").value = parseFloat(cage * 15400).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(cage * 15400 / 100 * 16).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(cage * 15400 * 1.16).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(cage * 15400 * 1.16).toFixed(2);
       $('#result').show();
       $(submitButton).show();
   }
@@ -192,7 +192,7 @@ function corporateHybrid1() {
   let elevatorPerColonne = Math.ceil(elevatorNumber / colonne);
   let totalelevator = Math.floor(elevatorPerColonne * colonne);
   document.getElementById('elevatorNeeded').innerHTML = totalelevator;
-  document.getElementById('quote_elevatorNeeded').value = totalelevator;
+  document.getElementById('quote_elevator_needed').value = totalelevator;
   console.log("number of floor" , floors)
   
   const formatter = new Intl.NumberFormat('en', {
@@ -205,17 +205,17 @@ function corporateHybrid1() {
       document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 7565 * 1.10);
       document.getElementById("quote_price").value = parseFloat(totalelevator * 7565).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(totalelevator * 7565 / 100 * 10).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 7565 * 1.10).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(totalelevator * 7565 * 1.10).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "7,565.00";
       $('#result').show();
       $(submitButton).show();
     } if ($('#quote_plan_premium').prop('checked')) {
       document.getElementById("price").innerHTML = formatter.format(totalelevator * 12345);
-      document.getElementById("fees").innerHTML = formatter.format(totalelevator * 12345 / 100 * 13)(2);
-      document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 12345 * 1.13)(2);
+      document.getElementById("fees").innerHTML = formatter.format(totalelevator * 12345 / 100 * 13);
+      document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 12345 * 1.13);
       document.getElementById("quote_price").value = parseFloat(totalelevator * 12345).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(totalelevator * 12345 / 100 * 13).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 12345 * 1.13).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(totalelevator * 12345 * 1.13).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "12,345.00";
       $('#result').show();
       $(submitButton).show();
@@ -225,7 +225,7 @@ function corporateHybrid1() {
       document.getElementById("totalPrice").innerHTML = formatter.format(totalelevator * 15400 * 1.16);
       document.getElementById("quote_price").value = parseFloat(totalelevator * 15400).toFixed(2);
       document.getElementById("quote_fees").value = parseFloat(totalelevator * 15400 / 100 * 16).toFixed(2);
-      document.getElementById("quote_totalPrice").value = parseFloat(totalelevator * 15400 * 1.16).toFixed(2);
+      document.getElementById("quote_total_price").value = parseFloat(totalelevator * 15400 * 1.16).toFixed(2);
       document.getElementById('cageNeeded').innerHTML = "15,400.00";
       $('#result').show();
       $(submitButton).show();

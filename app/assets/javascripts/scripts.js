@@ -4225,6 +4225,34 @@ function _delCookie(name) {
 }(jQuery));
 
 
+
+// handler = Gmaps.build('Google');
+// handler.buildMap({
+//     provider: {
+//       disableDefaultUI: true
+//       // pass in other Google Maps API options here
+//     },
+//     internal: {
+//       id: 'map'
+//     }
+//   },
+//   function(){
+//     markers = handler.addMarkers([
+//       {
+//         "lat": 46.83879008178904,
+//         "lng": -71.29409561363158,
+//         "picture": {
+//           "url": "https://i.ibb.co/p3WG26h/favicon32.png",
+//           "width":  50,
+//           "height": 50
+//         },
+//         "infowindow": "hello!"
+//       }
+//     ]);
+//     handler.bounds.extendWith(markers);
+//     handler.fitMapToBounds();
+//   }
+// );
  
 
 /** Appear

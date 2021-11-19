@@ -83,27 +83,27 @@
                   <a id="contact-nav" href="#contact"> CONTACT </a>
                 </li>
                 <% if user_signed_in?%>
-                  <% if current_user.admin == true || current_user.employee == true%>
-                  <li>
-                    <a class='navbar-link' href="/admin">ADMIN</a>
-                  </li>
-                  <%end%>
-                <% end %>
-                <% if user_signed_in? %>
-                  <li>      
-                    <%= link_to 'EDIT PROFILE' , edit_user_registration_path, :class=> 'navbar-link' %>
-                  </li>                  
-                  <li> 
-                    <%= link_to "LOGOUT" , destroy_user_session_path, method: :delete, :class=> 'navbar-link' %>
-                  </li>
-                <% else %> 
-                  <li>
-                    <%= link_to "LOGIN" , new_user_session_path, :class=> 'navbar-link' %>
-                  </li>
-                  <li>
-                    <%= link_to "SIGN UP" , new_user_registration_path, :class=> 'navbar-link' %>
-                  </li> 
-                <% end %>
+                  <% if current_user.admin==true || current_user.employee==true%>
+                    <li>
+                      <a class='navbar-link' href="/admin">ADMIN</a>
+                    </li>
+                    <%end%>
+                      <% end %>
+                        <% if user_signed_in? %>
+                          <li>
+                            <%= link_to 'EDIT PROFILE' , edit_user_registration_path, :class=> 'navbar-link' %>
+                          </li>
+                          <li>
+                            <%= link_to "LOGOUT" , destroy_user_session_path, method: :delete, :class=> 'navbar-link' %>
+                          </li>
+                          <% else %>
+                            <li>
+                              <%= link_to "LOGIN" , new_user_session_path, :class=> 'navbar-link' %>
+                            </li>
+                            <li>
+                              <%= link_to "SIGN UP" , new_user_registration_path, :class=> 'navbar-link' %>
+                            </li>
+                            <% end %>
             </nav>
           </div>
         </div>
@@ -294,7 +294,6 @@
       </div>
     </section>
     <!-- /Services -->
-
     <!-- Parallax -->
     <section class="parallax parallax-1 section-full-width" style="background-image: url('images/R2-01.jpg');">
 
@@ -965,65 +964,66 @@
 
 
             <!-- Contact Us Form -->
-            <%= form_with scope: :lead, :url => 'home#', local: true do |form| %>
+            <%= form_with scope: :lead, url: {action: "create" }, local: true do |f| %>
               <fieldset>
                 <input type="hidden" name="action" />
 
                 <div class="row">
                   <div class="col-md-4">
-                  <%= form.label :full_name, :"Full Name *" %>
-                  <%= form.text_field :full_name, :class => 'form-control', :required=> 'required' %>
+                    <%= f.label :full_name, :"Full Name *" %>
+                      <%= f.text_field :full_name, :class=> 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                  <%= form.label :email, :"E-mail Address *" %>
-                  <%= form.email_field :email, :class => 'form-control', :required=> 'required' %>
+                    <%= f.label :email, :"E-mail Address *" %>
+                      <%= f.email_field :email, :class=> 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                  <%= form.label :phone_number, :"Phone *" %>
-                  <%= form.telephone_field :phone_number, :class => 'form-control', :required=> 'required' %>
+                    <%= f.label :phone_number, :"Phone *" %>
+                      <%= f.telephone_field :phone_number, :class=> 'form-control', :required=> 'required' %>
                   </div>
                   <div class="col-md-4">
-                  <%= form.label :company_name, :"Business Name" %>
-                  <%= form.text_field :company_name, :class => 'form-control'%> 
+                    <%= f.label :company_name, :"Business Name" %>
+                      <%= f.text_field :company_name, :class=> 'form-control'%>
                   </div>
                   <div class="col-md-4">
-                  <%= form.label :project_name, :"Project Name" %>
-                  <%= form.text_field :project_name, :class => 'form-control'%>                 
-                </div>
-                <div class="row">
-                  <div class="col-md-8">
-                  <%= form.label :project_description, :"Project Description" %>
-                  <%= form.text_field :project_description, :class => 'form-control'%> 
+                    <%= f.label :project_name, :"Project Name" %>
+                      <%= f.text_field :project_name, :class=> 'form-control'%>
                   </div>
-                  <div class="col-md-4">
-                   <%= form.label :departement_in_charge_of_the_elevators, :Department %><br>
-                   <%= form.select :departement_in_charge_of_the_elevators, [["Select", "" ], ["Residential", "Residential" ], ["Corporate", "Corporate"], ["Other", "Other" ]] %>
-                   
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                  <%= form.label :message, :"Message *" %>
-                  <%= form.text_area :message, :class => 'form-control',:required=> 'required'%> 
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <%= form.label :file, :"File attachment" %>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <%= f.label :project_description, :"Project Description" %>
+                        <%= f.text_field :project_description, :class=> 'form-control'%>
+                    </div>
+                    <div class="col-md-4">
+                      <%= f.label :departement_in_charge_of_the_elevators, :Department %><br>
+                        <%= f.select :departement_in_charge_of_the_elevators, [["Select", "" ],
+                          ["Residential", "Residential" ], ["Corporate", "Corporate" ], ["Other", "Other" ]] %>
 
-                    <!-- custom file upload -->
-                    <%= form.file_field  :file%>
-                    <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+                    </div>
                   </div>
-                </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <%= f.label :message, :"Message *" %>
+                        <%= f.text_area :message, :class=> 'form-control',:required=> 'required'%>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <%= f.label :file, :"File attachment" %>
+
+                        <!-- custom file upload -->
+                        <%= f.file_field :file %>
+                          <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+                    </div>
+                  </div>
               </fieldset>
               <div class="row">
                 <div class="col-md-3" onclick="alert('Your form as been sent!')">
-                <%= form.submit :"Send Message", :class => 'btn btn-success btn-lg' %>
-                <% end %>
+                  <%= f.submit :"Send Message", :class=> 'btn btn-success btn-lg' %>
+                    <% end %>
                 </div>
               </div>
-              </div>
+          </div>
           <!-- /Contact Us Form -->
         </div>
       </div>

@@ -17,4 +17,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require scripts
+//= require gmaps/google
 //= require_tree .

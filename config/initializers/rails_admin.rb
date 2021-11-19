@@ -5,7 +5,8 @@ RailsAdmin.config do |config|
     'Home Page' => '/',
     'Residential' => '/residential',
     'Commercial' => '/commercial',
-    'Blazer' => '/blazer'
+    'Blazer' => '/blazer',
+    'Map' => '/map'
   }
 
 

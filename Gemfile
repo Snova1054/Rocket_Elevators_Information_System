@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 
 ruby '2.6.6'
@@ -8,7 +8,12 @@ ruby '2.6.6'
 gem 'rails_admin', '~> 2.0'
 
 gem 'rails_admin_material'
+
 gem 'blazer'
+#GEM TWILIO
+gem 'twilio-ruby'
+# GEM FIGARO
+gem 'figaro' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
@@ -51,6 +56,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # call bootstrap 4
 gem 'bootstrap', '~> 5.0.1'
+# call zendesk api
+gem 'zendesk_api'
+# call google maps api
+gem 'gmaps4rails'
+# call ibm_watson
+gem 'ibm_watson', git: 'https://github.com/watson-developer-cloud/ruby-sdk', branch: 'master'
+# To run the server
+gem 'capistrano', '~> 3.10', require: false
+gem 'capistrano-rails', '~> 1.4', require: false
+gem 'capistrano-bundler', '>= 1.1.0'
+gem 'rvm1-capistrano3', require: false
+gem 'capistrano3-puma'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -82,6 +100,13 @@ gem 'jquery-rails'
 
 gem 'jquery-turbolinks', '~> 2.1'
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+# bot
+
+gem "slack-notifier" 
 
 
+#sendgrid
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'

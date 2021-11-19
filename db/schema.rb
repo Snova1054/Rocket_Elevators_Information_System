@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_215750) do
     t.string "city"
     t.string "postal_code"
     t.string "country"
+    t.float "lat"
+    t.float "lng"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -184,7 +186,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_215750) do
     t.string "project_description"
     t.string "departement_in_charge_of_the_elevators"
     t.text "message"
-    t.binary "file", limit: 16777215
+    t.string "filename"
+    t.string "content_type"
+    t.binary "file_contents", limit: 16777215
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

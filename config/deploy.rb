@@ -3,7 +3,7 @@ lock "~> 3.16.0"
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
-set :application, "DANIE_GALLARDO"
+set :application, "DANIEL_GALLARDO"
 set :repo_url, "git@github.com:Snova1054/Rocket_Elevators_Information_System.git"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 

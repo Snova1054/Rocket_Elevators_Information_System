@@ -1,3 +1,2 @@
-class LeadsController < ApplicationController
-    
+class LeadsController < ApplicationController 
 end

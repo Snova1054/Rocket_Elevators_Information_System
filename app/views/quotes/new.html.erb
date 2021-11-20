@@ -9,7 +9,7 @@
    function onSubmit(token) {
      document.getElementById("demo-form").submit();}
  </script>
- <script src="https://www.google.com/recaptcha/api.js?render=ENV['google_captcha']"></script>
+ <script src=<%="https://www.google.com/recaptcha/api.js?render=#{ENV['google_captcha']}"%>></script>
 
 
   <!-- mobile settings -->
@@ -259,7 +259,7 @@
                 <p style="display: none;" id="submitButton" onclick="alertbox()">
                   
                   <button class="g-recaptcha btn btn-success btn-lg"  
-                  data-sitekey=<%=ENV['google_captcha']%>
+                  data-sitekey=<%="#{ENV['google_captcha']}"%>
                   data-callback='onSubmit' 
                   data-action='submit'>Submit</button>
   </div>

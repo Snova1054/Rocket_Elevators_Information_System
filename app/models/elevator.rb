@@ -9,12 +9,12 @@ class Elevator < ApplicationRecord
         newStatus = e.status
         require 'slack-notifier'
         if newStatus != oldStatus
-            notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
+            notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
                 defaults channel: "#elevator_operations",
-                        username: "elevators_status_update"
-            end
-
-            notifier.ping "The Elevator #{e.id} with Serial Number #{e.serial_number} changed status from #{oldStatus} to #{newStatus}"
+                         username: "elevator_status_update"
+              end
+              
+              notifier.ping "The Elevator #{e.id} with Serial Number #{e.serial_number} changed status from #{oldStatus} to #{newStatus}"
         end
     end
 
@@ -30,5 +30,5 @@ class Elevator < ApplicationRecord
             })
             
         end
-    end 
+    end
 end

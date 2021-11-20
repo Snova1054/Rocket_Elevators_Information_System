@@ -110,7 +110,6 @@
       </header>
       <!-- /Top Nav -->
     </div>
-
     <!-- REVOLUTION SLIDER -->
     <div id="home">
       <div class="slider fullwidthbanner-container roundedcorners">
@@ -1019,7 +1018,10 @@
               </fieldset>
               <div class="row">
                 <div class="col-md-3" onclick="alert('Your form as been sent!')">
-                  <%= f.submit :"Send Message", :class=> 'btn btn-success btn-lg' %>
+                  <button class="g-recaptcha btn btn-success btn-lg"  
+                  data-sitekey=<%="#{ENV['google_captcha']}"%>
+                  data-callback='onSubmit' 
+                  data-action='submit'>Send Message</button>
                     <% end %>
                 </div>
               </div>
@@ -1098,6 +1100,14 @@
   <script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
   <script src="assets/scripts.js"></script>
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();}
+ </script>
+ <script src=<%="https://www.google.com/recaptcha/api.js?render=#{ENV['google_captcha']}"%>></script>
+
+
 
   <!-- REVOLUTION SLIDER -->
   <script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>

@@ -4,6 +4,13 @@
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
   <meta name="description" content="" />
   <meta name="Author" content="Daniel Gallardo" />
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();}
+ </script>
+ <script src="https://www.google.com/recaptcha/api.js?render=ENV['google_captcha']"></script>
+
 
   <!-- mobile settings -->
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
@@ -251,8 +258,11 @@
 
                 <p style="display: none;" id="submitButton" onclick="alertbox()">
                   
-                  
-                  <%= form.submit :Submit, :class => 'btn btn-success btn-lg' %>
+                  <button class="g-recaptcha btn btn-success btn-lg"  
+                  data-sitekey=<%=ENV['google_captcha']%>
+                  data-callback='onSubmit' 
+                  data-action='submit'>Submit</button>
+  </div>
                  
                     
                   

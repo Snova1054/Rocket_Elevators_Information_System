@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
                 f_typ = "#{l.content_type}"
                 if f_typ.include? "png"
                     f_typ = "png"
-                elsif f_typ.include? "jpg"
+                elsif f_typ.include? "jpeg"
                     f_typ = "jpg"
                 elsif f_typ.include? "zip"
                     f_typ = "zip"

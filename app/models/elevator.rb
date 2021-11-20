@@ -9,7 +9,7 @@ class Elevator < ApplicationRecord
         newStatus = e.status
         require 'slack-notifier'
         if newStatus != oldStatus
-            notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
+            notifier = Slack::Notifier.new ENV["slack_web_hook"] do
                 defaults channel: "#elevator_operations",
                          username: "elevator_status_update"
               end

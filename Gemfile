@@ -62,6 +62,8 @@ gem 'zendesk_api'
 gem 'gmaps4rails'
 # call ibm_watson
 gem 'ibm_watson', git: 'https://github.com/watson-developer-cloud/ruby-sdk', branch: 'master'
+# call dropbox_api
+gem 'dropbox_api'
 # To run the server
 gem 'capistrano', '~> 3.10', require: false
 gem 'capistrano-rails', '~> 1.4', require: false

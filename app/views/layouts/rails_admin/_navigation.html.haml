@@ -26,7 +26,7 @@
   end
   #infos = [Logged User's name, Total Elevators, Total Buildings, Total Customers, Total Elevators being serviced, Total Quotes, Total Leads, Total Batteries, Different cities where Batteries deployed]
   infos = [logged_user, elevators.length(), buildings.length(), Customer.all.length(), elevators_serviced, Quote.all.length(), Lead.all.length(), Battery.all.length(), different_cities.length()]
-  File.open("public/sounds/voice.wav", "wb") do |audio_file|
+  File.new("public/sounds/voice.wav", "wb") do |audio_file|
     response = $text_to_speech.synthesize(
       text: "Greetings #{infos[0]}. 
       There are currently #{infos[1]} elevators deployed in the #{infos[2]} buildings of your #{infos[3]} customers.

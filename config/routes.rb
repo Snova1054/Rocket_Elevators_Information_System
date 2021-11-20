@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'commercial', to: 'home#commercial'
   get 'residential', to: 'home#residential'
   get 'map', to: 'map#index'
-  
+  get 'dropbox/auth' => 'dropbox#auth'
+  get 'dropbox/auth_callback' => 'dropbox#auth_callback'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

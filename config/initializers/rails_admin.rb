@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  $voice = true
   config.main_app_name = ["Rocket Elevator", "Admin Pannel"]
   config.navigation_static_links = {
     'Quotes Page' => '/quotes/new', #or whatever you used to mount RailsAdmin in your routes file

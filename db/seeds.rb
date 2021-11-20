@@ -165,7 +165,7 @@ index = 0
                     serial_number: Faker::Number.leading_zero_number(digits: 6),
                     model: model,
                     entity_type: entityType,
-                    status: "Running",
+                    status: ["running", "serviced", "intervention"],
                     date_of_commissioning: dateCreated,
                     date_of_last_inspection: Faker::Time.between(from: dateCreated, to: '2021-11-25'),
                     certificate_of_inspection: "HELLO WORLD", #check with david

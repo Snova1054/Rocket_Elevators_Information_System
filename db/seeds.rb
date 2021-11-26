@@ -184,13 +184,13 @@ while i < 10 do
     i += 1
 end
     #Create the fake Leads
-    10.times do
+    40.times do
         randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
         full_name = Faker::Name.name.gsub(/\W/, ' ') 
         lead = Lead.create!(
             full_name: full_name,
             company_name: Faker::Company.name.gsub(/\W/, ' '),
-            email: [$reusableEmails.sample, Faker::Internet.email(name: full_name)].sample,
+            email: [$reusableEmails.sample, Faker::Internet.email(name: full_name), Faker::Internet.email(name: full_name), Faker::Internet.email(name: full_name)].sample,
             phone_number: Faker::PhoneNumber.cell_phone,
             project_name: Faker::Company.industry,
             project_description: Faker::IndustrySegments.sector,

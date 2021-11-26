@@ -25,7 +25,7 @@ class Elevator < ApplicationRecord
             client = Twilio::REST::Client.new
             client.messages.create({
             from: ENV["twilio_phone_number"],
-            to: '+15813073729', 
+            to: "#{e.column_id.building_id.technical_contact_phone_for_the_building}", 
             body: "The Elevator #{e.id} with Serial Number #{e.serial_number} is in Intervention"
             })
             

@@ -50,14 +50,18 @@ file = File.read("./rrad/addresses-us-all.json")
 data_hash = JSON.parse(file)
 address = data_hash["addresses"].shuffle
 index = 0
-10.times do
+$reusableEmails = []
+i = 0
+
+while i < 10 do
     Faker::Config.locale = 'en-CA'
-    companyName = Faker::Company.name.gsub(/\W/, ' ')
     managerName = Faker::Name.name.gsub(/\W/, ' ')
+    companyName = Faker::Company.name.gsub(/\W/, ' ')
     companyContact = Faker::Name.name.gsub(/\W/, ' ')
-    contactEmail = Faker::Internet.email(name: companyContact, domain: companyName)
+    $reusableEmails.append(Faker::Internet.email(name: companyContact, domain: companyName))
     managerEmail = Faker::Internet.email(name: managerName, domain: companyName)
     coordinates = address[index]["coordinates"]
+    
     #User
     user = User.create!(
         email: managerEmail,
@@ -76,14 +80,13 @@ index = 0
         lng: coordinates["lng"],
         notes: Faker::Lorem.paragraph
     )
-    index += 1
-
+    
     #Customer
     customer = Customer.create!(
         company_name: Faker::Company.name.gsub(/\W/, ' '),
         full_name_of_the_company_contact: companyContact,
         company_contact_phone: Faker::PhoneNumber.cell_phone,
-        email_of_the_company_contact: contactEmail,
+        email_of_the_company_contact: $reusableEmails[i],
         company_description: Faker::Company.industry,
         full_name_of_service_technical_authority: Faker::Name.name.gsub(/\W/, ' ') ,
         technical_authority_phone_for_service: Faker::PhoneNumber.cell_phone,
@@ -91,6 +94,8 @@ index = 0
         user: user,
         address: customerAddress
     )
+
+    index += 1
     
     #Building
     howManyBuilding = SecureRandom.random_number(1..10)
@@ -113,7 +118,7 @@ index = 0
             country: "USA",
             lat: coordinates["lat"],
             lng: coordinates["lng"],
-                notes: Faker::Lorem.paragraph
+            notes: Faker::Lorem.paragraph
         )
         nameAdminBuilding =  Faker::Name.name.gsub(/\W/, ' ')
         nameTecnicalContact = Faker::Name.name.gsub(/\W/, ' ')
@@ -137,7 +142,7 @@ index = 0
         dateCreated = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
         battery = Battery.create!(
             entity_type: entityType,
-            status: "Active",
+            status: ["active", "intervention", "inactive"].sample,
             date_of_commissioning: Faker::Time.between(from: '2018-01-1', to: '2021-11-25'),
             date_of_last_inspection: Faker::Time.between(from: dateCreated, to: '2021-11-25'),
             certificate_of_operations: Faker::Number.between(from: 1, to: 5),
@@ -151,7 +156,7 @@ index = 0
                 #(Residential,Commercial,Corporate) | ask for hybrid
                 number_of_floors_served: floor,
                 entity_type: entityType,
-                status: "Online",
+                status: ["online", "intervention", "offline"].sample,
                 information: "",
                 notes: Faker::Lorem.paragraph,
                 battery: battery
@@ -176,15 +181,16 @@ index = 0
             end 
         end     
     end
+    i += 1
 end
     #Create the fake Leads
-    20.times do
+    10.times do
         randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
         full_name = Faker::Name.name.gsub(/\W/, ' ') 
         lead = Lead.create!(
             full_name: full_name,
             company_name: Faker::Company.name.gsub(/\W/, ' '),
-            email: Faker::Internet.email(name: full_name),
+            email: [$reusableEmails.sample, Faker::Internet.email(name: full_name)].sample,
             phone_number: Faker::PhoneNumber.cell_phone,
             project_name: Faker::Company.industry,
             project_description: Faker::IndustrySegments.sector,
@@ -196,7 +202,7 @@ end
         
     end
 #Create the fake Quotes
-1.times do
+50.times do
     randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
     appartments = 0.0
     floors = SecureRandom.random_number(1..100) + 1.0

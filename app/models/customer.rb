@@ -38,12 +38,12 @@ class Customer < ApplicationRecord
                     if match == nil
                         folder = client.create_folder("/#{l.company_name}")
                         file = client.upload("/#{l.company_name}/#{project_name}.#{f_typ}", l.file_contents)
-                        l.file_contents = ""
+                        l.file_contents = nil
                     else
 
                         puts "#{match.resource.name}"
                         file = client.upload("/#{l.company_name}/#{project_name}.#{f_typ}", l.file_contents)
-                        l.file_contents = ""
+                        l.file_contents = nil
                     end
                 end
             end    

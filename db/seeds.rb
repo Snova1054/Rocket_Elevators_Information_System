@@ -185,7 +185,7 @@ while i < 10 do
 end
     #Create the fake Leads
     40.times do
-        randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
+        randomDate = Faker::Time.between(from: '2018-11-28', to: '2021-11-28')
         full_name = Faker::Name.name.gsub(/\W/, ' ') 
         lead = Lead.create!(
             full_name: full_name,
@@ -203,7 +203,7 @@ end
     end
 #Create the fake Quotes
 50.times do
-    randomDate = Faker::Time.between(from: '2018-01-1', to: '2021-11-25')
+    randomDate = Faker::Time.between(from: '2018-11-28', to: '2021-11-28')
     appartments = 0.0
     floors = SecureRandom.random_number(1..100) + 1.0
     basements = SecureRandom.random_number(0..20)
